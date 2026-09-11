@@ -1,0 +1,21 @@
+{
+  "class_counts": {
+    "Basal-like": 171,
+    "HER2-enriched": 78,
+    "Luminal A": 499,
+    "Luminal B": 197,
+    "Normal-like": 36
+  },
+  "counts_dtype": "uint32",
+  "eligible_four_class_sample_count": 945,
+  "four_class_sample_count": 945,
+  "labelled_sample_count": 981,
+  "log2_tpm_dtype": "float32",
+  "protein_coding_gene_count": 19962,
+  "shape": [
+    1095,
+    60660
+  ],
+  "status": "PASS",
+  "tpm_dtype": "float32"
+}

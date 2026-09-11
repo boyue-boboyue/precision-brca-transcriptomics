@@ -1,0 +1,23 @@
+{
+  "retrieved_at_utc": "2026-09-09T07:36:45Z",
+  "provider": "cBioPortal",
+  "study_id": "brca_tcga",
+  "study_page_url": "https://www.cbioportal.org/study/summary?id=brca_tcga",
+  "api_root": "https://www.cbioportal.org/api",
+  "clinical_data_type": "PATIENT",
+  "page_size": 500,
+  "attributes": {
+    "ER_STATUS_BY_IHC": {
+      "record_count": 1048,
+      "endpoint": "https://www.cbioportal.org/api/studies/brca_tcga/clinical-data?clinicalDataType=PATIENT&attributeId=ER_STATUS_BY_IHC&projection=DETAILED"
+    },
+    "PR_STATUS_BY_IHC": {
+      "record_count": 1047,
+      "endpoint": "https://www.cbioportal.org/api/studies/brca_tcga/clinical-data?clinicalDataType=PATIENT&attributeId=PR_STATUS_BY_IHC&projection=DETAILED"
+    },
+    "IHC_HER2": {
+      "record_count": 919,
+      "endpoint": "https://www.cbioportal.org/api/studies/brca_tcga/clinical-data?clinicalDataType=PATIENT&attributeId=IHC_HER2&projection=DETAILED"
+    }
+  }
+}

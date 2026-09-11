@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "created_at_utc": "2026-09-09T16:11:27Z",
+  "random_seed": 20260909,
+  "primary_cohort": {
+    "n": 945,
+    "development_n": 756,
+    "locked_test_n": 189,
+    "unique_patient_groups": 945
+  },
+  "five_class_sensitivity_cohort": {
+    "n": 981,
+    "development_n": 785,
+    "locked_test_n": 196,
+    "unique_patient_groups": 981,
+    "primary_assignments_preserved": true
+  },
+  "nested_cv": {
+    "outer_folds": 5,
+    "inner_folds": 5,
+    "shuffle": true,
+    "unit": "patient",
+    "strategy": "stratified patient-level folds",
+    "inner_seed_rule": "random_seed + 1000 + outer_fold"
+  },
+  "artifacts_sha256": {
+    "config/evaluation.json": "d39d7606b629d537ba8adc3820169636bcef86226153b9a386f2812c34768553",
+    "data/processed/expression/samples.tsv": "b97f70c3a3ce933adcacd7004ed15c1a012b54b4cec0f17bb749dda64a7b8cbb",
+    "data/processed/expression/matrix_manifest.json": "c21506bd6a2014dfdb139031f9e706ee7bbd3642d4c92d53a96efb4a34e0dbba",
+    "data/processed/labels/pancanatlas_pam50_locked.tsv": "d228bac88aa323cb510510cdb0f787f5b2e78dfb56b573e4f26715c41d1c7ce8",
+    "data/processed/labels/pancanatlas_pam50_lock.json": "96faca5b7e7a84cb04a6ee1979024cd4dbc9deb37d4c9a92a322fbcba8c0e1bd",
+    "data/processed/splits/four_class_split_assignments.tsv": "8e528e4b7db2112a6240887eb47664048cb32d3ccb28063881dd6ac8333989ca",
+    "data/processed/splits/five_class_split_assignments.tsv": "6afa62597dc3ec030ac115a6c3a5401025531dec8336e892a08e9ea30fb2c2fe",
+    "scripts/evaluation_framework.py": "912facda2b6848c0750712069749361731c2aaec80bb65041954f586c59b37ea",
+    "scripts/lock_evaluation_splits.py": "e3f2f8bb09a8552f871be4d2691f9d96b760c5e33820d7a3a5d5aea47b6b4171",
+    "scripts/run_nested_cv.py": "3fbffd39fe2bb774dd447b10250f1dddf43090b9e4b20b66dc8fe84d1f6a62fe",
+    "scripts/verify_evaluation_framework.py": "3ae5fbca35eef8bfc6afe199434a85691a802599e840469efc48d4415c6b0b0c",
+    "requirements-modeling.txt": "07e8f619b9153989dee9d2d06e4b6023f25b8acbe0f6a27e960a137b339d64b9"
+  },
+  "test_set_model_accessed": false
+}

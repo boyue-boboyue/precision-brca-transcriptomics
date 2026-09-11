@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0.0",
+  "locked_at_utc": "2026-09-10T16:55:00Z",
+  "cohort": "four_class",
+  "partition": "development",
+  "random_seed": 20260909,
+  "outer_folds": 5,
+  "inner_folds": 5,
+  "inner_selection_metric": "macro_f1",
+  "pipeline": {
+    "input": "protein-coding log2(TPM + 1)",
+    "steps": [
+      "low_expression_filter",
+      "median_imputer",
+      "top_variance_1000",
+      "standard_scaler",
+      "LinearSVC"
+    ],
+    "fit_scope": "Every transformer and classifier is fitted inside the relevant training fold."
+  },
+  "classifier": {
+    "class": "LinearSVC",
+    "kernel": "linear_only",
+    "rbf_allowed": false,
+    "penalty": "l2",
+    "loss": "squared_hinge",
+    "dual": "auto",
+    "multi_class": "ovr",
+    "class_weight": "balanced",
+    "max_iter": 10000,
+    "parameter_grid": {
+      "classifier__C": [0.001, 0.01, 0.1, 1.0, 10.0]
+    }
+  },
+  "probability_calibration": {
+    "enabled": true,
+    "class": "CalibratedClassifierCV",
+    "method": "sigmoid",
+    "ensemble": true,
+    "cv": "the five precomputed inner folds within each outer-training partition",
+    "leakage_rule": "The outer validation fold and locked test set are never used to fit the classifier or calibrator."
+  },
+  "primary_prediction_source": "uncalibrated LinearSVC decision function",
+  "probability_metrics_source": "training-only calibrated probabilities",
+  "metrics": [
+    "macro_f1",
+    "balanced_accuracy",
+    "accuracy",
+    "macro_ovr_roc_auc_from_decision_scores",
+    "macro_ovr_roc_auc_from_calibrated_probabilities",
+    "multiclass_log_loss_from_calibrated_probabilities"
+  ],
+  "coefficient_nonzero_threshold": 1e-08
+}

@@ -1,0 +1,61 @@
+{
+  "filters": {
+    "op": "and",
+    "content": [
+      {
+        "op": "=",
+        "content": {
+          "field": "cases.project.project_id",
+          "value": "TCGA-BRCA"
+        }
+      },
+      {
+        "op": "=",
+        "content": {
+          "field": "files.data_category",
+          "value": "Transcriptome Profiling"
+        }
+      },
+      {
+        "op": "=",
+        "content": {
+          "field": "files.data_type",
+          "value": "Gene Expression Quantification"
+        }
+      },
+      {
+        "op": "=",
+        "content": {
+          "field": "files.experimental_strategy",
+          "value": "RNA-Seq"
+        }
+      },
+      {
+        "op": "=",
+        "content": {
+          "field": "files.analysis.workflow_type",
+          "value": "STAR - Counts"
+        }
+      },
+      {
+        "op": "=",
+        "content": {
+          "field": "files.access",
+          "value": "open"
+        }
+      },
+      {
+        "op": "=",
+        "content": {
+          "field": "cases.samples.sample_type",
+          "value": "Primary Tumor"
+        }
+      }
+    ]
+  },
+  "format": "JSON",
+  "fields": "file_id,file_name,md5sum,file_size,state,access,data_category,data_type,experimental_strategy,analysis.workflow_type,cases.case_id,cases.submitter_id,cases.samples.sample_id,cases.samples.submitter_id,cases.samples.sample_type,cases.samples.tissue_type,cases.samples.portions.analytes.aliquots.aliquot_id,cases.samples.portions.analytes.aliquots.submitter_id",
+  "size": "2000",
+  "sort": "file_id:asc"
+}
+

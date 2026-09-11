@@ -1,0 +1,12 @@
+{
+  "status": "COMPLETE",
+  "created_at_utc": "2026-09-10T17:05:47Z",
+  "summary_script_sha256": "54b481bec94bf08108fe6d905c496aaea0f4fee9a4571721ba60dd9ef86f9a67",
+  "artifacts_sha256": {
+    "comparison_with_logistic.tsv": "7f76bdd387fef08ed10ede26d90d8e502c909b5c46ee639cfe2bd06d7476e10c",
+    "paired_comparison_with_logistic.tsv": "cfc896283f095bde3cd0ceb27d82b10c79398079110f805c8f0ff75d647af710",
+    "oof_confusion_matrix.tsv": "364a03ca1faace774afa59620ab42e11c186edf1117fc882016e2baa7e8bc323",
+    "linear_svc_report.md": "00f6d96a2a1294a7005bf81b8e8b87688a14cc3c40400a8fa902e14b9bef84e5",
+    "run_manifest.json": "5a3e37f07da2722b1fc5e22b08b367d6c7a1f1fc9fcf7632f960af55c34d5bf4"
+  }
+}

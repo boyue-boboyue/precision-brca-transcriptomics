@@ -1,0 +1,6 @@
+model	outer_fold	best_inner_macro_f1	best_parameters_json	class_weight	classifier_class	kernel	calibration_class	calibration_method	calibration_cv_folds	max_n_iter
+linear_svc	1	0.877045757398321	"{""classifier__C"": 0.001}"	balanced	LinearSVC	linear	CalibratedClassifierCV	sigmoid	5	27
+linear_svc	2	0.8787542101751494	"{""classifier__C"": 0.001}"	balanced	LinearSVC	linear	CalibratedClassifierCV	sigmoid	5	32
+linear_svc	3	0.8760867139752163	"{""classifier__C"": 0.001}"	balanced	LinearSVC	linear	CalibratedClassifierCV	sigmoid	5	29
+linear_svc	4	0.8701047267942709	"{""classifier__C"": 0.01}"	balanced	LinearSVC	linear	CalibratedClassifierCV	sigmoid	5	110
+linear_svc	5	0.8515203280386656	"{""classifier__C"": 0.001}"	balanced	LinearSVC	linear	CalibratedClassifierCV	sigmoid	5	29

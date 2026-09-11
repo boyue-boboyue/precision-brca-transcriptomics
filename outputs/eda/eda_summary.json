@@ -1,0 +1,189 @@
+{
+  "generated_at_utc": "2026-09-09T14:50:15Z",
+  "random_seed": 20260909,
+  "permutations": 2000,
+  "cohorts": {
+    "matrix_samples": 1095,
+    "analysis_eligible": 1094,
+    "pam50_five_class": 981,
+    "pam50_four_class": 945
+  },
+  "class_counts_five": {
+    "Luminal A": 499,
+    "Luminal B": 197,
+    "Basal-like": 171,
+    "HER2-enriched": 78,
+    "Normal-like": 36
+  },
+  "expression_qc": {
+    "library_size_min": 19303211,
+    "library_size_median": 57971543.0,
+    "library_size_max": 114015705,
+    "library_size_tukey_outliers": 18,
+    "median_protein_coding_zero_fraction": 0.13450556056507365
+  },
+  "pca": {
+    "cohort_n": 981,
+    "hvg_count": 1000,
+    "pc1_explained_percent": 18.136611938476562,
+    "pc2_explained_percent": 8.230819702148438,
+    "pc1_to_pc10_cumulative_percent": 46.28768539428711
+  },
+  "clustering": {
+    "adjusted_rand_index": 0.2962603683238408,
+    "adjusted_mutual_information": 0.40756610578506675,
+    "normalized_mutual_information": 0.4113469630954706,
+    "homogeneity": 0.42025592966298386,
+    "completeness": 0.4028078761989099,
+    "v_measure": 0.41134696309547053,
+    "cluster_purity": 0.6799184505606524,
+    "bias_corrected_cramers_v": 0.4908654699324597
+  },
+  "receptor_association": {
+    "ER": {
+      "cohort_n": 981,
+      "known_n": 936,
+      "positive_or_negative_n": 934,
+      "coverage_percent": 95.41284403669725,
+      "chi_square_positive_negative": 621.4202455611719,
+      "chi_square_p": 3.5814518034779126e-133,
+      "bias_corrected_cramers_v": 0.8134827588332567
+    },
+    "PR": {
+      "cohort_n": 981,
+      "known_n": 935,
+      "positive_or_negative_n": 931,
+      "coverage_percent": 95.31090723751274,
+      "chi_square_positive_negative": 485.65055750615323,
+      "chi_square_p": 8.499631557770622e-104,
+      "bias_corrected_cramers_v": 0.7196525545432555
+    },
+    "HER2": {
+      "cohort_n": 981,
+      "known_n": 814,
+      "positive_or_negative_n": 645,
+      "coverage_percent": 82.97655453618756,
+      "chi_square_positive_negative": 128.5342126472205,
+      "chi_square_p": 8.013914673292174e-27,
+      "bias_corrected_cramers_v": 0.43973506585946825
+    }
+  },
+  "technical_batch": {
+    "strongest_subtype_overlap_factor": "RNA plate",
+    "strongest_bias_corrected_cramers_v": 0.11658414548104068,
+    "strongest_overlap_permutation_p": 0.01249375312343828,
+    "strongest_batch_only_predictor": "RNA plate",
+    "strongest_batch_only_cv_balanced_accuracy": 0.28795260198954575,
+    "five_class_chance_balanced_accuracy": 0.2,
+    "invariant_factors": [
+      "Aliquot center code",
+      "GDC source center"
+    ],
+    "factor_results": [
+      {
+        "factor": "Tissue source site",
+        "column": "tissue_source_site",
+        "n_complete": 981,
+        "n_missing": 0,
+        "n_levels": 38,
+        "minimum_level_n": 1,
+        "median_level_n": 8.0,
+        "maximum_level_n": 137,
+        "bias_corrected_cramers_v": 0.11274036119052255,
+        "chi_square_p": 0.003899965511662131,
+        "subtype_permutation_p": 0.02498750624687656,
+        "adjusted_mutual_information": 0.013900300556248352,
+        "batch_only_cv_balanced_accuracy": 0.251006978437581,
+        "batch_only_cv_macro_f1": 0.219563852378495,
+        "pc1_to_pc10_eta_squared": 0.0695364846084754,
+        "pc_permutation_p": 0.0004997501249375312,
+        "permutations": 2000
+      },
+      {
+        "factor": "RNA plate",
+        "column": "rna_plate",
+        "n_complete": 981,
+        "n_missing": 0,
+        "n_levels": 41,
+        "minimum_level_n": 1,
+        "median_level_n": 15.0,
+        "maximum_level_n": 86,
+        "bias_corrected_cramers_v": 0.11658414548104068,
+        "chi_square_p": 0.0031048008097343967,
+        "subtype_permutation_p": 0.01249375312343828,
+        "adjusted_mutual_information": 0.012065285325365492,
+        "batch_only_cv_balanced_accuracy": 0.28795260198954575,
+        "batch_only_cv_macro_f1": 0.20219422157399375,
+        "pc1_to_pc10_eta_squared": 0.0755757319660987,
+        "pc_permutation_p": 0.0004997501249375312,
+        "permutations": 2000
+      },
+      {
+        "factor": "Legacy RNA-seq batch",
+        "column": "legacy_rnaseq_batch",
+        "n_complete": 447,
+        "n_missing": 534,
+        "n_levels": 10,
+        "minimum_level_n": 14,
+        "median_level_n": 39.0,
+        "maximum_level_n": 75,
+        "bias_corrected_cramers_v": 0.08020485088740113,
+        "chi_square_p": 0.09546970486284931,
+        "subtype_permutation_p": 0.10044977511244378,
+        "adjusted_mutual_information": 0.009193079859851103,
+        "batch_only_cv_balanced_accuracy": 0.18898599163138025,
+        "batch_only_cv_macro_f1": 0.1398978291547537,
+        "pc1_to_pc10_eta_squared": 0.047217956891370885,
+        "pc_permutation_p": 0.0004997501249375312,
+        "permutations": 2000
+      },
+      {
+        "factor": "Aliquot center code",
+        "column": "aliquot_center_code",
+        "n_complete": 981,
+        "n_missing": 0,
+        "n_levels": 1,
+        "minimum_level_n": 981,
+        "median_level_n": 981.0,
+        "maximum_level_n": 981,
+        "bias_corrected_cramers_v": null,
+        "chi_square_p": null,
+        "subtype_permutation_p": null,
+        "adjusted_mutual_information": null,
+        "batch_only_cv_balanced_accuracy": null,
+        "batch_only_cv_macro_f1": null,
+        "pc1_to_pc10_eta_squared": null,
+        "pc_permutation_p": null,
+        "permutations": 0
+      },
+      {
+        "factor": "GDC source center",
+        "column": "source_center",
+        "n_complete": 981,
+        "n_missing": 0,
+        "n_levels": 1,
+        "minimum_level_n": 981,
+        "median_level_n": 981.0,
+        "maximum_level_n": 981,
+        "bias_corrected_cramers_v": null,
+        "chi_square_p": null,
+        "subtype_permutation_p": null,
+        "adjusted_mutual_information": null,
+        "batch_only_cv_balanced_accuracy": null,
+        "batch_only_cv_macro_f1": null,
+        "pc1_to_pc10_eta_squared": null,
+        "pc_permutation_p": null,
+        "permutations": 0
+      }
+    ]
+  },
+  "software": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scipy": "1.18.1",
+    "scikit_learn": "1.9.0",
+    "matplotlib": "3.11.1",
+    "seaborn": "0.13.2"
+  }
+}

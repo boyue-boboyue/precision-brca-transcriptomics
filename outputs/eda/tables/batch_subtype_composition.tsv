@@ -1,0 +1,456 @@
+factor	level	subtype	count	row_percent	level_n
+Tissue source site	3C	Luminal A	2	50.0	4
+Tissue source site	3C	Luminal B	1	25.0	4
+Tissue source site	3C	Basal-like	0	0.0	4
+Tissue source site	3C	HER2-enriched	1	25.0	4
+Tissue source site	3C	Normal-like	0	0.0	4
+Tissue source site	4H	Luminal A	1	100.0	1
+Tissue source site	4H	Luminal B	0	0.0	1
+Tissue source site	4H	Basal-like	0	0.0	1
+Tissue source site	4H	HER2-enriched	0	0.0	1
+Tissue source site	4H	Normal-like	0	0.0	1
+Tissue source site	5L	Luminal A	1	100.0	1
+Tissue source site	5L	Luminal B	0	0.0	1
+Tissue source site	5L	Basal-like	0	0.0	1
+Tissue source site	5L	HER2-enriched	0	0.0	1
+Tissue source site	5L	Normal-like	0	0.0	1
+Tissue source site	5T	Luminal A	0	0.0	1
+Tissue source site	5T	Luminal B	1	100.0	1
+Tissue source site	5T	Basal-like	0	0.0	1
+Tissue source site	5T	HER2-enriched	0	0.0	1
+Tissue source site	5T	Normal-like	0	0.0	1
+Tissue source site	A1	Luminal A	7	53.84615384615385	13
+Tissue source site	A1	Luminal B	2	15.384615384615385	13
+Tissue source site	A1	Basal-like	3	23.076923076923077	13
+Tissue source site	A1	HER2-enriched	0	0.0	13
+Tissue source site	A1	Normal-like	1	7.6923076923076925	13
+Tissue source site	A2	Luminal A	40	43.47826086956522	92
+Tissue source site	A2	Luminal B	18	19.565217391304348	92
+Tissue source site	A2	Basal-like	21	22.82608695652174	92
+Tissue source site	A2	HER2-enriched	8	8.695652173913043	92
+Tissue source site	A2	Normal-like	5	5.434782608695652	92
+Tissue source site	A7	Luminal A	14	45.16129032258065	31
+Tissue source site	A7	Luminal B	4	12.903225806451612	31
+Tissue source site	A7	Basal-like	13	41.935483870967744	31
+Tissue source site	A7	HER2-enriched	0	0.0	31
+Tissue source site	A7	Normal-like	0	0.0	31
+Tissue source site	A8	Luminal A	34	45.945945945945944	74
+Tissue source site	A8	Luminal B	27	36.486486486486484	74
+Tissue source site	A8	Basal-like	3	4.054054054054054	74
+Tissue source site	A8	HER2-enriched	9	12.162162162162161	74
+Tissue source site	A8	Normal-like	1	1.3513513513513513	74
+Tissue source site	AC	Luminal A	22	62.857142857142854	35
+Tissue source site	AC	Luminal B	2	5.714285714285714	35
+Tissue source site	AC	Basal-like	6	17.142857142857142	35
+Tissue source site	AC	HER2-enriched	3	8.571428571428571	35
+Tissue source site	AC	Normal-like	2	5.714285714285714	35
+Tissue source site	AN	Luminal A	21	55.26315789473684	38
+Tissue source site	AN	Luminal B	7	18.42105263157895	38
+Tissue source site	AN	Basal-like	8	21.05263157894737	38
+Tissue source site	AN	HER2-enriched	2	5.2631578947368425	38
+Tissue source site	AN	Normal-like	0	0.0	38
+Tissue source site	AO	Luminal A	19	43.18181818181818	44
+Tissue source site	AO	Luminal B	10	22.727272727272727	44
+Tissue source site	AO	Basal-like	7	15.909090909090908	44
+Tissue source site	AO	HER2-enriched	3	6.818181818181818	44
+Tissue source site	AO	Normal-like	5	11.363636363636363	44
+Tissue source site	AQ	Luminal A	4	66.66666666666667	6
+Tissue source site	AQ	Luminal B	1	16.666666666666668	6
+Tissue source site	AQ	Basal-like	1	16.666666666666668	6
+Tissue source site	AQ	HER2-enriched	0	0.0	6
+Tissue source site	AQ	Normal-like	0	0.0	6
+Tissue source site	AR	Luminal A	28	45.16129032258065	62
+Tissue source site	AR	Luminal B	14	22.580645161290324	62
+Tissue source site	AR	Basal-like	14	22.580645161290324	62
+Tissue source site	AR	HER2-enriched	3	4.838709677419355	62
+Tissue source site	AR	Normal-like	3	4.838709677419355	62
+Tissue source site	B6	Luminal A	28	53.84615384615385	52
+Tissue source site	B6	Luminal B	8	15.384615384615385	52
+Tissue source site	B6	Basal-like	11	21.153846153846153	52
+Tissue source site	B6	HER2-enriched	4	7.6923076923076925	52
+Tissue source site	B6	Normal-like	1	1.9230769230769231	52
+Tissue source site	BH	Luminal A	82	59.85401459854015	137
+Tissue source site	BH	Luminal B	23	16.78832116788321	137
+Tissue source site	BH	Basal-like	19	13.86861313868613	137
+Tissue source site	BH	HER2-enriched	8	5.839416058394161	137
+Tissue source site	BH	Normal-like	5	3.6496350364963503	137
+Tissue source site	C8	Luminal A	12	25.0	48
+Tissue source site	C8	Luminal B	14	29.166666666666668	48
+Tissue source site	C8	Basal-like	6	12.5	48
+Tissue source site	C8	HER2-enriched	15	31.25	48
+Tissue source site	C8	Normal-like	1	2.0833333333333335	48
+Tissue source site	D8	Luminal A	34	45.945945945945944	74
+Tissue source site	D8	Luminal B	22	29.72972972972973	74
+Tissue source site	D8	Basal-like	11	14.864864864864865	74
+Tissue source site	D8	HER2-enriched	6	8.108108108108109	74
+Tissue source site	D8	Normal-like	1	1.3513513513513513	74
+Tissue source site	E2	Luminal A	46	57.5	80
+Tissue source site	E2	Luminal B	11	13.75	80
+Tissue source site	E2	Basal-like	17	21.25	80
+Tissue source site	E2	HER2-enriched	5	6.25	80
+Tissue source site	E2	Normal-like	1	1.25	80
+Tissue source site	E9	Luminal A	28	48.275862068965516	58
+Tissue source site	E9	Luminal B	19	32.758620689655174	58
+Tissue source site	E9	Basal-like	9	15.517241379310345	58
+Tissue source site	E9	HER2-enriched	2	3.4482758620689653	58
+Tissue source site	E9	Normal-like	0	0.0	58
+Tissue source site	EW	Luminal A	17	48.57142857142857	35
+Tissue source site	EW	Luminal B	7	20.0	35
+Tissue source site	EW	Basal-like	5	14.285714285714286	35
+Tissue source site	EW	HER2-enriched	3	8.571428571428571	35
+Tissue source site	EW	Normal-like	3	8.571428571428571	35
+Tissue source site	GI	Luminal A	1	100.0	1
+Tissue source site	GI	Luminal B	0	0.0	1
+Tissue source site	GI	Basal-like	0	0.0	1
+Tissue source site	GI	HER2-enriched	0	0.0	1
+Tissue source site	GI	Normal-like	0	0.0	1
+Tissue source site	GM	Luminal A	12	66.66666666666667	18
+Tissue source site	GM	Luminal B	1	5.555555555555555	18
+Tissue source site	GM	Basal-like	2	11.11111111111111	18
+Tissue source site	GM	HER2-enriched	2	11.11111111111111	18
+Tissue source site	GM	Normal-like	1	5.555555555555555	18
+Tissue source site	HN	Luminal A	1	50.0	2
+Tissue source site	HN	Luminal B	0	0.0	2
+Tissue source site	HN	Basal-like	1	50.0	2
+Tissue source site	HN	HER2-enriched	0	0.0	2
+Tissue source site	HN	Normal-like	0	0.0	2
+Tissue source site	JL	Luminal A	1	100.0	1
+Tissue source site	JL	Luminal B	0	0.0	1
+Tissue source site	JL	Basal-like	0	0.0	1
+Tissue source site	JL	HER2-enriched	0	0.0	1
+Tissue source site	JL	Normal-like	0	0.0	1
+Tissue source site	LD	Luminal A	4	80.0	5
+Tissue source site	LD	Luminal B	0	0.0	5
+Tissue source site	LD	Basal-like	0	0.0	5
+Tissue source site	LD	HER2-enriched	0	0.0	5
+Tissue source site	LD	Normal-like	1	20.0	5
+Tissue source site	LL	Luminal A	9	52.94117647058823	17
+Tissue source site	LL	Luminal B	2	11.764705882352942	17
+Tissue source site	LL	Basal-like	4	23.529411764705884	17
+Tissue source site	LL	HER2-enriched	1	5.882352941176471	17
+Tissue source site	LL	Normal-like	1	5.882352941176471	17
+Tissue source site	OK	Luminal A	1	100.0	1
+Tissue source site	OK	Luminal B	0	0.0	1
+Tissue source site	OK	Basal-like	0	0.0	1
+Tissue source site	OK	HER2-enriched	0	0.0	1
+Tissue source site	OK	Normal-like	0	0.0	1
+Tissue source site	OL	Luminal A	13	56.52173913043478	23
+Tissue source site	OL	Luminal B	0	0.0	23
+Tissue source site	OL	Basal-like	5	21.73913043478261	23
+Tissue source site	OL	HER2-enriched	2	8.695652173913043	23
+Tissue source site	OL	Normal-like	3	13.043478260869565	23
+Tissue source site	PE	Luminal A	3	100.0	3
+Tissue source site	PE	Luminal B	0	0.0	3
+Tissue source site	PE	Basal-like	0	0.0	3
+Tissue source site	PE	HER2-enriched	0	0.0	3
+Tissue source site	PE	Normal-like	0	0.0	3
+Tissue source site	PL	Luminal A	1	25.0	4
+Tissue source site	PL	Luminal B	0	0.0	4
+Tissue source site	PL	Basal-like	2	50.0	4
+Tissue source site	PL	HER2-enriched	0	0.0	4
+Tissue source site	PL	Normal-like	1	25.0	4
+Tissue source site	S3	Luminal A	5	50.0	10
+Tissue source site	S3	Luminal B	2	20.0	10
+Tissue source site	S3	Basal-like	3	30.0	10
+Tissue source site	S3	HER2-enriched	0	0.0	10
+Tissue source site	S3	Normal-like	0	0.0	10
+Tissue source site	UL	Luminal A	1	100.0	1
+Tissue source site	UL	Luminal B	0	0.0	1
+Tissue source site	UL	Basal-like	0	0.0	1
+Tissue source site	UL	HER2-enriched	0	0.0	1
+Tissue source site	UL	Normal-like	0	0.0	1
+Tissue source site	UU	Luminal A	0	0.0	1
+Tissue source site	UU	Luminal B	0	0.0	1
+Tissue source site	UU	Basal-like	0	0.0	1
+Tissue source site	UU	HER2-enriched	1	100.0	1
+Tissue source site	UU	Normal-like	0	0.0	1
+Tissue source site	V7	Luminal A	1	100.0	1
+Tissue source site	V7	Luminal B	0	0.0	1
+Tissue source site	V7	Basal-like	0	0.0	1
+Tissue source site	V7	HER2-enriched	0	0.0	1
+Tissue source site	V7	Normal-like	0	0.0	1
+Tissue source site	W8	Luminal A	1	100.0	1
+Tissue source site	W8	Luminal B	0	0.0	1
+Tissue source site	W8	Basal-like	0	0.0	1
+Tissue source site	W8	HER2-enriched	0	0.0	1
+Tissue source site	W8	Normal-like	0	0.0	1
+Tissue source site	WT	Luminal A	2	100.0	2
+Tissue source site	WT	Luminal B	0	0.0	2
+Tissue source site	WT	Basal-like	0	0.0	2
+Tissue source site	WT	HER2-enriched	0	0.0	2
+Tissue source site	WT	Normal-like	0	0.0	2
+Tissue source site	XX	Luminal A	2	100.0	2
+Tissue source site	XX	Luminal B	0	0.0	2
+Tissue source site	XX	Basal-like	0	0.0	2
+Tissue source site	XX	HER2-enriched	0	0.0	2
+Tissue source site	XX	Normal-like	0	0.0	2
+Tissue source site	Z7	Luminal A	1	50.0	2
+Tissue source site	Z7	Luminal B	1	50.0	2
+Tissue source site	Z7	Basal-like	0	0.0	2
+Tissue source site	Z7	HER2-enriched	0	0.0	2
+Tissue source site	Z7	Normal-like	0	0.0	2
+RNA plate	A00Z	Luminal A	33	40.24390243902439	82
+RNA plate	A00Z	Luminal B	31	37.80487804878049	82
+RNA plate	A00Z	Basal-like	6	7.317073170731708	82
+RNA plate	A00Z	HER2-enriched	11	13.414634146341463	82
+RNA plate	A00Z	Normal-like	1	1.2195121951219512	82
+RNA plate	A034	Luminal A	41	50.0	82
+RNA plate	A034	Luminal B	14	17.073170731707318	82
+RNA plate	A034	Basal-like	18	21.951219512195124	82
+RNA plate	A034	HER2-enriched	7	8.536585365853659	82
+RNA plate	A034	Normal-like	2	2.4390243902439024	82
+RNA plate	A056	Luminal A	31	72.09302325581395	43
+RNA plate	A056	Luminal B	5	11.627906976744185	43
+RNA plate	A056	Basal-like	4	9.30232558139535	43
+RNA plate	A056	HER2-enriched	3	6.976744186046512	43
+RNA plate	A056	Normal-like	0	0.0	43
+RNA plate	A084	Luminal A	24	53.333333333333336	45
+RNA plate	A084	Luminal B	7	15.555555555555555	45
+RNA plate	A084	Basal-like	11	24.444444444444443	45
+RNA plate	A084	HER2-enriched	3	6.666666666666667	45
+RNA plate	A084	Normal-like	0	0.0	45
+RNA plate	A109	Luminal A	18	47.36842105263158	38
+RNA plate	A109	Luminal B	10	26.31578947368421	38
+RNA plate	A109	Basal-like	9	23.68421052631579	38
+RNA plate	A109	HER2-enriched	0	0.0	38
+RNA plate	A109	Normal-like	1	2.6315789473684212	38
+RNA plate	A10J	Luminal A	13	59.09090909090909	22
+RNA plate	A10J	Luminal B	4	18.181818181818183	22
+RNA plate	A10J	Basal-like	3	13.636363636363637	22
+RNA plate	A10J	HER2-enriched	0	0.0	22
+RNA plate	A10J	Normal-like	2	9.090909090909092	22
+RNA plate	A115	Luminal A	40	46.51162790697674	86
+RNA plate	A115	Luminal B	12	13.953488372093023	86
+RNA plate	A115	Basal-like	19	22.093023255813954	86
+RNA plate	A115	HER2-enriched	13	15.116279069767442	86
+RNA plate	A115	Normal-like	2	2.3255813953488373	86
+RNA plate	A12D	Luminal A	23	57.5	40
+RNA plate	A12D	Luminal B	4	10.0	40
+RNA plate	A12D	Basal-like	8	20.0	40
+RNA plate	A12D	HER2-enriched	5	12.5	40
+RNA plate	A12D	Normal-like	0	0.0	40
+RNA plate	A12P	Luminal A	22	56.41025641025641	39
+RNA plate	A12P	Luminal B	7	17.94871794871795	39
+RNA plate	A12P	Basal-like	8	20.512820512820515	39
+RNA plate	A12P	HER2-enriched	1	2.5641025641025643	39
+RNA plate	A12P	Normal-like	1	2.5641025641025643	39
+RNA plate	A137	Luminal A	6	40.0	15
+RNA plate	A137	Luminal B	4	26.666666666666668	15
+RNA plate	A137	Basal-like	3	20.0	15
+RNA plate	A137	HER2-enriched	2	13.333333333333334	15
+RNA plate	A137	Normal-like	0	0.0	15
+RNA plate	A13Q	Luminal A	32	46.3768115942029	69
+RNA plate	A13Q	Luminal B	22	31.884057971014492	69
+RNA plate	A13Q	Basal-like	8	11.594202898550725	69
+RNA plate	A13Q	HER2-enriched	5	7.246376811594203	69
+RNA plate	A13Q	Normal-like	2	2.898550724637681	69
+RNA plate	A144	Luminal A	15	41.666666666666664	36
+RNA plate	A144	Luminal B	8	22.22222222222222	36
+RNA plate	A144	Basal-like	8	22.22222222222222	36
+RNA plate	A144	HER2-enriched	2	5.555555555555555	36
+RNA plate	A144	Normal-like	3	8.333333333333334	36
+RNA plate	A14D	Luminal A	12	52.17391304347826	23
+RNA plate	A14D	Luminal B	6	26.08695652173913	23
+RNA plate	A14D	Basal-like	3	13.043478260869565	23
+RNA plate	A14D	HER2-enriched	0	0.0	23
+RNA plate	A14D	Normal-like	2	8.695652173913043	23
+RNA plate	A14M	Luminal A	15	48.38709677419355	31
+RNA plate	A14M	Luminal B	9	29.032258064516128	31
+RNA plate	A14M	Basal-like	4	12.903225806451612	31
+RNA plate	A14M	HER2-enriched	2	6.451612903225806	31
+RNA plate	A14M	Normal-like	1	3.225806451612903	31
+RNA plate	A157	Luminal A	9	34.61538461538461	26
+RNA plate	A157	Luminal B	13	50.0	26
+RNA plate	A157	Basal-like	2	7.6923076923076925	26
+RNA plate	A157	HER2-enriched	1	3.8461538461538463	26
+RNA plate	A157	Normal-like	1	3.8461538461538463	26
+RNA plate	A169	Luminal A	18	39.130434782608695	46
+RNA plate	A169	Luminal B	12	26.08695652173913	46
+RNA plate	A169	Basal-like	10	21.73913043478261	46
+RNA plate	A169	HER2-enriched	6	13.043478260869565	46
+RNA plate	A169	Normal-like	0	0.0	46
+RNA plate	A16F	Luminal A	16	55.172413793103445	29
+RNA plate	A16F	Luminal B	6	20.689655172413794	29
+RNA plate	A16F	Basal-like	3	10.344827586206897	29
+RNA plate	A16F	HER2-enriched	3	10.344827586206897	29
+RNA plate	A16F	Normal-like	1	3.4482758620689653	29
+RNA plate	A17B	Luminal A	7	87.5	8
+RNA plate	A17B	Luminal B	1	12.5	8
+RNA plate	A17B	Basal-like	0	0.0	8
+RNA plate	A17B	HER2-enriched	0	0.0	8
+RNA plate	A17B	Normal-like	0	0.0	8
+RNA plate	A180	Luminal A	6	50.0	12
+RNA plate	A180	Luminal B	2	16.666666666666668	12
+RNA plate	A180	Basal-like	1	8.333333333333334	12
+RNA plate	A180	HER2-enriched	1	8.333333333333334	12
+RNA plate	A180	Normal-like	2	16.666666666666668	12
+RNA plate	A18M	Luminal A	10	62.5	16
+RNA plate	A18M	Luminal B	1	6.25	16
+RNA plate	A18M	Basal-like	2	12.5	16
+RNA plate	A18M	HER2-enriched	1	6.25	16
+RNA plate	A18M	Normal-like	2	12.5	16
+RNA plate	A19W	Luminal A	1	100.0	1
+RNA plate	A19W	Luminal B	0	0.0	1
+RNA plate	A19W	Basal-like	0	0.0	1
+RNA plate	A19W	HER2-enriched	0	0.0	1
+RNA plate	A19W	Normal-like	0	0.0	1
+RNA plate	A213	Luminal A	2	50.0	4
+RNA plate	A213	Luminal B	2	50.0	4
+RNA plate	A213	Basal-like	0	0.0	4
+RNA plate	A213	HER2-enriched	0	0.0	4
+RNA plate	A213	Normal-like	0	0.0	4
+RNA plate	A21T	Luminal A	2	28.571428571428573	7
+RNA plate	A21T	Luminal B	2	28.571428571428573	7
+RNA plate	A21T	Basal-like	2	28.571428571428573	7
+RNA plate	A21T	HER2-enriched	1	14.285714285714286	7
+RNA plate	A21T	Normal-like	0	0.0	7
+RNA plate	A22K	Luminal A	4	66.66666666666667	6
+RNA plate	A22K	Luminal B	0	0.0	6
+RNA plate	A22K	Basal-like	1	16.666666666666668	6
+RNA plate	A22K	HER2-enriched	1	16.666666666666668	6
+RNA plate	A22K	Normal-like	0	0.0	6
+RNA plate	A22O	Luminal A	1	100.0	1
+RNA plate	A22O	Luminal B	0	0.0	1
+RNA plate	A22O	Basal-like	0	0.0	1
+RNA plate	A22O	HER2-enriched	0	0.0	1
+RNA plate	A22O	Normal-like	0	0.0	1
+RNA plate	A22U	Luminal A	5	62.5	8
+RNA plate	A22U	Luminal B	0	0.0	8
+RNA plate	A22U	Basal-like	3	37.5	8
+RNA plate	A22U	HER2-enriched	0	0.0	8
+RNA plate	A22U	Normal-like	0	0.0	8
+RNA plate	A239	Luminal A	4	40.0	10
+RNA plate	A239	Luminal B	0	0.0	10
+RNA plate	A239	Basal-like	2	20.0	10
+RNA plate	A239	HER2-enriched	2	20.0	10
+RNA plate	A239	Normal-like	2	20.0	10
+RNA plate	A24H	Luminal A	4	66.66666666666667	6
+RNA plate	A24H	Luminal B	0	0.0	6
+RNA plate	A24H	Basal-like	1	16.666666666666668	6
+RNA plate	A24H	HER2-enriched	0	0.0	6
+RNA plate	A24H	Normal-like	1	16.666666666666668	6
+RNA plate	A266	Luminal A	4	50.0	8
+RNA plate	A266	Luminal B	1	12.5	8
+RNA plate	A266	Basal-like	3	37.5	8
+RNA plate	A266	HER2-enriched	0	0.0	8
+RNA plate	A266	Normal-like	0	0.0	8
+RNA plate	A26B	Luminal A	0	0.0	1
+RNA plate	A26B	Luminal B	0	0.0	1
+RNA plate	A26B	Basal-like	1	100.0	1
+RNA plate	A26B	HER2-enriched	0	0.0	1
+RNA plate	A26B	Normal-like	0	0.0	1
+RNA plate	A27Q	Luminal A	11	73.33333333333333	15
+RNA plate	A27Q	Luminal B	0	0.0	15
+RNA plate	A27Q	Basal-like	3	20.0	15
+RNA plate	A27Q	HER2-enriched	0	0.0	15
+RNA plate	A27Q	Normal-like	1	6.666666666666667	15
+RNA plate	A28M	Luminal A	9	45.0	20
+RNA plate	A28M	Luminal B	2	10.0	20
+RNA plate	A28M	Basal-like	5	25.0	20
+RNA plate	A28M	HER2-enriched	3	15.0	20
+RNA plate	A28M	Normal-like	1	5.0	20
+RNA plate	A29R	Luminal A	9	64.28571428571429	14
+RNA plate	A29R	Luminal B	1	7.142857142857143	14
+RNA plate	A29R	Basal-like	4	28.571428571428573	14
+RNA plate	A29R	HER2-enriched	0	0.0	14
+RNA plate	A29R	Normal-like	0	0.0	14
+RNA plate	A31O	Luminal A	8	80.0	10
+RNA plate	A31O	Luminal B	0	0.0	10
+RNA plate	A31O	Basal-like	1	10.0	10
+RNA plate	A31O	HER2-enriched	1	10.0	10
+RNA plate	A31O	Normal-like	0	0.0	10
+RNA plate	A32P	Luminal A	6	60.0	10
+RNA plate	A32P	Luminal B	1	10.0	10
+RNA plate	A32P	Basal-like	1	10.0	10
+RNA plate	A32P	HER2-enriched	0	0.0	10
+RNA plate	A32P	Normal-like	2	20.0	10
+RNA plate	A32Y	Luminal A	1	50.0	2
+RNA plate	A32Y	Luminal B	0	0.0	2
+RNA plate	A32Y	Basal-like	0	0.0	2
+RNA plate	A32Y	HER2-enriched	0	0.0	2
+RNA plate	A32Y	Normal-like	1	50.0	2
+RNA plate	A33J	Luminal A	8	50.0	16
+RNA plate	A33J	Luminal B	1	6.25	16
+RNA plate	A33J	Basal-like	6	37.5	16
+RNA plate	A33J	HER2-enriched	1	6.25	16
+RNA plate	A33J	Normal-like	0	0.0	16
+RNA plate	A352	Luminal A	6	60.0	10
+RNA plate	A352	Luminal B	2	20.0	10
+RNA plate	A352	Basal-like	1	10.0	10
+RNA plate	A352	HER2-enriched	0	0.0	10
+RNA plate	A352	Normal-like	1	10.0	10
+RNA plate	A36F	Luminal A	5	50.0	10
+RNA plate	A36F	Luminal B	1	10.0	10
+RNA plate	A36F	Basal-like	2	20.0	10
+RNA plate	A36F	HER2-enriched	1	10.0	10
+RNA plate	A36F	Normal-like	1	10.0	10
+RNA plate	A41B	Luminal A	18	54.54545454545455	33
+RNA plate	A41B	Luminal B	5	15.151515151515152	33
+RNA plate	A41B	Basal-like	5	15.151515151515152	33
+RNA plate	A41B	HER2-enriched	2	6.0606060606060606	33
+RNA plate	A41B	Normal-like	3	9.090909090909092	33
+RNA plate	A466	Luminal A	0	0.0	1
+RNA plate	A466	Luminal B	1	100.0	1
+RNA plate	A466	Basal-like	0	0.0	1
+RNA plate	A466	HER2-enriched	0	0.0	1
+RNA plate	A466	Normal-like	0	0.0	1
+Legacy RNA-seq batch	103	Luminal A	6	42.857142857142854	14
+Legacy RNA-seq batch	103	Luminal B	3	21.428571428571427	14
+Legacy RNA-seq batch	103	Basal-like	3	21.428571428571427	14
+Legacy RNA-seq batch	103	HER2-enriched	2	14.285714285714286	14
+Legacy RNA-seq batch	103	Normal-like	0	0.0	14
+Legacy RNA-seq batch	47	Luminal A	34	45.333333333333336	75
+Legacy RNA-seq batch	47	Luminal B	24	32.0	75
+Legacy RNA-seq batch	47	Basal-like	6	8.0	75
+Legacy RNA-seq batch	47	HER2-enriched	10	13.333333333333334	75
+Legacy RNA-seq batch	47	Normal-like	1	1.3333333333333333	75
+Legacy RNA-seq batch	56	Luminal A	35	47.2972972972973	74
+Legacy RNA-seq batch	56	Luminal B	14	18.91891891891892	74
+Legacy RNA-seq batch	56	Basal-like	16	21.62162162162162	74
+Legacy RNA-seq batch	56	HER2-enriched	7	9.45945945945946	74
+Legacy RNA-seq batch	56	Normal-like	2	2.7027027027027026	74
+Legacy RNA-seq batch	61	Luminal A	28	70.0	40
+Legacy RNA-seq batch	61	Luminal B	4	10.0	40
+Legacy RNA-seq batch	61	Basal-like	4	10.0	40
+Legacy RNA-seq batch	61	HER2-enriched	3	7.5	40
+Legacy RNA-seq batch	61	Normal-like	1	2.5	40
+Legacy RNA-seq batch	72	Luminal A	22	52.38095238095238	42
+Legacy RNA-seq batch	72	Luminal B	7	16.666666666666668	42
+Legacy RNA-seq batch	72	Basal-like	10	23.80952380952381	42
+Legacy RNA-seq batch	72	HER2-enriched	3	7.142857142857143	42
+Legacy RNA-seq batch	72	Normal-like	0	0.0	42
+Legacy RNA-seq batch	74	Luminal A	18	54.54545454545455	33
+Legacy RNA-seq batch	74	Luminal B	9	27.272727272727273	33
+Legacy RNA-seq batch	74	Basal-like	5	15.151515151515152	33
+Legacy RNA-seq batch	74	HER2-enriched	0	0.0	33
+Legacy RNA-seq batch	74	Normal-like	1	3.0303030303030303	33
+Legacy RNA-seq batch	80	Luminal A	12	60.0	20
+Legacy RNA-seq batch	80	Luminal B	4	20.0	20
+Legacy RNA-seq batch	80	Basal-like	2	10.0	20
+Legacy RNA-seq batch	80	HER2-enriched	0	0.0	20
+Legacy RNA-seq batch	80	Normal-like	2	10.0	20
+Legacy RNA-seq batch	85	Luminal A	35	46.666666666666664	75
+Legacy RNA-seq batch	85	Luminal B	9	12.0	75
+Legacy RNA-seq batch	85	Basal-like	17	22.666666666666668	75
+Legacy RNA-seq batch	85	HER2-enriched	12	16.0	75
+Legacy RNA-seq batch	85	Normal-like	2	2.6666666666666665	75
+Legacy RNA-seq batch	93	Luminal A	22	57.89473684210526	38
+Legacy RNA-seq batch	93	Luminal B	4	10.526315789473685	38
+Legacy RNA-seq batch	93	Basal-like	7	18.42105263157895	38
+Legacy RNA-seq batch	93	HER2-enriched	5	13.157894736842104	38
+Legacy RNA-seq batch	93	Normal-like	0	0.0	38
+Legacy RNA-seq batch	96	Luminal A	21	58.333333333333336	36
+Legacy RNA-seq batch	96	Luminal B	7	19.444444444444443	36
+Legacy RNA-seq batch	96	Basal-like	6	16.666666666666668	36
+Legacy RNA-seq batch	96	HER2-enriched	1	2.7777777777777777	36
+Legacy RNA-seq batch	96	Normal-like	1	2.7777777777777777	36
+Aliquot center code	07	Luminal A	499	50.8664627930683	981
+Aliquot center code	07	Luminal B	197	20.081549439347604	981
+Aliquot center code	07	Basal-like	171	17.431192660550458	981
+Aliquot center code	07	HER2-enriched	78	7.951070336391437	981
+Aliquot center code	07	Normal-like	36	3.669724770642202	981
+GDC source center	23	Luminal A	499	50.8664627930683	981
+GDC source center	23	Luminal B	197	20.081549439347604	981
+GDC source center	23	Basal-like	171	17.431192660550458	981
+GDC source center	23	HER2-enriched	78	7.951070336391437	981
+GDC source center	23	Normal-like	36	3.669724770642202	981

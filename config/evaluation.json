@@ -1,0 +1,146 @@
+{
+  "schema_version": "1.0.0",
+  "locked_at_utc": "2026-09-09T15:53:33Z",
+  "random_seed": 20260909,
+  "group_column": "case_barcode",
+  "sample_column": "sample_barcode",
+  "label_column": "pam50_standard",
+  "primary_analysis": {
+    "name": "four_class",
+    "classes": [
+      "Luminal A",
+      "Luminal B",
+      "Basal-like",
+      "HER2-enriched"
+    ],
+    "test_fraction": 0.2,
+    "eligibility_column": "include_four_class"
+  },
+  "sensitivity_analysis": {
+    "name": "five_class",
+    "classes": [
+      "Luminal A",
+      "Luminal B",
+      "Basal-like",
+      "HER2-enriched",
+      "Normal-like"
+    ],
+    "test_fraction": 0.2,
+    "preserve_primary_assignments": true
+  },
+  "nested_cv": {
+    "outer_folds": 5,
+    "inner_folds": 5,
+    "shuffle": true,
+    "unit": "patient",
+    "strategy": "stratified patient-level folds",
+    "inner_seed_rule": "random_seed + 1000 + outer_fold"
+  },
+  "features": {
+    "matrix": "data/processed/expression/log2_tpm_float32.npy",
+    "candidate_gene_indices": "data/processed/expression/protein_coding_gene_indices.npy",
+    "scale": "log2(TPM + 1)",
+    "pipeline_order": [
+      "low_expression_filter",
+      "median_imputation",
+      "variance_feature_selection",
+      "standard_scaling",
+      "classifier"
+    ],
+    "low_expression_filter": {
+      "training_fold_only": true,
+      "log2_tpm_threshold": 1.0,
+      "minimum_training_fraction": 0.1,
+      "equivalent_rule": "TPM >= 1 in at least 10% of training samples"
+    },
+    "imputation": {
+      "training_fold_only": true,
+      "strategy": "median"
+    },
+    "variance_feature_selection": {
+      "training_fold_only": true,
+      "method": "top variance",
+      "candidate_feature_counts": [100, 500, 1000, 2000]
+    },
+    "scaling": {
+      "training_fold_only": true,
+      "method": "StandardScaler"
+    }
+  },
+  "models": {
+    "dummy_prior": {
+      "class": "DummyClassifier",
+      "fixed": {
+        "strategy": "prior"
+      },
+      "grid": {
+        "variance_selector__k": [1000]
+      }
+    },
+    "multinomial_logistic": {
+      "class": "LogisticRegression",
+      "fixed": {
+        "solver": "saga",
+        "class_weight": "balanced",
+        "max_iter": 5000
+      },
+      "grid": {
+        "variance_selector__k": [100, 500, 1000, 2000],
+        "classifier__C": [0.01, 0.1, 1.0, 10.0],
+        "classifier__l1_ratio": [0.0, 0.5]
+      }
+    },
+    "linear_svm": {
+      "class": "LinearSVC",
+      "fixed": {
+        "class_weight": "balanced",
+        "dual": "auto",
+        "max_iter": 10000
+      },
+      "grid": {
+        "variance_selector__k": [100, 500, 1000, 2000],
+        "classifier__C": [0.001, 0.01, 0.1, 1.0, 10.0]
+      }
+    },
+    "random_forest": {
+      "class": "RandomForestClassifier",
+      "fixed": {
+        "class_weight": "balanced_subsample",
+        "n_estimators": 500
+      },
+      "grid": {
+        "variance_selector__k": [500, 1000, 2000],
+        "classifier__max_depth": [null, 20],
+        "classifier__min_samples_leaf": [1, 3, 5],
+        "classifier__max_features": ["sqrt", 0.2]
+      }
+    }
+  },
+  "selection": {
+    "inner_refit_metric": "macro_f1",
+    "outer_primary_metrics": ["macro_f1", "balanced_accuracy"],
+    "secondary_metric": "accuracy",
+    "tie_threshold_macro_f1": 0.01,
+    "tie_break_order": [
+      "fewer_features",
+      "greater_outer_fold_stability",
+      "greater_interpretability",
+      "lower_computational_cost"
+    ]
+  },
+  "locked_test_policy": {
+    "development_runner_must_exclude": "locked_test",
+    "allowed_uses_before_final_evaluation": [
+      "assignment integrity checks",
+      "class-count audit without model predictions"
+    ],
+    "prohibited_before_final_model_lock": [
+      "preprocessing fitting",
+      "feature selection",
+      "hyperparameter selection",
+      "model comparison",
+      "performance estimation"
+    ],
+    "final_evaluation_count": 1
+  }
+}

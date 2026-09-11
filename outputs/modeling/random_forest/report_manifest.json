@@ -1,0 +1,12 @@
+{
+  "status": "COMPLETE",
+  "created_at_utc": "2026-09-11T10:20:26Z",
+  "summary_script_sha256": "9a275fc76a82954a3dffc1b172265fc9eb67b22c5e1ea8a01e47a707a7a7b87f",
+  "artifacts_sha256": {
+    "comparison_all_models.tsv": "d1b37abb567cdc3c020d0c67e15bfa7328afe9982e7a3874d89689648ff879dd",
+    "paired_comparison_with_linear_models.tsv": "77ddb560c0762456e12ac5a138990f3fd2caccd482a7a64f4c0626df68df5cb7",
+    "oof_confusion_matrix.tsv": "11c03693e55f141c610b53a692e98d40286b98c60f58bb53dc716389454e5532",
+    "random_forest_report.md": "0901c99b46f0801ce42c92f853f09374ff34ba56e15621359d34ae9e0ac0bfcc",
+    "run_manifest.json": "009017abc1c68858bff2bf133b791b23427cb4546976e6a036132034162444f0"
+  }
+}

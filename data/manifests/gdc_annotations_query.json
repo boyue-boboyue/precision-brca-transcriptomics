@@ -1,0 +1,13 @@
+{
+  "filters": {
+    "op": "=",
+    "content": {
+      "field": "project.project_id",
+      "value": "TCGA-BRCA"
+    }
+  },
+  "format": "JSON",
+  "fields": "annotation_id,case_id,case_submitter_id,entity_id,entity_submitter_id,entity_type,category,classification,status,notes,created_datetime,updated_datetime,project.project_id",
+  "size": "10000",
+  "sort": "annotation_id:asc"
+}

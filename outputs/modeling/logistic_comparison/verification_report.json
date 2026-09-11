@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "verified_at_utc": "2026-09-11T10:39:34Z",
+  "checks": [
+    "locked_test_not_used",
+    "five_outer_folds_per_model",
+    "metric_ranges",
+    "development_predictions_complete",
+    "regularization_and_class_weight",
+    "coefficient_axes",
+    "artifact_sha256",
+    "oof_class_metrics_and_report"
+  ],
+  "development_patients": 756,
+  "locked_test_patients_used": 0,
+  "models": [
+    "dummy_prior",
+    "multinomial_logistic_elastic_net",
+    "multinomial_logistic_l2"
+  ]
+}

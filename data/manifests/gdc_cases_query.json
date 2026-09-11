@@ -1,0 +1,15 @@
+{
+  "filters": {
+    "op": "=",
+    "content": {
+      "field": "project.project_id",
+      "value": "TCGA-BRCA"
+    }
+  },
+  "format": "JSON",
+  "fields": "case_id,submitter_id,project.project_id,primary_site,disease_type",
+  "expand": "demographic,diagnoses,exposures,samples,samples.portions,samples.portions.analytes,samples.portions.analytes.aliquots",
+  "size": "2000",
+  "sort": "submitter_id:asc"
+}
+

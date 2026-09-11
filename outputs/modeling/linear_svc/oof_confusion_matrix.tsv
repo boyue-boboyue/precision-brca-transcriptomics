@@ -1,0 +1,17 @@
+model	observed	predicted	count	percent_within_observed
+linear_svc	Luminal A	Luminal A	347	86.96741854636592
+linear_svc	Luminal A	Luminal B	45	11.278195488721805
+linear_svc	Luminal A	Basal-like	0	0.0
+linear_svc	Luminal A	HER2-enriched	7	1.7543859649122806
+linear_svc	Luminal B	Luminal A	26	16.455696202531644
+linear_svc	Luminal B	Luminal B	128	81.0126582278481
+linear_svc	Luminal B	Basal-like	0	0.0
+linear_svc	Luminal B	HER2-enriched	4	2.5316455696202533
+linear_svc	Basal-like	Luminal A	0	0.0
+linear_svc	Basal-like	Luminal B	0	0.0
+linear_svc	Basal-like	Basal-like	134	97.81021897810218
+linear_svc	Basal-like	HER2-enriched	3	2.18978102189781
+linear_svc	HER2-enriched	Luminal A	1	1.6129032258064515
+linear_svc	HER2-enriched	Luminal B	4	6.451612903225806
+linear_svc	HER2-enriched	Basal-like	1	1.6129032258064515
+linear_svc	HER2-enriched	HER2-enriched	56	90.3225806451613

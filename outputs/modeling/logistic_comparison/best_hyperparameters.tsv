@@ -1,0 +1,16 @@
+model	outer_fold	best_inner_macro_f1	best_parameters_json	class_weight	strategy	max_n_iter
+dummy_prior	1	0.1728046078865751	"{""variance_selector__k"": 1000}"		prior	
+dummy_prior	2	0.172617508813161	"{""variance_selector__k"": 1000}"		prior	
+dummy_prior	3	0.172617508813161	"{""variance_selector__k"": 1000}"		prior	
+dummy_prior	4	0.172617508813161	"{""variance_selector__k"": 1000}"		prior	
+dummy_prior	5	0.17297297297297298	"{""variance_selector__k"": 1000}"		prior	
+multinomial_logistic_l2	1	0.8829130246949213	"{""classifier__C"": 0.01, ""classifier__l1_ratio"": 0.0}"	balanced		500.0
+multinomial_logistic_l2	2	0.8824228087998549	"{""classifier__C"": 0.001, ""classifier__l1_ratio"": 0.0}"	balanced		241.0
+multinomial_logistic_l2	3	0.8920226026602096	"{""classifier__C"": 10.0, ""classifier__l1_ratio"": 0.0}"	balanced		1181.0
+multinomial_logistic_l2	4	0.8890146970865569	"{""classifier__C"": 0.1, ""classifier__l1_ratio"": 0.0}"	balanced		725.0
+multinomial_logistic_l2	5	0.8905864074919785	"{""classifier__C"": 0.01, ""classifier__l1_ratio"": 0.0}"	balanced		556.0
+multinomial_logistic_elastic_net	1	0.9001381687484342	"{""classifier__C"": 0.1, ""classifier__l1_ratio"": 0.75}"	balanced		787.0
+multinomial_logistic_elastic_net	2	0.8883921964948052	"{""classifier__C"": 0.1, ""classifier__l1_ratio"": 0.5}"	balanced		770.0
+multinomial_logistic_elastic_net	3	0.9061320382674299	"{""classifier__C"": 1.0, ""classifier__l1_ratio"": 0.75}"	balanced		2837.0
+multinomial_logistic_elastic_net	4	0.879138267120006	"{""classifier__C"": 0.1, ""classifier__l1_ratio"": 0.75}"	balanced		841.0
+multinomial_logistic_elastic_net	5	0.8912788570565876	"{""classifier__C"": 0.1, ""classifier__l1_ratio"": 0.75}"	balanced		886.0

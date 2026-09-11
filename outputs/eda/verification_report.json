@@ -1,0 +1,54 @@
+{
+  "status": "PASS",
+  "verified_artifact_count": 30,
+  "verified_source_count": 7,
+  "figure_count": 10,
+  "figure_dimensions": {
+    "01_sample_inclusion_flow.png": [
+      2094,
+      1971
+    ],
+    "02_pam50_class_balance.png": [
+      3089,
+      1227
+    ],
+    "03_sample_expression_and_library_size.png": [
+      3471,
+      1997
+    ],
+    "04_pca_by_pam50.png": [
+      2215,
+      1687
+    ],
+    "05_pca_by_technical_factors.png": [
+      4760,
+      1485
+    ],
+    "06_top500_hvg_clustered_heatmap.png": [
+      3924,
+      3053
+    ],
+    "07_hierarchical_cluster_subtype_correspondence.png": [
+      3269,
+      1372
+    ],
+    "08_receptor_status_by_pam50.png": [
+      4170,
+      1326
+    ],
+    "09_batch_subtype_overlap.png": [
+      4519,
+      1985
+    ],
+    "10_batch_confounding_metrics.png": [
+      2480,
+      1472
+    ]
+  },
+  "matrix_samples": 1095,
+  "pca_samples": 981,
+  "hvg_count": 1000,
+  "hierarchical_clusters": 5,
+  "pam50_five_class": 981,
+  "pam50_four_class": 945
+}

@@ -1,0 +1,17 @@
+model	observed	predicted	count	percent_within_observed
+random_forest	Luminal A	Luminal A	368	92.23057644110276
+random_forest	Luminal A	Luminal B	29	7.268170426065163
+random_forest	Luminal A	Basal-like	0	0.0
+random_forest	Luminal A	HER2-enriched	2	0.5012531328320802
+random_forest	Luminal B	Luminal A	19	12.025316455696203
+random_forest	Luminal B	Luminal B	138	87.34177215189874
+random_forest	Luminal B	Basal-like	0	0.0
+random_forest	Luminal B	HER2-enriched	1	0.6329113924050633
+random_forest	Basal-like	Luminal A	0	0.0
+random_forest	Basal-like	Luminal B	0	0.0
+random_forest	Basal-like	Basal-like	135	98.54014598540147
+random_forest	Basal-like	HER2-enriched	2	1.4598540145985401
+random_forest	HER2-enriched	Luminal A	0	0.0
+random_forest	HER2-enriched	Luminal B	9	14.516129032258064
+random_forest	HER2-enriched	Basal-like	1	1.6129032258064515
+random_forest	HER2-enriched	HER2-enriched	52	83.87096774193549

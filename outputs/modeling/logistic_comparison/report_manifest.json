@@ -1,0 +1,11 @@
+{
+  "status": "COMPLETE",
+  "created_at_utc": "2026-09-10T16:49:24Z",
+  "summary_script_sha256": "c09cba85c65deb1a30ac003fa0efb5268aa12bc9d74deb7816f935a3d86e49b4",
+  "artifacts_sha256": {
+    "oof_per_class_metrics.tsv": "ec3247a7001316aa7f4b533cda76a59c285e1bae850ec9cb962af6529f268171",
+    "oof_confusion_matrix.tsv": "3e1f22d5c2c17b6b8be0034a00980b5faf59055d53cc56d6d9e332536b2d2752",
+    "model_comparison_report.md": "1422b5539c024abf0b93e5be7263fbfcebb7db0100cbd080cbaeb07ebbd1f64a",
+    "run_manifest.json": "ff6a0129a91e2e00eaa0f457ed793cd6c10ecfbb8ab84cc2fd17f4912ecd0d2c"
+  }
+}

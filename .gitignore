@@ -1,0 +1,27 @@
+# Downloaded and derived data
+data/raw/*
+!data/raw/pancanatlas/
+!data/raw/pancanatlas/**
+!data/raw/cbioportal/
+!data/raw/cbioportal/**
+data/interim/
+data/processed/expression/counts_uint32.npy
+data/processed/expression/tpm_float32.npy
+data/processed/expression/log2_tpm_float32.npy
+
+# Logs and temporary download files
+logs/
+work/
+*.part
+
+# Local handoff archives (too large for normal GitHub storage)
+outputs/exports/*.tar.gz
+outputs/handoff/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# OS metadata
+.DS_Store

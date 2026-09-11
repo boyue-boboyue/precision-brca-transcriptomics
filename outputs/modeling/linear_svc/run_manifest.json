@@ -1,0 +1,30 @@
+{
+  "status": "COMPLETE",
+  "created_at_utc": "2026-09-10T17:02:24Z",
+  "model": "LinearSVC",
+  "kernel": "linear",
+  "rbf_models_fitted": 0,
+  "class_weight": "balanced",
+  "development_n": 756,
+  "locked_test_n": 189,
+  "locked_test_expression_rows_loaded": 0,
+  "locked_test_predictions_generated": 0,
+  "probability_calibration": "CalibratedClassifierCV sigmoid within outer-training data",
+  "outer_folds": 5,
+  "inner_folds": 5,
+  "random_seed": 20260909,
+  "split_lock_sha256": "d8755e9201446d11770c4931702f81c4dca05bd707f85e7c94798077287a78dc",
+  "evaluation_config_sha256": "d39d7606b629d537ba8adc3820169636bcef86226153b9a386f2812c34768553",
+  "linear_svc_config_sha256": "6e7275c0f4f1f59bd9e4fbdd14ebccb746e84af98c4117486fce04aaf8b5f3b2",
+  "runner_sha256": "55239019198981543af641b59cacb66e0e2665a4920d9101312b2edbbd187a76",
+  "matrix_manifest_sha256": "c21506bd6a2014dfdb139031f9e706ee7bbd3642d4c92d53a96efb4a34e0dbba",
+  "output_sha256": {
+    "outer_fold_metrics.tsv": "7b1a91582622db9b6dc647867b28813b8955e010cbf8154edab6bdaab3af9716",
+    "outer_fold_predictions.tsv": "9c0835b39ad103424ccd49ade5fad129d1696cf3393005a6762fe2127452046a",
+    "best_hyperparameters.tsv": "4c97aaccef2ab23aa75eeea8bc44f76d0dca9cba4f18611acf8c5fbc63f68349",
+    "outer_fold_coefficients.tsv.gz": "8044462ecd3d0ab68e7c9cbee7446c119de9fa3940065f99c8a8818cf1cc203d",
+    "convergence_warnings.tsv": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "model_summary.tsv": "1274e09811a110e377df34bbbd6df97553ff81aeda675133e27aaae0392fb7e8",
+    "oof_per_class_metrics.tsv": "5b9ee5eef977371a33037b17ae2e7faf16ff97e873dc4c30babf5e0eaf7a4227"
+  }
+}

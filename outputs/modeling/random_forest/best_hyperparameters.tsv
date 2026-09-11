@@ -1,0 +1,6 @@
+model	outer_fold	best_inner_macro_f1	best_parameters_json	class_weight	classifier_class	n_jobs
+random_forest	1	0.9118107153081564	"{""classifier__max_depth"": 16, ""classifier__max_features"": ""sqrt"", ""classifier__min_samples_leaf"": 1, ""classifier__n_estimators"": 750, ""variance_selector__k"": 2000}"	balanced	RandomForestClassifier	4
+random_forest	2	0.9070985229123064	"{""classifier__max_depth"": 16, ""classifier__max_features"": ""sqrt"", ""classifier__min_samples_leaf"": 1, ""classifier__n_estimators"": 750, ""variance_selector__k"": 2000}"	balanced	RandomForestClassifier	4
+random_forest	3	0.9111805036987676	"{""classifier__max_depth"": 16, ""classifier__max_features"": ""sqrt"", ""classifier__min_samples_leaf"": 1, ""classifier__n_estimators"": 750, ""variance_selector__k"": 2000}"	balanced	RandomForestClassifier	4
+random_forest	4	0.9074407159535125	"{""classifier__max_depth"": 16, ""classifier__max_features"": ""sqrt"", ""classifier__min_samples_leaf"": 1, ""classifier__n_estimators"": 750, ""variance_selector__k"": 2000}"	balanced	RandomForestClassifier	4
+random_forest	5	0.8884962172654136	"{""classifier__max_depth"": 16, ""classifier__max_features"": ""sqrt"", ""classifier__min_samples_leaf"": 1, ""classifier__n_estimators"": 750, ""variance_selector__k"": 2000}"	balanced	RandomForestClassifier	4

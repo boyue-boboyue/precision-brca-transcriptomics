@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "verified_at_utc": "2026-09-11T10:39:34Z",
+  "checks": [
+    "linear_svc_only_no_rbf",
+    "locked_test_not_used",
+    "outer_fold_metrics",
+    "complete_oof_predictions_and_probabilities",
+    "training_only_calibration_and_parameters",
+    "coefficient_axes",
+    "no_convergence_warnings",
+    "artifact_sha256",
+    "comparison_report_and_confusion_matrix"
+  ],
+  "development_patients": 756,
+  "locked_test_patients_used": 0,
+  "rbf_models_fitted": 0
+}

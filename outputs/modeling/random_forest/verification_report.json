@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "verified_at_utc": "2026-09-11T10:39:35Z",
+  "checks": [
+    "random_forest_balanced",
+    "locked_test_not_used",
+    "outer_fold_metrics_and_feature_selection",
+    "complete_oof_predictions_and_probabilities",
+    "locked_parameter_candidates",
+    "importance_axes",
+    "no_training_warnings",
+    "artifact_sha256",
+    "report_artifact_sha256",
+    "all_model_comparison",
+    "paired_same_fold_comparisons",
+    "oof_confusion_matrix"
+  ],
+  "development_patients": 756,
+  "locked_test_patients_used": 0,
+  "class_weight": "balanced"
+}

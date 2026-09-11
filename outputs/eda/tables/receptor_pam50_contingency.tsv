@@ -1,0 +1,76 @@
+marker	subtype	status	count	row_percent	subtype_n
+ER	Luminal A	Positive	469	93.9879759519038	499
+ER	Luminal A	Negative	11	2.2044088176352705	499
+ER	Luminal A	Equivocal	0	0.0	499
+ER	Luminal A	Indeterminate	0	0.0	499
+ER	Luminal A	Unknown	19	3.8076152304609217	499
+ER	Luminal B	Positive	182	92.38578680203045	197
+ER	Luminal B	Negative	3	1.5228426395939085	197
+ER	Luminal B	Equivocal	0	0.0	197
+ER	Luminal B	Indeterminate	0	0.0	197
+ER	Luminal B	Unknown	12	6.091370558375634	197
+ER	Basal-like	Positive	20	11.695906432748538	171
+ER	Basal-like	Negative	144	84.21052631578948	171
+ER	Basal-like	Equivocal	0	0.0	171
+ER	Basal-like	Indeterminate	0	0.0	171
+ER	Basal-like	Unknown	7	4.093567251461988	171
+ER	HER2-enriched	Positive	26	33.333333333333336	78
+ER	HER2-enriched	Negative	46	58.97435897435897	78
+ER	HER2-enriched	Equivocal	0	0.0	78
+ER	HER2-enriched	Indeterminate	2	2.5641025641025643	78
+ER	HER2-enriched	Unknown	4	5.128205128205129	78
+ER	Normal-like	Positive	20	55.55555555555556	36
+ER	Normal-like	Negative	13	36.111111111111114	36
+ER	Normal-like	Equivocal	0	0.0	36
+ER	Normal-like	Indeterminate	0	0.0	36
+ER	Normal-like	Unknown	3	8.333333333333334	36
+PR	Luminal A	Positive	433	86.77354709418837	499
+PR	Luminal A	Negative	44	8.817635270541082	499
+PR	Luminal A	Equivocal	0	0.0	499
+PR	Luminal A	Indeterminate	3	0.6012024048096193	499
+PR	Luminal A	Unknown	19	3.8076152304609217	499
+PR	Luminal B	Positive	148	75.1269035532995	197
+PR	Luminal B	Negative	37	18.781725888324875	197
+PR	Luminal B	Equivocal	0	0.0	197
+PR	Luminal B	Indeterminate	0	0.0	197
+PR	Luminal B	Unknown	12	6.091370558375634	197
+PR	Basal-like	Positive	11	6.432748538011696	171
+PR	Basal-like	Negative	151	88.30409356725146	171
+PR	Basal-like	Equivocal	0	0.0	171
+PR	Basal-like	Indeterminate	1	0.5847953216374269	171
+PR	Basal-like	Unknown	8	4.678362573099415	171
+PR	HER2-enriched	Positive	13	16.666666666666668	78
+PR	HER2-enriched	Negative	61	78.2051282051282	78
+PR	HER2-enriched	Equivocal	0	0.0	78
+PR	HER2-enriched	Indeterminate	0	0.0	78
+PR	HER2-enriched	Unknown	4	5.128205128205129	78
+PR	Normal-like	Positive	17	47.22222222222222	36
+PR	Normal-like	Negative	16	44.44444444444444	36
+PR	Normal-like	Equivocal	0	0.0	36
+PR	Normal-like	Indeterminate	0	0.0	36
+PR	Normal-like	Unknown	3	8.333333333333334	36
+HER2	Luminal A	Positive	55	11.022044088176353	499
+HER2	Luminal A	Negative	275	55.11022044088176	499
+HER2	Luminal A	Equivocal	76	15.230460921843687	499
+HER2	Luminal A	Indeterminate	5	1.002004008016032	499
+HER2	Luminal A	Unknown	88	17.635270541082164	499
+HER2	Luminal B	Positive	30	15.228426395939087	197
+HER2	Luminal B	Negative	94	47.71573604060914	197
+HER2	Luminal B	Equivocal	40	20.304568527918782	197
+HER2	Luminal B	Indeterminate	4	2.030456852791878	197
+HER2	Luminal B	Unknown	29	14.720812182741117	197
+HER2	Basal-like	Positive	9	5.2631578947368425	171
+HER2	Basal-like	Negative	103	60.23391812865497	171
+HER2	Basal-like	Equivocal	28	16.374269005847953	171
+HER2	Basal-like	Indeterminate	2	1.1695906432748537	171
+HER2	Basal-like	Unknown	29	16.95906432748538	171
+HER2	HER2-enriched	Positive	47	60.256410256410255	78
+HER2	HER2-enriched	Negative	13	16.666666666666668	78
+HER2	HER2-enriched	Equivocal	6	7.6923076923076925	78
+HER2	HER2-enriched	Indeterminate	0	0.0	78
+HER2	HER2-enriched	Unknown	12	15.384615384615385	78
+HER2	Normal-like	Positive	3	8.333333333333334	36
+HER2	Normal-like	Negative	16	44.44444444444444	36
+HER2	Normal-like	Equivocal	8	22.22222222222222	36
+HER2	Normal-like	Indeterminate	0	0.0	36
+HER2	Normal-like	Unknown	9	25.0	36

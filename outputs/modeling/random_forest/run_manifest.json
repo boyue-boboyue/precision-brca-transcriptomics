@@ -1,0 +1,30 @@
+{
+  "status": "COMPLETE",
+  "created_at_utc": "2026-09-11T10:17:07Z",
+  "model": "RandomForestClassifier",
+  "class_weight": "balanced",
+  "development_n": 756,
+  "locked_test_n": 189,
+  "locked_test_expression_rows_loaded": 0,
+  "locked_test_predictions_generated": 0,
+  "outer_folds": 5,
+  "inner_folds": 5,
+  "candidate_parameter_sets": 9,
+  "random_seed": 20260909,
+  "forest_n_jobs": 4,
+  "split_lock_sha256": "d8755e9201446d11770c4931702f81c4dca05bd707f85e7c94798077287a78dc",
+  "evaluation_config_sha256": "d39d7606b629d537ba8adc3820169636bcef86226153b9a386f2812c34768553",
+  "random_forest_config_sha256": "7e13d03f7bb9a7ea376bcc48633a5517b0a94df0199be505bf42045803ef6b4b",
+  "runner_sha256": "6ce3a0808262a8c6257a5b1cd9c3739cedc1a3cc7d09e4ce017017cf653d2bd0",
+  "matrix_manifest_sha256": "c21506bd6a2014dfdb139031f9e706ee7bbd3642d4c92d53a96efb4a34e0dbba",
+  "importance_caveat": "Impurity importance is saved for diagnostics only; held-out permutation importance remains required for biological interpretation.",
+  "output_sha256": {
+    "outer_fold_metrics.tsv": "062dd20f573d09b8d17f4dd8daf2bc25c48ad1f181fa5cd31cee93d5ca92a5ac",
+    "outer_fold_predictions.tsv": "bcec46b867024f32f08171ef200993be401738a58c1488329876509eda88c89b",
+    "best_hyperparameters.tsv": "e6396e569c5057977110b9f8988642c04c7aee3c3bb6ad2f61deb87cb3c7e2ce",
+    "outer_fold_impurity_importance.tsv.gz": "dfb90f9dfaf7e4958bbf2ad5e1aa325dfc06ad1814d49cfc0d2e99c434a8b142",
+    "warnings.tsv": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "model_summary.tsv": "bf95a9a5306f91d1b9bef7f8ea2f74fef3dd2d60cc0f1a1092f37b0371135a9d",
+    "oof_per_class_metrics.tsv": "611ecff7bfe249aff8a7e620a8b9706618bc759f30212f7b75f3b4b1cf2f77f9"
+  }
+}

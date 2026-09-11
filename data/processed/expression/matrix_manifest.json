@@ -1,0 +1,109 @@
+{
+  "advisory_annotation_categories": [
+    "History of unacceptable prior treatment related to a prior/other malignancy",
+    "Neoadjuvant therapy",
+    "Prior malignancy"
+  ],
+  "analysis_eligible_sample_count": 1094,
+  "artifacts": {
+    "candidate_file_audit.tsv": {
+      "bytes": 260562,
+      "sha256": "b761d758eb8f4f5fd6cc3f969614193e0f126bd91c7374f22981bb156a755801"
+    },
+    "counts_uint32.npy": {
+      "bytes": 265690928,
+      "sha256": "8a820d8dd77a47ec8b133d7221bd9d36a95a7b338c49d1ab97589a9b06f10eb4"
+    },
+    "genes.tsv": {
+      "bytes": 3902176,
+      "sha256": "5e652730b5cead743014ab039995821bd91f80da80d95dbdb66a5caaa84094cb"
+    },
+    "log2_tpm_float32.npy": {
+      "bytes": 265690928,
+      "sha256": "992cf12149d7e2bf1e0185a90560835bc9643e89397c2a1200ee4d192eef3542"
+    },
+    "pam50_four_class_eligible_sample_indices.npy": {
+      "bytes": 3908,
+      "sha256": "689ef4e4967c1ed6bc0ae2d7de87a4d733fcb29b932499641aefb6efd86ec12c"
+    },
+    "pam50_four_class_sample_indices.npy": {
+      "bytes": 3908,
+      "sha256": "689ef4e4967c1ed6bc0ae2d7de87a4d733fcb29b932499641aefb6efd86ec12c"
+    },
+    "pam50_labelled_sample_indices.npy": {
+      "bytes": 4052,
+      "sha256": "1423dd0724fcc75700f4aa5e69af7fe0efbe486e3dfaf8c46945829d67a0ba33"
+    },
+    "protein_coding_gene_indices.npy": {
+      "bytes": 79976,
+      "sha256": "93a3ecfc94c2384a9fe3e48efc1849341801a9919f3e556d9260e720a039c228"
+    },
+    "samples.tsv": {
+      "bytes": 405805,
+      "sha256": "b97f70c3a3ce933adcacd7004ed15c1a012b54b4cec0f17bb749dda64a7b8cbb"
+    },
+    "tpm_float32.npy": {
+      "bytes": 265690928,
+      "sha256": "6e7a19af690dccb941bebf06acccc1429861918417625a39f8e4ab5fee1273c8"
+    }
+  },
+  "axis_order": "rows=samples; columns=genes",
+  "builder_script_sha256": "1e195782b78195d046f0902b5d0153f944f47c0fb1d04e2f06759d68cf3d36a1",
+  "built_at_utc": "2026-09-09T06:58:53Z",
+  "case_selection": "one Primary Tumor STAR Counts file per TCGA case",
+  "class_counts": {
+    "Basal-like": 171,
+    "HER2-enriched": 78,
+    "Luminal A": 499,
+    "Luminal B": 197,
+    "Normal-like": 36
+  },
+  "counts_dtype": "uint32",
+  "counts_source_column": "unstranded",
+  "critical_annotation_categories": [
+    "Biospecimen identity unknown",
+    "Genotype mismatch",
+    "Item does not meet study protocol",
+    "Item flagged DNU",
+    "Item is noncanonical",
+    "Subject identity unknown"
+  ],
+  "critical_annotation_sample_count": 1,
+  "eligible_class_counts": {
+    "Basal-like": 171,
+    "HER2-enriched": 78,
+    "Luminal A": 499,
+    "Luminal B": 197,
+    "Normal-like": 36
+  },
+  "four_class_eligible_sample_count": 945,
+  "four_class_sample_count": 945,
+  "gdc_annotations_sha256": "b83e862fbf01e2e86d424e20609df86ff45faef7cd375db5bc843c8ff3b83533",
+  "gdc_api_commit": "8f7c2a51ab0084b216ad1b62a3fae8b945439c53",
+  "gdc_data_release": "Data Release 46.0 - August 10, 2026",
+  "gdc_file_sample_map_sha256": "6b16d8186a8bd8a26bf1a078137debe78f2aeab90b6b89d062c8ae786af5e296",
+  "gene_count": 60660,
+  "gene_model": "GENCODE v36",
+  "labelled_sample_count": 981,
+  "log2_tpm_dtype": "float32",
+  "log_transform": "log2(tpm_unstranded + 1)",
+  "manifest_version": "1.0.0",
+  "max_observed_gene_count": 7683396,
+  "maximum_tpm_row_sum": 1000000.0213,
+  "minimum_tpm_row_sum": 999999.9761000001,
+  "numpy_version": "2.3.5",
+  "pam50_locked_labels_sha256": "d228bac88aa323cb510510cdb0f787f5b2e78dfb56b573e4f26715c41d1c7ce8",
+  "pandas_version": "2.2.3",
+  "pre_model_filtering": "none; expression/variance filters must be fit inside CV",
+  "protein_coding_gene_count": 19962,
+  "python_version": "3.12.14",
+  "sample_count": 1095,
+  "selection_priority": [
+    "no critical GDC annotation",
+    "highest total gene counts",
+    "highest nonzero gene count",
+    "lexicographically smallest file UUID"
+  ],
+  "tpm_dtype": "float32",
+  "tpm_source_column": "tpm_unstranded"
+}

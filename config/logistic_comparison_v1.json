@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0.0",
+  "locked_at_utc": "2026-09-10T16:06:20Z",
+  "cohort": "four_class",
+  "partition": "development",
+  "locked_test_policy": "No locked-test expression row may be loaded, transformed, fitted, predicted or scored.",
+  "random_seed": 20260909,
+  "outer_folds": 5,
+  "inner_folds": 5,
+  "inner_selection_metric": "macro_f1",
+  "shared_pipeline": {
+    "input": "protein-coding log2(TPM + 1)",
+    "steps": [
+      "low_expression_filter",
+      "median_imputer",
+      "top_variance_1000",
+      "standard_scaler",
+      "classifier"
+    ],
+    "low_expression_rule": "TPM >= 1 in at least 10% of the current training fold",
+    "selected_feature_count": 1000,
+    "fit_scope": "Every transformer is fitted inside each inner-training fold."
+  },
+  "models": {
+    "dummy_prior": {
+      "estimator": "DummyClassifier",
+      "strategy": "prior",
+      "parameter_grid": {}
+    },
+    "multinomial_logistic_l2": {
+      "estimator": "LogisticRegression",
+      "solver": "saga",
+      "class_weight": "balanced",
+      "max_iter": 5000,
+      "parameter_grid": {
+        "classifier__C": [0.001, 0.01, 0.1, 1.0, 10.0],
+        "classifier__l1_ratio": [0.0]
+      }
+    },
+    "multinomial_logistic_elastic_net": {
+      "estimator": "LogisticRegression",
+      "solver": "saga",
+      "class_weight": "balanced",
+      "max_iter": 5000,
+      "parameter_grid": {
+        "classifier__C": [0.001, 0.01, 0.1, 1.0],
+        "classifier__l1_ratio": [0.25, 0.5, 0.75]
+      }
+    }
+  },
+  "outer_metrics": [
+    "macro_f1",
+    "balanced_accuracy",
+    "accuracy",
+    "macro_ovr_roc_auc",
+    "multiclass_log_loss"
+  ],
+  "coefficient_nonzero_threshold": 1e-08,
+  "comparison_rule": {
+    "primary": "mean outer-fold macro_f1",
+    "co_primary": "mean outer-fold balanced_accuracy",
+    "interpretability": "number of selected genes with at least one non-zero class coefficient",
+    "paired_reporting": "outer-fold metric differences; descriptive only because n=5"
+  }
+}

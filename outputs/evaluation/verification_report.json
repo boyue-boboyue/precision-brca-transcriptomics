@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "verified_at_utc": "2026-09-11T10:39:34Z",
+  "checks": [
+    "four_class:cohort_size",
+    "four_class:patient_uniqueness",
+    "four_class:holdout_counts",
+    "four_class:test_fold_seal",
+    "four_class:nested_fold_completeness",
+    "four_class:class_stratification_coverage",
+    "five_class:cohort_size",
+    "five_class:patient_uniqueness",
+    "five_class:holdout_counts",
+    "five_class:test_fold_seal",
+    "five_class:nested_fold_completeness",
+    "five_class:class_stratification_coverage",
+    "primary_holdout_preserved_in_five_class",
+    "locked_artifact_sha256",
+    "locked_test_not_accessed",
+    "transformer_unit_tests"
+  ],
+  "four_class": {
+    "n": 945,
+    "development_n": 756,
+    "locked_test_n": 189,
+    "unique_patient_groups": 945
+  },
+  "five_class": {
+    "n": 981,
+    "development_n": 785,
+    "locked_test_n": 196,
+    "unique_patient_groups": 981,
+    "primary_assignments_preserved": true
+  },
+  "test_set_model_accessed": false
+}

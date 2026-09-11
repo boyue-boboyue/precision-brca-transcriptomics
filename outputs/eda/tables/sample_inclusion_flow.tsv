@@ -1,0 +1,10 @@
+stage	n	disposition
+GDC STAR Counts files	1111	start
+Redundant files after one-file-per-case selection	16	excluded
+Unique case-level Primary Tumor samples	1095	included
+Critical GDC annotation	1	excluded
+Analysis-eligible samples	1094	included
+No locked PanCancer Atlas PAM50 label	113	excluded
+Five-class PAM50 cohort	981	included
+Normal-like removed from primary endpoint	36	excluded
+Four-class primary cohort	945	included

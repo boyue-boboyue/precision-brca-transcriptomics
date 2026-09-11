@@ -1,0 +1,195 @@
+{
+  "generated_at_utc": "2026-09-09T14:50:15Z",
+  "script": "scripts/run_eda.py",
+  "random_seed": 20260909,
+  "artifact_count": 30,
+  "artifacts": [
+    {
+      "path": "eda_report.md",
+      "size_bytes": 3875,
+      "sha256": "620ae7690c07b351f72e94d37d93dc142e5b795bde7cfdedf8e195e606b774bc"
+    },
+    {
+      "path": "eda_summary.json",
+      "size_bytes": 6271,
+      "sha256": "267fbdd32c63959c25f208bf5bd015e6ff45f66a7864bc8a878c9c6a1edbd6c3"
+    },
+    {
+      "path": "figures/01_sample_inclusion_flow.png",
+      "size_bytes": 180624,
+      "sha256": "fe0fdb02b0f1da179a35533bca747c83a6028e6440d4bd743e8ba488ce893666"
+    },
+    {
+      "path": "figures/01_sample_inclusion_flow.svg",
+      "size_bytes": 126153,
+      "sha256": "0d33db87ef0a786aee88c27e919db4cf2eb2b4f57eb7a65212f1c7a302538cb3"
+    },
+    {
+      "path": "figures/02_pam50_class_balance.png",
+      "size_bytes": 139795,
+      "sha256": "8faf5a4826580c7ece9c628b19880b7248b00916a6bbb72fef086f84e363e3af"
+    },
+    {
+      "path": "figures/02_pam50_class_balance.svg",
+      "size_bytes": 80614,
+      "sha256": "63d00614ad3fffb6b92b807ab2802e91bbfcdae8f6c9d7f81a85cdb849ddc043"
+    },
+    {
+      "path": "figures/03_sample_expression_and_library_size.png",
+      "size_bytes": 616928,
+      "sha256": "afd997a70e282ac7eab60a74d334ae797f2e72cf7fd0ec1170861bb4bd31ea0e"
+    },
+    {
+      "path": "figures/04_pca_by_pam50.png",
+      "size_bytes": 513876,
+      "sha256": "396c15127e75a49a2375539445454ae20c3af1ffd06a9ce71f7ac95721400e13"
+    },
+    {
+      "path": "figures/05_pca_by_technical_factors.png",
+      "size_bytes": 801358,
+      "sha256": "6c085f976c0bd1815256a2215ae5ec168516a394ac760aedf165dbeb8a0d560e"
+    },
+    {
+      "path": "figures/06_top500_hvg_clustered_heatmap.png",
+      "size_bytes": 2083692,
+      "sha256": "7712c6e315af795cf41c4e7914fbc49c5aff05082abbebc719a9c007b3d8fd9b"
+    },
+    {
+      "path": "figures/07_hierarchical_cluster_subtype_correspondence.png",
+      "size_bytes": 252165,
+      "sha256": "f2e2349a5cbecf723b48e925cb40804df4911f65511bf87dc9a9de99117938b8"
+    },
+    {
+      "path": "figures/08_receptor_status_by_pam50.png",
+      "size_bytes": 216710,
+      "sha256": "f2308b786e63191c9b0523b6df42bc253551d369ca5697c54de710fece8961da"
+    },
+    {
+      "path": "figures/09_batch_subtype_overlap.png",
+      "size_bytes": 338519,
+      "sha256": "f97cdb872d4c11db8fd9dd1efb2dd8104cb239073993fd34cff1add3fddd3b1d"
+    },
+    {
+      "path": "figures/10_batch_confounding_metrics.png",
+      "size_bytes": 112841,
+      "sha256": "4b3fc1a0246d6b99e2e5ef79bc1f688d130c79490c9eb25a87b1c232c06c01bd"
+    },
+    {
+      "path": "tables/analysis_samples.tsv",
+      "size_bytes": 461640,
+      "sha256": "bdbf7180e8cbfd3ca4decb7a13f39f648bd9054a34989d4ddb3768e4fa4b6b2e"
+    },
+    {
+      "path": "tables/batch_subtype_association.tsv",
+      "size_bytes": 1084,
+      "sha256": "cf52373cd0c9d8698547539936e3ebb16c52700734d09a72611ffc9142a9fd03"
+    },
+    {
+      "path": "tables/batch_subtype_composition.tsv",
+      "size_bytes": 21181,
+      "sha256": "1ae82a8a05935e6e9ee5d0d2ba8b21c7a96f3c113e276e1fde18b494f26e3022"
+    },
+    {
+      "path": "tables/class_balance.tsv",
+      "size_bytes": 473,
+      "sha256": "9596675be9114e1f4aa02bd8b66ad219bb0080e2f8706c0896c4b4d15f4649cd"
+    },
+    {
+      "path": "tables/clustering_metrics.tsv",
+      "size_bytes": 308,
+      "sha256": "dbfcc746e07019da91278fd796bee7cd81d5b2d74fbfcff9b1c605a428d7cb4b"
+    },
+    {
+      "path": "tables/hierarchical_cluster_assignments.tsv",
+      "size_bytes": 49578,
+      "sha256": "31c747cd115de9c0a91c2fabf9ea8681d940e55354f7c8422fa063bce8ad780d"
+    },
+    {
+      "path": "tables/hierarchical_cluster_contingency.tsv",
+      "size_bytes": 156,
+      "sha256": "bcc4ba892f2c7a7e9bf9d096580e13075b107276af507c084665688aa2619bbb"
+    },
+    {
+      "path": "tables/pca_explained_variance.tsv",
+      "size_bytes": 828,
+      "sha256": "e06839dac180dabf97c3ae61af9f2cacc08658fc5ea66146e4812c99b3786b3e"
+    },
+    {
+      "path": "tables/pca_loadings.tsv",
+      "size_bytes": 297162,
+      "sha256": "d56ecd0e3460a854058189afb8c1fc3b61cb0b9368129d9b49d7eb3db308ac23"
+    },
+    {
+      "path": "tables/pca_scores.tsv",
+      "size_bytes": 275757,
+      "sha256": "0bd1c662906ac73db015d500dd88c55e0921f6590693449584905584aa221bde"
+    },
+    {
+      "path": "tables/receptor_association_stats.tsv",
+      "size_bytes": 414,
+      "sha256": "3eaf744873354e293763dc043e2bbfc7eb31d3b03d6a3fee698c6b1654589bce"
+    },
+    {
+      "path": "tables/receptor_pam50_contingency.tsv",
+      "size_bytes": 3489,
+      "sha256": "fd0f806308e953a022a9425b4502502b5c6b8ad9d6bd7baa52c1382a0fa99c28"
+    },
+    {
+      "path": "tables/sample_inclusion_flow.tsv",
+      "size_bytes": 425,
+      "sha256": "6159602a234cd7fe85e0da52a291061c214c97fdfb4cc61526f81c2304d3c9a7"
+    },
+    {
+      "path": "tables/sample_qc_metrics.tsv",
+      "size_bytes": 242686,
+      "sha256": "8abbae6b152ba948f630cb03930e0a95ee0362072d71df31956811b7107772fb"
+    },
+    {
+      "path": "tables/technical_factor_levels.tsv",
+      "size_bytes": 2000,
+      "sha256": "c835322ce333eebfd2ee38f3ce5a5a50636a50883fdbf312b2985b07c3af8f1d"
+    },
+    {
+      "path": "tables/top_1000_variable_genes.tsv",
+      "size_bytes": 104499,
+      "sha256": "1643ab703de551655d0d4adbfa099d4890241e1cb7f96186797a7282b0e92223"
+    }
+  ],
+  "source_files": [
+    {
+      "path": "data/processed/expression/matrix_manifest.json",
+      "size_bytes": 3884,
+      "sha256": "c21506bd6a2014dfdb139031f9e706ee7bbd3642d4c92d53a96efb4a34e0dbba"
+    },
+    {
+      "path": "data/processed/labels/pancanatlas_pam50_lock.json",
+      "size_bytes": 2105,
+      "sha256": "96faca5b7e7a84cb04a6ee1979024cd4dbc9deb37d4c9a92a322fbcba8c0e1bd"
+    },
+    {
+      "path": "data/raw/cbioportal/brca_tcga/receptors/ER_STATUS_BY_IHC.json",
+      "size_bytes": 560693,
+      "sha256": "69d011848c389116b6eb1a79a251a493fb6d831b29ab8c0ec001950b08012893"
+    },
+    {
+      "path": "data/raw/cbioportal/brca_tcga/receptors/PR_STATUS_BY_IHC.json",
+      "size_bytes": 560168,
+      "sha256": "79fe3d530b3b5dc13849414ddcbf303fe51aedc0f94abe0b4831501e8d756268"
+    },
+    {
+      "path": "data/raw/cbioportal/brca_tcga/receptors/IHC_HER2.json",
+      "size_bytes": 435848,
+      "sha256": "19f196559d53e8884f5b40c0b283cd3a71a0f90cd45659b7fdd46677e6b1364d"
+    },
+    {
+      "path": "data/raw/cbioportal/brca_tcga/receptors/source_metadata.json",
+      "size_bytes": 943,
+      "sha256": "e31feaefc1f4ef26d0d421e5de2b4a8d99b9d7ca6b9bba92f6d7c2d28221bbd4"
+    },
+    {
+      "path": "data/raw/cbioportal/brca_tcga/receptors/source_files.sha256",
+      "size_bytes": 511,
+      "sha256": "ff18fdd985c71d97c92da1e28995ab0f489954f0139fdceec704fe6712017ff7"
+    }
+  ]
+}

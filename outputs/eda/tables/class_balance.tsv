@@ -1,0 +1,10 @@
+cohort	subtype	count	percent	cohort_n
+five_class	Luminal A	499	50.8664627930683	981
+five_class	Luminal B	197	20.081549439347604	981
+five_class	Basal-like	171	17.431192660550458	981
+five_class	HER2-enriched	78	7.951070336391437	981
+five_class	Normal-like	36	3.669724770642202	981
+four_class	Luminal A	499	52.804232804232804	945
+four_class	Luminal B	197	20.84656084656085	945
+four_class	Basal-like	171	18.095238095238095	945
+four_class	HER2-enriched	78	8.253968253968255	945

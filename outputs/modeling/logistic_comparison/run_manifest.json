@@ -1,0 +1,32 @@
+{
+  "status": "COMPLETE",
+  "created_at_utc": "2026-09-10T16:45:39Z",
+  "cohort": "four_class",
+  "development_n": 756,
+  "locked_test_n": 189,
+  "locked_test_expression_rows_loaded": 0,
+  "locked_test_predictions_generated": 0,
+  "models": [
+    "dummy_prior",
+    "multinomial_logistic_l2",
+    "multinomial_logistic_elastic_net"
+  ],
+  "logistic_class_weight": "balanced",
+  "outer_folds": 5,
+  "inner_folds": 5,
+  "random_seed": 20260909,
+  "split_lock_sha256": "d8755e9201446d11770c4931702f81c4dca05bd707f85e7c94798077287a78dc",
+  "evaluation_config_sha256": "d39d7606b629d537ba8adc3820169636bcef86226153b9a386f2812c34768553",
+  "comparison_config_sha256": "aed7f11ec06294ffc342b72060aa61d18688b70c11390efde7e986d52c3c3257",
+  "runner_sha256": "d2214b41e64ceee18df361f66fdd7d5cf8ad6d6b8c748e839d14a133b23f8af5",
+  "matrix_manifest_sha256": "c21506bd6a2014dfdb139031f9e706ee7bbd3642d4c92d53a96efb4a34e0dbba",
+  "output_sha256": {
+    "outer_fold_metrics.tsv": "5f1f3567a83c34db634ebb504184f581f7cff832a2f9d501eaf723c72d29d997",
+    "outer_fold_predictions.tsv": "cb387517c41595bdf61b6507911633de1715df54fc533a7e8323a3318b1eea72",
+    "best_hyperparameters.tsv": "7d343df43e7725d7c38c93fed8341d6eaac3fba008aae6e7d5e4c3ef92a3407c",
+    "outer_fold_coefficients.tsv.gz": "1bff114102a76bbee84199845a599acaacd60e5d130d277d90b4b46919474566",
+    "convergence_warnings.tsv": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "model_summary.tsv": "b41c20a691486fea31d1534edc6d1718f8c87ad4f100ce24ee2de4bfa2f3ead2",
+    "paired_outer_fold_differences.tsv": "f447fe9ae50d85f5b92b3b2dd42bc54e9b76f953f0d9cf4fd9b0d6e7f67bc22f"
+  }
+}

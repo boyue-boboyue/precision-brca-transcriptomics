@@ -1,0 +1,14 @@
+{
+  "retrieved_at_utc": "2026-09-09T06:18:07Z",
+  "provider": "cBioPortal",
+  "study_id": "brca_tcga_pan_can_atlas_2018",
+  "study_page_url": "https://www.cbioportal.org/study/summary?id=brca_tcga_pan_can_atlas_2018",
+  "original_data_url": "https://gdc.cancer.gov/about-data/publications/pancanatlas",
+  "api_root": "https://www.cbioportal.org/api",
+  "source_api_endpoint": "https://www.cbioportal.org/api/studies/brca_tcga_pan_can_atlas_2018/clinical-data?clinicalDataType=PATIENT&attributeId=SUBTYPE&projection=DETAILED",
+  "clinical_data_type": "PATIENT",
+  "attribute_id": "SUBTYPE",
+  "page_size": 200,
+  "page_count": 5,
+  "record_count": 981
+}

@@ -1,0 +1,2 @@
+adjusted_rand_index	adjusted_mutual_information	normalized_mutual_information	homogeneity	completeness	v_measure	cluster_purity	bias_corrected_cramers_v
+0.2962603683238408	0.40756610578506675	0.4113469630954706	0.42025592966298386	0.4028078761989099	0.41134696309547053	0.6799184505606524	0.4908654699324597
