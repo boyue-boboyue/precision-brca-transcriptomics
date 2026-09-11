@@ -1,0 +1,49 @@
+{
+  "status": "COMPLETE",
+  "created_at_utc": "2026-09-11T12:22:40Z",
+  "models": [
+    "dummy_prior",
+    "multinomial_logistic_l2",
+    "multinomial_logistic_elastic_net",
+    "linear_svc",
+    "random_forest"
+  ],
+  "feature_schemes": [
+    "pam50_included",
+    "pam50_excluded"
+  ],
+  "development_n_per_model_scheme": 756,
+  "selected_final_model": "random_forest",
+  "locked_test_n": 189,
+  "locked_test_evaluation_count": 1,
+  "inputs_sha256": {
+    "outputs/modeling/logistic_comparison/outer_fold_predictions.tsv": "cb387517c41595bdf61b6507911633de1715df54fc533a7e8323a3318b1eea72",
+    "outputs/modeling/linear_svc/outer_fold_predictions.tsv": "9c0835b39ad103424ccd49ade5fad129d1696cf3393005a6762fe2127452046a",
+    "outputs/modeling/random_forest/outer_fold_predictions.tsv": "bcec46b867024f32f08171ef200993be401738a58c1488329876509eda88c89b",
+    "outputs/modeling/pam50_excluded/outer_fold_predictions.tsv": "90696ad77d6b2aee79b112098aa727348f3218a9054f9bddab371b8f6c1089d8",
+    "outputs/final_evaluation/run_manifest.json": "8960fd34a22ef98b1759239eb9345d3b8ffa18581ad5b0850194c4d67c03ebf7",
+    "config/final_model_lock_v1.json": "a6f81c5ee991c9c05deb2144f6347e5a873140e1f1792a222fe80f48f3f4d1b0"
+  },
+  "outputs_sha256": {
+    "nested_cv_summary.tsv": "8696e2b3c3d2390e533fd2d0c3cfd55adc1f94ebb0ef963eb81fceeb77872f9d",
+    "nested_cv_fold_metrics.tsv": "094c484fb90e185d4f34c55aee4195bd6fb5f228e4a1f793cdb1e11ba1ff09e2",
+    "pam50_included_excluded_differences.tsv": "dda3ced7a6e3a8a997656b49e0b0c74d65b166b2f7f7a480e6823ec932141e90",
+    "model_selection.tsv": "0f17bdfb2e3a2251867f0cbe7f2360f1270c9fe808817da374c3fd5343ddf119",
+    "unified_performance_report.md": "e4e8691b47afcb63838dd93d8a512d5fb6cfa004d2c087db7c30c917c522c647",
+    "oof_pr_auc.tsv": "f6eea2276369a50371a3ff0644744e2210f6223cd93fd3ce4ac0a4bd7e88eb2e",
+    "oof_curve_points.tsv.gz": "cabc6ed25b016b264caff05b188fd423af3defb168e0788e14a0b436039cea9a",
+    "oof_roc_auc.tsv": "dfb6dd1199e02fb8e4f87a072964ea44ea0e43318fbba5fc878d3f6cb6041ee3",
+    "oof_per_class_metrics.tsv": "9e485993edf5534c5302d2b107242a9bc2f2f46904018142d837e513f1abdf70",
+    "oof_confusion_matrices.tsv": "ac76313c2fb67ce42679578e18ec5fc75454a3f65cd1ce98e1e7ac76ab7970e1",
+    "figures/04_oof_pr_included.png": "d679a932553176ec4d1578f67d8c05bf7dba830df00a0eb216604972d7e20369",
+    "figures/01_nested_cv_performance.png": "80faf0bb856f96e1282733b458c88977842b0cf0e09554ed66dd43576943969a",
+    "figures/02b_oof_confusion_excluded.png": "c326d2e0d7dfe14b9105a14eff2a97d630f78388fd3e29d95be4b587546d0158",
+    "figures/07_locked_test_performance.png": "51cdb4894f6ac8e891fa7313aaf19809417c38107bd40031f803c0fa7cb0f5bd",
+    "figures/04b_oof_pr_excluded.png": "bd834b0733d8d4d8cdfccb6d672bf3ba53928b785f699f542f772557c974ec3f",
+    "figures/03b_oof_roc_excluded.png": "5ab1fe46052c4daf32ad84585000434b09b42aada19b57666cea6ddf7156ecd4",
+    "figures/02_oof_confusion_included.png": "e5f525b74c0e9a23f26294eb1705650394fd1484ececc24c3b4911161b0cfa71",
+    "figures/03_oof_roc_included.png": "7fa649c17ee0d9ff967eb5e55b098f4ba9aacf833bf39517e69b31f0d4c9d107",
+    "figures/06_pam50_exclusion_delta.png": "ed9f81af177cea5f8da070fc2a284060c8221e26de6ccbc5d4f060704431cc9c"
+  },
+  "generator_sha256": "ff1b9bcdb02a69c76f7039335153c2f6fece4cbc894e384ac387dddc5cf00540"
+}

@@ -3,13 +3,13 @@
 **快照日期：** 2026-09-11  
 **工作目录：** `oncostratify-brca-interpretable-machine-learning-for`  
 **协议版本：** 0.1.3  
-**当前阶段：** 数据、标签、表达矩阵、探索性分析和严格评估框架已完成；Dummy、multinomial logistic L2、elastic-net、LinearSVC及balanced random forest的development-only nested CV已完成，locked test尚未评估。
+**当前阶段：** 数据、标签、表达矩阵、探索性分析、严格评估框架、五模型nested CV、PAM50排除敏感性、最终模型冻结及唯一一次locked-test评估均已完成；统一性能报告与验证状态为`PASS`。
 
 ## 1. 可从这里继续
 
-下一步应综合已完成候选模型，并把随机森林五折均命中特征数网格上限这一发现作为明确标记的补充敏感性分析；同时完成预设的PAM50基因排除敏感性分析。由于上限问题是在查看结果后发现，扩展特征数不得追溯称为原始主分析。完成后冻结最终模型、超参数选择流程和决策规则。
+下一步应进行模型解释：在未参与相应拟合的数据上计算permutation importance，使用仅来自development的SHAP background，并完成跨折特征稳定性分析。189例locked test已按冻结规则评估一次，禁止再次用于候选模型比较、追加调参或模型选择。
 
-189例四分类locked test病例不得用于预处理拟合、特征选择、模型比较或性能估计。只有development-set模型选择和最终模型规则冻结后，才允许进行一次最终测试评估。
+随机森林五折均命中特征数网格上限。若探索高于2,000个基因，必须标记为查看结果后触发的development-only补充敏感性分析，且不得借此重新访问locked test。
 
 不要根据完整队列的 EDA 结果手工挑选预测基因。低表达过滤、方差筛选、特征选择、缺失值处理和标准化必须在每个训练折内部拟合。
 
@@ -111,6 +111,25 @@ EDA已生成并验证以下10类图表：
 - Gini impurity importance仅保留作诊断，不能直接作为生物学结论；最终解释仍需使用未参与拟合数据上的permutation importance并检查跨折稳定性。
 - 独立验证状态`PASS`；产生756个唯一development OOF预测；使用locked-test病例数为0。
 
+### 2.8 PAM50 signature 排除敏感性
+
+- 使用`genefu`官方PAM50 centroid文件，固定到commit `9c9b66d1ef22cbfda1df75b626d2dbc68fb9b25c`，锁定50个基因及当前矩阵列。
+- 历史符号解析：`CDCA1→NUF2`、`KNTC2→NDC80`、`ORC6L→ORC6`；50个基因均唯一匹配protein-coding矩阵列。
+- 排除发生在低表达过滤、插补、方差筛选、标准化和分类器之前；所有模型沿用原网格及同一5×5 folds。
+- excluded mean macro F1：Dummy `0.173`、L2 `0.871`、elastic-net `0.866`、LinearSVC `0.871`、random forest `0.902`。
+- random forest 的excluded − included配对折差：macro F1 `−0.002 ± 0.010`；balanced accuracy `+0.001 ± 0.014`。
+- 每个模型有756个唯一OOF预测；全部折所选特征与锁定PAM50基因零重合；locked-test使用数为0。
+
+### 2.9 最终模型与统一性能报告
+
+- 主分析按预设mean outer-fold macro F1排序。random forest `0.905`，elastic-net `0.890`，差值`0.015`高于`0.01`平局阈值，因此未触发简约性平局规则。
+- 最终模型锁：PAM50-included balanced random forest；完整development内部调参仍选择2,000基因、750棵树、depth 16、leaf 1、`max_features="sqrt"`。
+- 189例locked test仅评估一次：balanced accuracy `0.907`（95% CI `0.855–0.945`），macro F1 `0.885`（`0.836–0.929`），accuracy `0.884`，macro OvR ROC-AUC `0.981`，macro average precision `0.927`。
+- 测试集逐类F1：Luminal A `0.899`、Luminal B `0.773`、Basal-like `0.985`、HER2-enriched `0.882`。
+- 小类别PR-AUC/AP：Basal-like `0.994`（n=34），HER2-enriched `0.887`（n=16）。
+- 置信区间使用1,000次病例级、按真实类别分层的percentile bootstrap；有效重复数1,000。
+- 统一报告包含两种特征方案、五个模型的逐折均值/SD、聚合OOF混淆矩阵、逐类precision/recall/F1、ROC-AUC、PR-AUC、曲线点及最终测试结果；验证状态`PASS`。
+
 ## 3. 关键文件
 
 ### 协议与报告
@@ -149,6 +168,12 @@ EDA已生成并验证以下10类图表：
 - `scripts/run_random_forest.py`：balanced random forest的development-only nested CV及折内高方差筛选。
 - `scripts/summarize_random_forest.py`：汇总逐类结果、混淆矩阵及与全部已完成模型的同折比较。
 - `scripts/verify_random_forest.py`：验证参数锁、逐病例概率、特征重要性轴、报告哈希和locked-test隔离。
+- `scripts/lock_pam50_signature.py`：把50个PAM50 signature基因锁定到当前表达矩阵列。
+- `scripts/run_pam50_excluded_nested_cv.py`：在Pipeline前排除PAM50基因并重跑全部五个模型。
+- `scripts/lock_final_model.py`：仅使用development外层结果应用预设规则并冻结最终模型。
+- `scripts/run_final_locked_test.py`：完整development内部调参、一次性locked-test评估及分层bootstrap。
+- `scripts/generate_unified_performance_report.py`：从已保存预测生成统一表格、ROC/PR曲线和报告。
+- `scripts/verify_unified_performance_report.py`：验证OOF完整性、PAM50零重合、模型锁、测试集唯一访问、bootstrap和产物哈希。
 
 ### 评估配置与输出
 
@@ -163,6 +188,12 @@ EDA已生成并验证以下10类图表：
 - `outputs/modeling/linear_svc/`：LinearSVC逐折指标、OOF决策值与校准概率、参数、系数、比较报告及验证清单。
 - `config/random_forest_v1.json`：首次随机森林拟合前锁定的9组参数、balanced类别权重和特征筛选规则。
 - `outputs/modeling/random_forest/`：随机森林逐折指标、OOF概率、最佳参数、impurity importance、全模型比较、报告及验证清单。
+- `config/pam50_exclusion_v1.json`与`data/processed/labels/pam50_signature_genes_v1.tsv`：PAM50排除方案及50基因锁。
+- `outputs/modeling/pam50_excluded/`：五模型excluded nested-CV指标、OOF预测、参数与入选特征审计。
+- `config/final_model_lock_v1.json`：最终模型、主排名、阈值裁决和唯一测试评估程序锁。
+- `data/processed/splits/final_test_access_v1.json`：不可追加第二次评估的一次性访问记录。
+- `outputs/final_evaluation/`：最终模型调参、189例预测、逐类结果、curve points和1,000次bootstrap。
+- `outputs/performance_report/`：统一Markdown报告、TSV表、9张图、manifest和`PASS`验证报告。
 
 ## 4. 恢复环境与校验
 
@@ -175,6 +206,7 @@ python3 -m venv .venv
 .venv/bin/python scripts/verify_logistic_comparison.py
 .venv/bin/python scripts/verify_linear_svc.py
 .venv/bin/python scripts/verify_random_forest.py
+.venv/bin/python scripts/verify_unified_performance_report.py
 ```
 
 预期所有校验脚本均输出 `"status": "PASS"`。
@@ -192,16 +224,16 @@ python3 -m venv .venv
 
 ## 6. 下一阶段建议清单
 
-1. 将随机森林特征数高于2,000的开发集分析登记为结果触发的补充敏感性分析，并在运行前锁定范围和判断标准。
-2. 分别运行PAM50-included和PAM50-excluded特征方案；后者仍需补充并锁定PAM50基因清单。
-3. 综合全部候选模型的外层fold表现、折间稳定性、概率质量、稀疏性与可解释性。
-4. 按预设macro F1规则和明确的平局/简约性规则确定最终模型并冻结最终配置。
-5. 只在上述步骤完成后评估一次locked test set。
-6. 随后进行系数、held-out permutation importance、SHAP和跨折特征稳定性分析。
+1. 对最终random forest执行held-out permutation importance，并报告跨重采样稳定性。
+2. 使用development-only background计算SHAP；展示病例须遵循协议中的预先定义选择规则。
+3. 对逻辑回归/SVM系数和随机森林重要性做跨折特征稳定性与通路层级汇总。
+4. 如探索高于2,000个基因，先另行锁定development-only补充方案，且不得重新评估locked test。
+5. 将性能与解释结果整合为最终方法学/限制说明。
 
 ## 7. 注意事项
 
-- 当前目录不是Git仓库；若后续需要版本控制，应在开始监督学习前初始化并提交当前快照。
+- 项目已初始化为Git仓库并推送到私有GitHub仓库`boyue-boboyue/precision-brca-transcriptomics`。
+- 原始`split_lock.json`保留为首次最终评估前的不可变证书；最终访问状态记录在追加式`final_test_access_v1.json`，不得删除或重写以尝试第二次测试评估。
 - `.venv`、原始STAR Counts和大型矩阵不应直接提交到普通Git仓库；建议使用数据版本库、对象存储或Git LFS。
 - 全队列EDA只用于描述，不能把观察到的HVG、PCA或cluster结果当作未经交叉验证的特征选择依据。
 - PAM50标签来自表达模式，因此本项目评估的是对既有PAM50分型的复现能力，而不是独立发现新的临床亚型。

@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "verified_at_utc": "2026-09-11T12:23:04Z",
+  "checks": [
+    "pam50_signature_50_unique_genes_and_aliases",
+    "pam50_exclusion_lock_hashes",
+    "pam50_excluded_oof_complete_no_signature_leakage",
+    "unified_oof_tables_complete",
+    "preregistered_model_selection_applied",
+    "locked_test_exactly_once_and_partition_integrity",
+    "locked_test_metrics_and_stratified_bootstrap",
+    "manifests_hashes_report_and_figures"
+  ],
+  "development_n_per_model_scheme": 756,
+  "locked_test_n": 189,
+  "locked_test_evaluation_count": 1,
+  "selected_model": "random_forest"
+}

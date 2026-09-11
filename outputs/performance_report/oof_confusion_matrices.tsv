@@ -1,0 +1,161 @@
+feature_scheme	model	observed	predicted	count	row_fraction
+pam50_included	dummy_prior	Luminal A	Luminal A	399	1.0
+pam50_included	dummy_prior	Luminal A	Luminal B	0	0.0
+pam50_included	dummy_prior	Luminal A	Basal-like	0	0.0
+pam50_included	dummy_prior	Luminal A	HER2-enriched	0	0.0
+pam50_included	dummy_prior	Luminal B	Luminal A	158	1.0
+pam50_included	dummy_prior	Luminal B	Luminal B	0	0.0
+pam50_included	dummy_prior	Luminal B	Basal-like	0	0.0
+pam50_included	dummy_prior	Luminal B	HER2-enriched	0	0.0
+pam50_included	dummy_prior	Basal-like	Luminal A	137	1.0
+pam50_included	dummy_prior	Basal-like	Luminal B	0	0.0
+pam50_included	dummy_prior	Basal-like	Basal-like	0	0.0
+pam50_included	dummy_prior	Basal-like	HER2-enriched	0	0.0
+pam50_included	dummy_prior	HER2-enriched	Luminal A	62	1.0
+pam50_included	dummy_prior	HER2-enriched	Luminal B	0	0.0
+pam50_included	dummy_prior	HER2-enriched	Basal-like	0	0.0
+pam50_included	dummy_prior	HER2-enriched	HER2-enriched	0	0.0
+pam50_included	multinomial_logistic_l2	Luminal A	Luminal A	348	0.8721804511278195
+pam50_included	multinomial_logistic_l2	Luminal A	Luminal B	44	0.11027568922305764
+pam50_included	multinomial_logistic_l2	Luminal A	Basal-like	1	0.002506265664160401
+pam50_included	multinomial_logistic_l2	Luminal A	HER2-enriched	6	0.015037593984962405
+pam50_included	multinomial_logistic_l2	Luminal B	Luminal A	30	0.189873417721519
+pam50_included	multinomial_logistic_l2	Luminal B	Luminal B	123	0.7784810126582279
+pam50_included	multinomial_logistic_l2	Luminal B	Basal-like	1	0.006329113924050633
+pam50_included	multinomial_logistic_l2	Luminal B	HER2-enriched	4	0.02531645569620253
+pam50_included	multinomial_logistic_l2	Basal-like	Luminal A	0	0.0
+pam50_included	multinomial_logistic_l2	Basal-like	Luminal B	0	0.0
+pam50_included	multinomial_logistic_l2	Basal-like	Basal-like	133	0.9708029197080292
+pam50_included	multinomial_logistic_l2	Basal-like	HER2-enriched	4	0.029197080291970802
+pam50_included	multinomial_logistic_l2	HER2-enriched	Luminal A	1	0.016129032258064516
+pam50_included	multinomial_logistic_l2	HER2-enriched	Luminal B	5	0.08064516129032258
+pam50_included	multinomial_logistic_l2	HER2-enriched	Basal-like	0	0.0
+pam50_included	multinomial_logistic_l2	HER2-enriched	HER2-enriched	56	0.9032258064516129
+pam50_included	multinomial_logistic_elastic_net	Luminal A	Luminal A	356	0.8922305764411027
+pam50_included	multinomial_logistic_elastic_net	Luminal A	Luminal B	37	0.09273182957393483
+pam50_included	multinomial_logistic_elastic_net	Luminal A	Basal-like	0	0.0
+pam50_included	multinomial_logistic_elastic_net	Luminal A	HER2-enriched	6	0.015037593984962405
+pam50_included	multinomial_logistic_elastic_net	Luminal B	Luminal A	22	0.13924050632911392
+pam50_included	multinomial_logistic_elastic_net	Luminal B	Luminal B	134	0.8481012658227848
+pam50_included	multinomial_logistic_elastic_net	Luminal B	Basal-like	0	0.0
+pam50_included	multinomial_logistic_elastic_net	Luminal B	HER2-enriched	2	0.012658227848101266
+pam50_included	multinomial_logistic_elastic_net	Basal-like	Luminal A	0	0.0
+pam50_included	multinomial_logistic_elastic_net	Basal-like	Luminal B	0	0.0
+pam50_included	multinomial_logistic_elastic_net	Basal-like	Basal-like	134	0.9781021897810219
+pam50_included	multinomial_logistic_elastic_net	Basal-like	HER2-enriched	3	0.021897810218978103
+pam50_included	multinomial_logistic_elastic_net	HER2-enriched	Luminal A	1	0.016129032258064516
+pam50_included	multinomial_logistic_elastic_net	HER2-enriched	Luminal B	4	0.06451612903225806
+pam50_included	multinomial_logistic_elastic_net	HER2-enriched	Basal-like	2	0.03225806451612903
+pam50_included	multinomial_logistic_elastic_net	HER2-enriched	HER2-enriched	55	0.8870967741935484
+pam50_included	linear_svc	Luminal A	Luminal A	347	0.8696741854636592
+pam50_included	linear_svc	Luminal A	Luminal B	45	0.11278195488721804
+pam50_included	linear_svc	Luminal A	Basal-like	0	0.0
+pam50_included	linear_svc	Luminal A	HER2-enriched	7	0.017543859649122806
+pam50_included	linear_svc	Luminal B	Luminal A	26	0.16455696202531644
+pam50_included	linear_svc	Luminal B	Luminal B	128	0.810126582278481
+pam50_included	linear_svc	Luminal B	Basal-like	0	0.0
+pam50_included	linear_svc	Luminal B	HER2-enriched	4	0.02531645569620253
+pam50_included	linear_svc	Basal-like	Luminal A	0	0.0
+pam50_included	linear_svc	Basal-like	Luminal B	0	0.0
+pam50_included	linear_svc	Basal-like	Basal-like	134	0.9781021897810219
+pam50_included	linear_svc	Basal-like	HER2-enriched	3	0.021897810218978103
+pam50_included	linear_svc	HER2-enriched	Luminal A	1	0.016129032258064516
+pam50_included	linear_svc	HER2-enriched	Luminal B	4	0.06451612903225806
+pam50_included	linear_svc	HER2-enriched	Basal-like	1	0.016129032258064516
+pam50_included	linear_svc	HER2-enriched	HER2-enriched	56	0.9032258064516129
+pam50_included	random_forest	Luminal A	Luminal A	368	0.9223057644110275
+pam50_included	random_forest	Luminal A	Luminal B	29	0.07268170426065163
+pam50_included	random_forest	Luminal A	Basal-like	0	0.0
+pam50_included	random_forest	Luminal A	HER2-enriched	2	0.005012531328320802
+pam50_included	random_forest	Luminal B	Luminal A	19	0.12025316455696203
+pam50_included	random_forest	Luminal B	Luminal B	138	0.8734177215189873
+pam50_included	random_forest	Luminal B	Basal-like	0	0.0
+pam50_included	random_forest	Luminal B	HER2-enriched	1	0.006329113924050633
+pam50_included	random_forest	Basal-like	Luminal A	0	0.0
+pam50_included	random_forest	Basal-like	Luminal B	0	0.0
+pam50_included	random_forest	Basal-like	Basal-like	135	0.9854014598540146
+pam50_included	random_forest	Basal-like	HER2-enriched	2	0.014598540145985401
+pam50_included	random_forest	HER2-enriched	Luminal A	0	0.0
+pam50_included	random_forest	HER2-enriched	Luminal B	9	0.14516129032258066
+pam50_included	random_forest	HER2-enriched	Basal-like	1	0.016129032258064516
+pam50_included	random_forest	HER2-enriched	HER2-enriched	52	0.8387096774193549
+pam50_excluded	dummy_prior	Luminal A	Luminal A	399	1.0
+pam50_excluded	dummy_prior	Luminal A	Luminal B	0	0.0
+pam50_excluded	dummy_prior	Luminal A	Basal-like	0	0.0
+pam50_excluded	dummy_prior	Luminal A	HER2-enriched	0	0.0
+pam50_excluded	dummy_prior	Luminal B	Luminal A	158	1.0
+pam50_excluded	dummy_prior	Luminal B	Luminal B	0	0.0
+pam50_excluded	dummy_prior	Luminal B	Basal-like	0	0.0
+pam50_excluded	dummy_prior	Luminal B	HER2-enriched	0	0.0
+pam50_excluded	dummy_prior	Basal-like	Luminal A	137	1.0
+pam50_excluded	dummy_prior	Basal-like	Luminal B	0	0.0
+pam50_excluded	dummy_prior	Basal-like	Basal-like	0	0.0
+pam50_excluded	dummy_prior	Basal-like	HER2-enriched	0	0.0
+pam50_excluded	dummy_prior	HER2-enriched	Luminal A	62	1.0
+pam50_excluded	dummy_prior	HER2-enriched	Luminal B	0	0.0
+pam50_excluded	dummy_prior	HER2-enriched	Basal-like	0	0.0
+pam50_excluded	dummy_prior	HER2-enriched	HER2-enriched	0	0.0
+pam50_excluded	multinomial_logistic_l2	Luminal A	Luminal A	348	0.8721804511278195
+pam50_excluded	multinomial_logistic_l2	Luminal A	Luminal B	46	0.11528822055137844
+pam50_excluded	multinomial_logistic_l2	Luminal A	Basal-like	0	0.0
+pam50_excluded	multinomial_logistic_l2	Luminal A	HER2-enriched	5	0.012531328320802004
+pam50_excluded	multinomial_logistic_l2	Luminal B	Luminal A	31	0.1962025316455696
+pam50_excluded	multinomial_logistic_l2	Luminal B	Luminal B	125	0.7911392405063291
+pam50_excluded	multinomial_logistic_l2	Luminal B	Basal-like	0	0.0
+pam50_excluded	multinomial_logistic_l2	Luminal B	HER2-enriched	2	0.012658227848101266
+pam50_excluded	multinomial_logistic_l2	Basal-like	Luminal A	0	0.0
+pam50_excluded	multinomial_logistic_l2	Basal-like	Luminal B	0	0.0
+pam50_excluded	multinomial_logistic_l2	Basal-like	Basal-like	133	0.9708029197080292
+pam50_excluded	multinomial_logistic_l2	Basal-like	HER2-enriched	4	0.029197080291970802
+pam50_excluded	multinomial_logistic_l2	HER2-enriched	Luminal A	3	0.04838709677419355
+pam50_excluded	multinomial_logistic_l2	HER2-enriched	Luminal B	4	0.06451612903225806
+pam50_excluded	multinomial_logistic_l2	HER2-enriched	Basal-like	0	0.0
+pam50_excluded	multinomial_logistic_l2	HER2-enriched	HER2-enriched	55	0.8870967741935484
+pam50_excluded	multinomial_logistic_elastic_net	Luminal A	Luminal A	348	0.8721804511278195
+pam50_excluded	multinomial_logistic_elastic_net	Luminal A	Luminal B	44	0.11027568922305764
+pam50_excluded	multinomial_logistic_elastic_net	Luminal A	Basal-like	0	0.0
+pam50_excluded	multinomial_logistic_elastic_net	Luminal A	HER2-enriched	7	0.017543859649122806
+pam50_excluded	multinomial_logistic_elastic_net	Luminal B	Luminal A	31	0.1962025316455696
+pam50_excluded	multinomial_logistic_elastic_net	Luminal B	Luminal B	124	0.7848101265822784
+pam50_excluded	multinomial_logistic_elastic_net	Luminal B	Basal-like	0	0.0
+pam50_excluded	multinomial_logistic_elastic_net	Luminal B	HER2-enriched	3	0.0189873417721519
+pam50_excluded	multinomial_logistic_elastic_net	Basal-like	Luminal A	0	0.0
+pam50_excluded	multinomial_logistic_elastic_net	Basal-like	Luminal B	0	0.0
+pam50_excluded	multinomial_logistic_elastic_net	Basal-like	Basal-like	133	0.9708029197080292
+pam50_excluded	multinomial_logistic_elastic_net	Basal-like	HER2-enriched	4	0.029197080291970802
+pam50_excluded	multinomial_logistic_elastic_net	HER2-enriched	Luminal A	2	0.03225806451612903
+pam50_excluded	multinomial_logistic_elastic_net	HER2-enriched	Luminal B	4	0.06451612903225806
+pam50_excluded	multinomial_logistic_elastic_net	HER2-enriched	Basal-like	1	0.016129032258064516
+pam50_excluded	multinomial_logistic_elastic_net	HER2-enriched	HER2-enriched	55	0.8870967741935484
+pam50_excluded	linear_svc	Luminal A	Luminal A	346	0.8671679197994987
+pam50_excluded	linear_svc	Luminal A	Luminal B	48	0.12030075187969924
+pam50_excluded	linear_svc	Luminal A	Basal-like	0	0.0
+pam50_excluded	linear_svc	Luminal A	HER2-enriched	5	0.012531328320802004
+pam50_excluded	linear_svc	Luminal B	Luminal A	29	0.18354430379746836
+pam50_excluded	linear_svc	Luminal B	Luminal B	125	0.7911392405063291
+pam50_excluded	linear_svc	Luminal B	Basal-like	0	0.0
+pam50_excluded	linear_svc	Luminal B	HER2-enriched	4	0.02531645569620253
+pam50_excluded	linear_svc	Basal-like	Luminal A	0	0.0
+pam50_excluded	linear_svc	Basal-like	Luminal B	0	0.0
+pam50_excluded	linear_svc	Basal-like	Basal-like	134	0.9781021897810219
+pam50_excluded	linear_svc	Basal-like	HER2-enriched	3	0.021897810218978103
+pam50_excluded	linear_svc	HER2-enriched	Luminal A	1	0.016129032258064516
+pam50_excluded	linear_svc	HER2-enriched	Luminal B	4	0.06451612903225806
+pam50_excluded	linear_svc	HER2-enriched	Basal-like	1	0.016129032258064516
+pam50_excluded	linear_svc	HER2-enriched	HER2-enriched	56	0.9032258064516129
+pam50_excluded	random_forest	Luminal A	Luminal A	365	0.9147869674185464
+pam50_excluded	random_forest	Luminal A	Luminal B	29	0.07268170426065163
+pam50_excluded	random_forest	Luminal A	Basal-like	0	0.0
+pam50_excluded	random_forest	Luminal A	HER2-enriched	5	0.012531328320802004
+pam50_excluded	random_forest	Luminal B	Luminal A	22	0.13924050632911392
+pam50_excluded	random_forest	Luminal B	Luminal B	135	0.8544303797468354
+pam50_excluded	random_forest	Luminal B	Basal-like	0	0.0
+pam50_excluded	random_forest	Luminal B	HER2-enriched	1	0.006329113924050633
+pam50_excluded	random_forest	Basal-like	Luminal A	0	0.0
+pam50_excluded	random_forest	Basal-like	Luminal B	0	0.0
+pam50_excluded	random_forest	Basal-like	Basal-like	135	0.9854014598540146
+pam50_excluded	random_forest	Basal-like	HER2-enriched	2	0.014598540145985401
+pam50_excluded	random_forest	HER2-enriched	Luminal A	1	0.016129032258064516
+pam50_excluded	random_forest	HER2-enriched	Luminal B	6	0.0967741935483871
+pam50_excluded	random_forest	HER2-enriched	Basal-like	1	0.016129032258064516
+pam50_excluded	random_forest	HER2-enriched	HER2-enriched	54	0.8709677419354839

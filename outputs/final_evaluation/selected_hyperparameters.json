@@ -1,0 +1,12 @@
+{
+  "best_parameters": {
+    "classifier__max_depth": 16,
+    "classifier__max_features": "sqrt",
+    "classifier__min_samples_leaf": 1,
+    "classifier__n_estimators": 750,
+    "variance_selector__k": 2000
+  },
+  "best_internal_macro_f1": 0.9066909909419494,
+  "development_n": 756,
+  "folds": 5
+}

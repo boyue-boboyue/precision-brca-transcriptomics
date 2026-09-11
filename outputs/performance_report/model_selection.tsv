@@ -1,0 +1,6 @@
+rank	model	macro_f1_mean	macro_f1_std	balanced_accuracy_mean	balanced_accuracy_std	selected	selection_metric	tie_threshold_macro_f1
+1	random_forest	0.9047360301064644	0.03756580918880493	0.9045974342812337	0.040795526284460634	True	mean_outer_fold_macro_f1	0.01
+2	multinomial_logistic_elastic_net	0.8897079186988727	0.05298531993415464	0.9006002699784601	0.05031896277887404	False	mean_outer_fold_macro_f1	0.01
+3	linear_svc	0.8717065566809813	0.03354647744004589	0.8899974008333288	0.04192060701957673	False	mean_outer_fold_macro_f1	0.01
+4	multinomial_logistic_l2	0.8659689772219744	0.04265525100614634	0.8808305734812727	0.04204902752369296	False	mean_outer_fold_macro_f1	0.01
+5	dummy_prior	0.17272668860375004	0.0006397072207610478	0.25	0.0	False	mean_outer_fold_macro_f1	0.01

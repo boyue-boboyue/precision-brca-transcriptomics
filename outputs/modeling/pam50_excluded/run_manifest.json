@@ -1,0 +1,35 @@
+{
+  "status": "COMPLETE",
+  "created_at_utc": "2026-09-11T12:13:15Z",
+  "feature_scheme": "pam50_excluded",
+  "models": [
+    "dummy_prior",
+    "multinomial_logistic_l2",
+    "multinomial_logistic_elastic_net",
+    "linear_svc",
+    "random_forest"
+  ],
+  "development_n": 756,
+  "locked_test_n": 189,
+  "locked_test_expression_rows_loaded": 0,
+  "locked_test_predictions_generated": 0,
+  "candidate_protein_coding_genes_before_exclusion": 19962,
+  "candidate_genes_after_exclusion": 19912,
+  "excluded_pam50_gene_count": 50,
+  "outer_folds": 5,
+  "inner_folds": 5,
+  "random_seed": 20260909,
+  "split_lock_sha256": "d8755e9201446d11770c4931702f81c4dca05bd707f85e7c94798077287a78dc",
+  "pam50_exclusion_config_sha256": "0f1553052371eb44852f535f7822a6accd5c756caa06213ec5bbe7b3a98ead66",
+  "pam50_gene_table_sha256": "1b3394124b09fb55ecf3a6002a2936057d477f85393bc8c3f5426a690c9173a8",
+  "runner_sha256": "81df48188aabdc816f14a0b7513df8bb8961c15375c69e8e96146a1ef9d92087",
+  "matrix_manifest_sha256": "c21506bd6a2014dfdb139031f9e706ee7bbd3642d4c92d53a96efb4a34e0dbba",
+  "output_sha256": {
+    "outer_fold_metrics.tsv": "b2c58dce85bf4bc00b7bbfd129abd358f8a664de8b8cf9e9711915b48ac3519b",
+    "outer_fold_predictions.tsv": "90696ad77d6b2aee79b112098aa727348f3218a9054f9bddab371b8f6c1089d8",
+    "best_hyperparameters.tsv": "2863abec3633f8e282010d8593903e153530498029c96482ff4249e511d1a0b9",
+    "selected_features.tsv.gz": "8b8f6d7f29cb7f01853efddf6fcc3d449f3a6a8076669fa8c310b3b4685c35b5",
+    "warnings.tsv": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "model_summary.tsv": "2f358c115457b6b8c880ec1abb4f397bf73550f9b962e323845a550683fe67e8"
+  }
+}

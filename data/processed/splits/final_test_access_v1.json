@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0.0",
+  "status": "COMPLETE",
+  "started_at_utc": "2026-09-11T12:17:35Z",
+  "evaluation_attempt": 1,
+  "model": "random_forest",
+  "locked_test_n": 189,
+  "final_model_lock_sha256": "a6f81c5ee991c9c05deb2144f6347e5a873140e1f1792a222fe80f48f3f4d1b0",
+  "split_lock_sha256": "d8755e9201446d11770c4931702f81c4dca05bd707f85e7c94798077287a78dc",
+  "selected_hyperparameters_sha256": "96da9bf6b632b6db732220e8eb9fb666668c7f5cd28000ed2c6c019c878a3870",
+  "completed_at_utc": "2026-09-11T12:17:36Z",
+  "locked_test_expression_rows_loaded": 189,
+  "locked_test_predictions_generated": 189,
+  "prediction_file": "outputs/final_evaluation/locked_test_predictions.tsv",
+  "prediction_sha256": "3e035cb4f593212a17f9550e91f94abfec55cda2fb909cff6d0dad685e8879a2"
+}

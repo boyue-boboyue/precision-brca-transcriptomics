@@ -1,0 +1,41 @@
+feature_scheme	model	pam50_class	average_precision	prevalence	support
+pam50_included	dummy_prior	Luminal A	0.5262606278553464	0.5277777777777778	399
+pam50_included	dummy_prior	Luminal B	0.20714616967074076	0.20899470899470898	158
+pam50_included	dummy_prior	Basal-like	0.17957770716683868	0.18121693121693122	137
+pam50_included	dummy_prior	HER2-enriched	0.08032189161998254	0.082010582010582	62
+pam50_included	multinomial_logistic_l2	Luminal A	0.9587397941459808	0.5277777777777778	399
+pam50_included	multinomial_logistic_l2	Luminal B	0.8045329122868898	0.20899470899470898	158
+pam50_included	multinomial_logistic_l2	Basal-like	0.9981355229810662	0.18121693121693122	137
+pam50_included	multinomial_logistic_l2	HER2-enriched	0.9372139221230755	0.082010582010582	62
+pam50_included	multinomial_logistic_elastic_net	Luminal A	0.9765899689748094	0.5277777777777778	399
+pam50_included	multinomial_logistic_elastic_net	Luminal B	0.8770986803134534	0.20899470899470898	158
+pam50_included	multinomial_logistic_elastic_net	Basal-like	0.999078457179807	0.18121693121693122	137
+pam50_included	multinomial_logistic_elastic_net	HER2-enriched	0.9410476538691837	0.082010582010582	62
+pam50_included	linear_svc	Luminal A	0.969540330076411	0.5277777777777778	399
+pam50_included	linear_svc	Luminal B	0.8417901595064797	0.20899470899470898	158
+pam50_included	linear_svc	Basal-like	0.9982257759415338	0.18121693121693122	137
+pam50_included	linear_svc	HER2-enriched	0.9210659998880617	0.082010582010582	62
+pam50_included	random_forest	Luminal A	0.9851455654840094	0.5277777777777778	399
+pam50_included	random_forest	Luminal B	0.8887882555357216	0.20899470899470898	158
+pam50_included	random_forest	Basal-like	0.9991927380688505	0.18121693121693122	137
+pam50_included	random_forest	HER2-enriched	0.9352143663913288	0.082010582010582	62
+pam50_excluded	dummy_prior	Luminal A	0.5262606278553464	0.5277777777777778	399
+pam50_excluded	dummy_prior	Luminal B	0.20714616967074076	0.20899470899470898	158
+pam50_excluded	dummy_prior	Basal-like	0.17957770716683868	0.18121693121693122	137
+pam50_excluded	dummy_prior	HER2-enriched	0.08032189161998254	0.082010582010582	62
+pam50_excluded	multinomial_logistic_l2	Luminal A	0.9704223299545193	0.5277777777777778	399
+pam50_excluded	multinomial_logistic_l2	Luminal B	0.8306927617809045	0.20899470899470898	158
+pam50_excluded	multinomial_logistic_l2	Basal-like	0.996468912618539	0.18121693121693122	137
+pam50_excluded	multinomial_logistic_l2	HER2-enriched	0.9374798265145894	0.082010582010582	62
+pam50_excluded	multinomial_logistic_elastic_net	Luminal A	0.9634690962611118	0.5277777777777778	399
+pam50_excluded	multinomial_logistic_elastic_net	Luminal B	0.8197408725375334	0.20899470899470898	158
+pam50_excluded	multinomial_logistic_elastic_net	Basal-like	0.9953597650056869	0.18121693121693122	137
+pam50_excluded	multinomial_logistic_elastic_net	HER2-enriched	0.9187103126687292	0.082010582010582	62
+pam50_excluded	linear_svc	Luminal A	0.9682107311896119	0.5277777777777778	399
+pam50_excluded	linear_svc	Luminal B	0.8265490421958942	0.20899470899470898	158
+pam50_excluded	linear_svc	Basal-like	0.9979449324370764	0.18121693121693122	137
+pam50_excluded	linear_svc	HER2-enriched	0.9076246102346515	0.082010582010582	62
+pam50_excluded	random_forest	Luminal A	0.981291325915033	0.5277777777777778	399
+pam50_excluded	random_forest	Luminal B	0.8628048049511244	0.20899470899470898	158
+pam50_excluded	random_forest	Basal-like	0.998580104816122	0.18121693121693122	137
+pam50_excluded	random_forest	HER2-enriched	0.9163184711319453	0.082010582010582	62

@@ -1,0 +1,163 @@
+{
+  "schema_version": "1.0.0",
+  "locked_at_utc": "2026-09-11T12:13:55Z",
+  "selection_feature_scheme": "pam50_included",
+  "selection_partition": "development",
+  "selection_rule": {
+    "primary": "mean outer-fold macro_f1",
+    "co_primary_reported": "mean outer-fold balanced_accuracy",
+    "tie_threshold_macro_f1": 0.01,
+    "tie_break_order": [
+      "fewer_features",
+      "greater_outer_fold_stability",
+      "greater_interpretability",
+      "lower_computational_cost"
+    ]
+  },
+  "candidate_ranking": [
+    {
+      "model": "random_forest",
+      "macro_f1_mean": 0.9047360301064644,
+      "macro_f1_std": 0.03756580918880493,
+      "balanced_accuracy_mean": 0.9045974342812337,
+      "balanced_accuracy_std": 0.040795526284460634
+    },
+    {
+      "model": "multinomial_logistic_elastic_net",
+      "macro_f1_mean": 0.8897079186988727,
+      "macro_f1_std": 0.05298531993415464,
+      "balanced_accuracy_mean": 0.9006002699784601,
+      "balanced_accuracy_std": 0.05031896277887404
+    },
+    {
+      "model": "linear_svc",
+      "macro_f1_mean": 0.8717065566809813,
+      "macro_f1_std": 0.03354647744004589,
+      "balanced_accuracy_mean": 0.8899974008333288,
+      "balanced_accuracy_std": 0.04192060701957673
+    },
+    {
+      "model": "multinomial_logistic_l2",
+      "macro_f1_mean": 0.8659689772219744,
+      "macro_f1_std": 0.04265525100614634,
+      "balanced_accuracy_mean": 0.8808305734812727,
+      "balanced_accuracy_std": 0.04204902752369296
+    },
+    {
+      "model": "dummy_prior",
+      "macro_f1_mean": 0.17272668860375004,
+      "macro_f1_std": 0.0006397072207610478,
+      "balanced_accuracy_mean": 0.25,
+      "balanced_accuracy_std": 0.0
+    }
+  ],
+  "selected_model": "random_forest",
+  "selected_estimator": "RandomForestClassifier",
+  "selection_margin_over_runner_up_macro_f1": 0.015028111407591749,
+  "runner_up": "multinomial_logistic_elastic_net",
+  "tie_break_invoked": false,
+  "final_training": {
+    "development_n": 756,
+    "candidate_gene_scheme": "all protein-coding genes; PAM50 included",
+    "pipeline_order": [
+      "low_expression_filter",
+      "median_imputation",
+      "variance_feature_selection",
+      "standard_scaling",
+      "classifier"
+    ],
+    "hyperparameter_selection": "GridSearchCV on the complete development set using the five locked outer-fold assignments as internal validation folds",
+    "refit_metric": "macro_f1",
+    "candidate_parameter_sets": [
+      {
+        "variance_selector__k": 500,
+        "classifier__n_estimators": 250,
+        "classifier__max_depth": null,
+        "classifier__min_samples_leaf": 1,
+        "classifier__max_features": "sqrt"
+      },
+      {
+        "variance_selector__k": 500,
+        "classifier__n_estimators": 500,
+        "classifier__max_depth": 16,
+        "classifier__min_samples_leaf": 3,
+        "classifier__max_features": 0.2
+      },
+      {
+        "variance_selector__k": 500,
+        "classifier__n_estimators": 750,
+        "classifier__max_depth": 32,
+        "classifier__min_samples_leaf": 5,
+        "classifier__max_features": 0.1
+      },
+      {
+        "variance_selector__k": 1000,
+        "classifier__n_estimators": 250,
+        "classifier__max_depth": 16,
+        "classifier__min_samples_leaf": 5,
+        "classifier__max_features": 0.1
+      },
+      {
+        "variance_selector__k": 1000,
+        "classifier__n_estimators": 500,
+        "classifier__max_depth": 32,
+        "classifier__min_samples_leaf": 1,
+        "classifier__max_features": "sqrt"
+      },
+      {
+        "variance_selector__k": 1000,
+        "classifier__n_estimators": 750,
+        "classifier__max_depth": null,
+        "classifier__min_samples_leaf": 3,
+        "classifier__max_features": 0.2
+      },
+      {
+        "variance_selector__k": 2000,
+        "classifier__n_estimators": 250,
+        "classifier__max_depth": 32,
+        "classifier__min_samples_leaf": 3,
+        "classifier__max_features": 0.2
+      },
+      {
+        "variance_selector__k": 2000,
+        "classifier__n_estimators": 500,
+        "classifier__max_depth": null,
+        "classifier__min_samples_leaf": 5,
+        "classifier__max_features": 0.1
+      },
+      {
+        "variance_selector__k": 2000,
+        "classifier__n_estimators": 750,
+        "classifier__max_depth": 16,
+        "classifier__min_samples_leaf": 1,
+        "classifier__max_features": "sqrt"
+      }
+    ],
+    "class_weight": "balanced",
+    "random_seed": 20260909
+  },
+  "locked_test": {
+    "n": 189,
+    "allowed_evaluation_count": 1,
+    "bootstrap_repetitions": 1000,
+    "bootstrap_unit": "case",
+    "bootstrap_stratified_by": "observed PAM50 class",
+    "confidence_interval": "percentile 95%",
+    "runner": "scripts/run_final_locked_test.py",
+    "runner_sha256": "74b61fe2b78c93bcf8e7e5f54a7331b8bf951b8f6682e7c7b221dcaf7a7f2f1b"
+  },
+  "sensitivity_note": "PAM50-excluded results are reported descriptively and were not used to override the prespecified PAM50-included primary ranking.",
+  "inputs_sha256": {
+    "config/evaluation.json": "d39d7606b629d537ba8adc3820169636bcef86226153b9a386f2812c34768553",
+    "config/random_forest_v1.json": "7e13d03f7bb9a7ea376bcc48633a5517b0a94df0199be505bf42045803ef6b4b",
+    "config/logistic_comparison_v1.json": "aed7f11ec06294ffc342b72060aa61d18688b70c11390efde7e986d52c3c3257",
+    "config/linear_svc_v1.json": "6e7275c0f4f1f59bd9e4fbdd14ebccb746e84af98c4117486fce04aaf8b5f3b2",
+    "config/pam50_exclusion_v1.json": "0f1553052371eb44852f535f7822a6accd5c756caa06213ec5bbe7b3a98ead66",
+    "outputs/modeling/pam50_excluded/run_manifest.json": "0866f5049c8c7ac2d2e84033198d711eed21ee09a66993c8dd1dd71645b0d9c0",
+    "outputs/modeling/logistic_comparison/outer_fold_metrics.tsv": "5f1f3567a83c34db634ebb504184f581f7cff832a2f9d501eaf723c72d29d997",
+    "outputs/modeling/linear_svc/outer_fold_metrics.tsv": "7b1a91582622db9b6dc647867b28813b8955e010cbf8154edab6bdaab3af9716",
+    "outputs/modeling/random_forest/outer_fold_metrics.tsv": "062dd20f573d09b8d17f4dd8daf2bc25c48ad1f181fa5cd31cee93d5ca92a5ac",
+    "data/processed/splits/split_lock.json": "d8755e9201446d11770c4931702f81c4dca05bd707f85e7c94798077287a78dc"
+  },
+  "locker_sha256": "318a15a10b9739ae4225693a929db968b333b5ff004a5a14917558bdde58df65"
+}

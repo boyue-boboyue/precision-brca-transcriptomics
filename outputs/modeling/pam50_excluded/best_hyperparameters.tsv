@@ -1,0 +1,26 @@
+feature_scheme	model	outer_fold	best_inner_macro_f1	best_parameters_json	classifier_class	class_weight	probability_source
+pam50_excluded	dummy_prior	1	0.1728046078865751	"{""variance_selector__k"": 1000}"	DummyClassifier		native_predict_proba
+pam50_excluded	dummy_prior	2	0.172617508813161	"{""variance_selector__k"": 1000}"	DummyClassifier		native_predict_proba
+pam50_excluded	dummy_prior	3	0.172617508813161	"{""variance_selector__k"": 1000}"	DummyClassifier		native_predict_proba
+pam50_excluded	dummy_prior	4	0.172617508813161	"{""variance_selector__k"": 1000}"	DummyClassifier		native_predict_proba
+pam50_excluded	dummy_prior	5	0.17297297297297298	"{""variance_selector__k"": 1000}"	DummyClassifier		native_predict_proba
+pam50_excluded	multinomial_logistic_l2	1	0.87867972659812	"{""classifier__C"": 0.1, ""classifier__l1_ratio"": 0.0}"	LogisticRegression	balanced	native_predict_proba
+pam50_excluded	multinomial_logistic_l2	2	0.8702394564472318	"{""classifier__C"": 0.01, ""classifier__l1_ratio"": 0.0}"	LogisticRegression	balanced	native_predict_proba
+pam50_excluded	multinomial_logistic_l2	3	0.889189089160241	"{""classifier__C"": 0.01, ""classifier__l1_ratio"": 0.0}"	LogisticRegression	balanced	native_predict_proba
+pam50_excluded	multinomial_logistic_l2	4	0.8812869653775108	"{""classifier__C"": 0.01, ""classifier__l1_ratio"": 0.0}"	LogisticRegression	balanced	native_predict_proba
+pam50_excluded	multinomial_logistic_l2	5	0.8735763816087416	"{""classifier__C"": 0.01, ""classifier__l1_ratio"": 0.0}"	LogisticRegression	balanced	native_predict_proba
+pam50_excluded	multinomial_logistic_elastic_net	1	0.8772103181027943	"{""classifier__C"": 1.0, ""classifier__l1_ratio"": 0.25}"	LogisticRegression	balanced	native_predict_proba
+pam50_excluded	multinomial_logistic_elastic_net	2	0.8701560471350771	"{""classifier__C"": 0.1, ""classifier__l1_ratio"": 0.5}"	LogisticRegression	balanced	native_predict_proba
+pam50_excluded	multinomial_logistic_elastic_net	3	0.8833755734866282	"{""classifier__C"": 0.1, ""classifier__l1_ratio"": 0.25}"	LogisticRegression	balanced	native_predict_proba
+pam50_excluded	multinomial_logistic_elastic_net	4	0.8621172830233526	"{""classifier__C"": 0.1, ""classifier__l1_ratio"": 0.25}"	LogisticRegression	balanced	native_predict_proba
+pam50_excluded	multinomial_logistic_elastic_net	5	0.8689106047813461	"{""classifier__C"": 0.1, ""classifier__l1_ratio"": 0.5}"	LogisticRegression	balanced	native_predict_proba
+pam50_excluded	linear_svc	1	0.8761627984823075	"{""classifier__C"": 0.001}"	LinearSVC	balanced	training_only_sigmoid_calibration
+pam50_excluded	linear_svc	2	0.8583713281287146	"{""classifier__C"": 0.001}"	LinearSVC	balanced	training_only_sigmoid_calibration
+pam50_excluded	linear_svc	3	0.8687159138582576	"{""classifier__C"": 0.01}"	LinearSVC	balanced	training_only_sigmoid_calibration
+pam50_excluded	linear_svc	4	0.8732551456467007	"{""classifier__C"": 0.001}"	LinearSVC	balanced	training_only_sigmoid_calibration
+pam50_excluded	linear_svc	5	0.856935906399924	"{""classifier__C"": 0.001}"	LinearSVC	balanced	training_only_sigmoid_calibration
+pam50_excluded	random_forest	1	0.9112529405221712	"{""classifier__max_depth"": 16, ""classifier__max_features"": ""sqrt"", ""classifier__min_samples_leaf"": 1, ""classifier__n_estimators"": 750, ""variance_selector__k"": 2000}"	RandomForestClassifier	balanced	native_predict_proba
+pam50_excluded	random_forest	2	0.900448422486064	"{""classifier__max_depth"": 16, ""classifier__max_features"": ""sqrt"", ""classifier__min_samples_leaf"": 1, ""classifier__n_estimators"": 750, ""variance_selector__k"": 2000}"	RandomForestClassifier	balanced	native_predict_proba
+pam50_excluded	random_forest	3	0.9166831470598998	"{""classifier__max_depth"": 16, ""classifier__max_features"": ""sqrt"", ""classifier__min_samples_leaf"": 1, ""classifier__n_estimators"": 750, ""variance_selector__k"": 2000}"	RandomForestClassifier	balanced	native_predict_proba
+pam50_excluded	random_forest	4	0.907199828409941	"{""classifier__max_depth"": 32, ""classifier__max_features"": 0.2, ""classifier__min_samples_leaf"": 3, ""classifier__n_estimators"": 250, ""variance_selector__k"": 2000}"	RandomForestClassifier	balanced	native_predict_proba
+pam50_excluded	random_forest	5	0.8792470573297292	"{""classifier__max_depth"": 16, ""classifier__max_features"": ""sqrt"", ""classifier__min_samples_leaf"": 1, ""classifier__n_estimators"": 750, ""variance_selector__k"": 2000}"	RandomForestClassifier	balanced	native_predict_proba

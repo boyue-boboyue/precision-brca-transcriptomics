@@ -29,3 +29,21 @@
 - 结果触发说明：五个outer folds均选择2,000个基因这一候选上限。若后续测试更大特征数，必须在运行前另行锁定并标记为查看本轮结果后触发的补充敏感性分析，不能追溯为原始主比较。
 - 解释限制：保存的Gini impurity importance仅用于诊断；最终生物学解释必须依赖未参与拟合数据上的permutation importance和跨折稳定性。
 - 分析类型：development-set主要候选模型比较的配置澄清；不改变holdout assignment、outer/inner folds、主要指标或locked-test政策。
+
+## 2026-09-11：PAM50 signature基因锁定与排除敏感性
+
+- 修改内容：使用`genefu`官方PAM50 centroid模型文件，固定到commit `9c9b66d1ef22cbfda1df75b626d2dbc68fb9b25c`，将50个signature基因映射到当前表达矩阵。历史符号按当前HGNC/GENCODE轴解析为`CDCA1→NUF2`、`KNTC2→NDC80`、`ORC6L→ORC6`。
+- 修改原因：协议要求同时报告PAM50-included与PAM50-excluded性能，以量化使用定义标签的signature基因可能带来的直接信息优势。
+- 时间顺序：`config/pam50_exclusion_v1.json`及50基因表在首次excluded模型拟合前锁定；整个分析只使用756例development病例，同一outer/inner folds及原模型网格；locked test使用数为0。
+- 实现澄清：50列在低表达过滤、插补、方差筛选、标准化和分类器之前从protein-coding候选轴移除。全部折入选特征与锁定基因零重合。
+- 结果：random forest的mean macro F1为included `0.905`、excluded `0.902`；paired fold差为`−0.002 ± 0.010`。balanced accuracy为`0.905`与`0.906`。
+- 分析类型：预设敏感性分析；不改变PAM50-included主模型排名。
+
+## 2026-09-11：按预设规则冻结最终模型并进行唯一测试评估
+
+- 修改内容：综合PAM50-included五个候选模型的outer-fold结果，按`config/evaluation.json`预设mean macro F1规则选择random forest。其相对第二名elastic-net的差值为`0.015`，高于`0.01`阈值，未启用特征数/稳定性/解释性平局规则。
+- 时间顺序：`config/final_model_lock_v1.json`在加载任何locked-test表达行之前写入并固定了最终模型、完整development内部调参程序、候选参数、随机种子、一次性访问政策和bootstrap方案。
+- 测试访问：189例locked test于`2026-09-11T12:17:35Z`开始第1次且唯一一次模型评估；`data/processed/splits/final_test_access_v1.json`记录189行加载与189个预测。不得通过追加模型或超参数重新访问该测试集。
+- 结果：balanced accuracy `0.907`（1,000次分层bootstrap 95% CI `0.855–0.945`）；macro F1 `0.885`（`0.836–0.929`）。
+- 协议保护：没有为Dummy、L2、elastic-net、LinearSVC或PAM50-excluded候选分别生成locked-test性能，因为这会把测试集用于模型比较并违反一次性评估政策。
+- 边界敏感性决定：未在测试解锁前结果驱动地扩展随机森林2,000基因上限。任何更大特征数实验只能作为后续development-only补充分析，不能改变已经完成的locked-test评估。

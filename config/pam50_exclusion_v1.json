@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "locked_at_utc": "2026-09-11T11:17:57Z",
+  "analysis": "PAM50-included versus PAM50-excluded development-set sensitivity",
+  "source": {
+    "name": "genefu PAM50 official centroid model",
+    "repository": "https://github.com/bhklab/genefu",
+    "commit": "9c9b66d1ef22cbfda1df75b626d2dbc68fb9b25c",
+    "raw_csv_url": "https://raw.githubusercontent.com/bhklab/genefu/9c9b66d1ef22cbfda1df75b626d2dbc68fb9b25c/inst/extdata/pam50_model.csv",
+    "original_publication": {
+      "citation": "Parker et al., J Clin Oncol 2009",
+      "doi": "10.1200/JCO.2008.18.1370",
+      "pubmed": "https://pubmed.ncbi.nlm.nih.gov/19204204/"
+    }
+  },
+  "gene_count": 50,
+  "source_symbol_aliases": {
+    "CDCA1": "NUF2",
+    "KNTC2": "NDC80",
+    "ORC6L": "ORC6"
+  },
+  "exclusion_rule": "Remove the 50 locked matrix columns from the protein-coding candidate axis before the low-expression filter and all feature selection.",
+  "comparison_scope": "development set only; same locked 5x5 folds and model grids",
+  "selection_policy": "PAM50-included is the primary model-selection analysis; excluded results are a prespecified sensitivity analysis and do not access the locked test set.",
+  "inputs_sha256": {
+    "data/processed/expression/genes.tsv": "5e652730b5cead743014ab039995821bd91f80da80d95dbdb66a5caaa84094cb",
+    "config/evaluation.json": "d39d7606b629d537ba8adc3820169636bcef86226153b9a386f2812c34768553",
+    "config/logistic_comparison_v1.json": "aed7f11ec06294ffc342b72060aa61d18688b70c11390efde7e986d52c3c3257",
+    "config/linear_svc_v1.json": "6e7275c0f4f1f59bd9e4fbdd14ebccb746e84af98c4117486fce04aaf8b5f3b2",
+    "config/random_forest_v1.json": "7e13d03f7bb9a7ea376bcc48633a5517b0a94df0199be505bf42045803ef6b4b",
+    "data/processed/splits/split_lock.json": "d8755e9201446d11770c4931702f81c4dca05bd707f85e7c94798077287a78dc"
+  },
+  "locked_gene_table": "data/processed/labels/pam50_signature_genes_v1.tsv",
+  "locked_gene_table_sha256": "1b3394124b09fb55ecf3a6002a2936057d477f85393bc8c3f5426a690c9173a8",
+  "runner_sha256": "0271f2c9695f1a5a7a8dd929a2bffc2c7183a01277077f19046d3acfb7fac6bf"
+}

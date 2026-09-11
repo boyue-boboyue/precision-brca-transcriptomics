@@ -1,0 +1,2 @@
+model	partition	balanced_accuracy	macro_f1	accuracy	macro_ovr_roc_auc	macro_average_precision	multiclass_log_loss
+random_forest	locked_test	0.9074707767722474	0.8849064350600786	0.8835978835978836	0.9805632136354776	0.9270851927203131	0.38371909088582307
