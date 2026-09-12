@@ -1,0 +1,132 @@
+{
+  "schema_version": "1.0.0",
+  "locked_at_utc": "2026-09-12T16:15:22Z",
+  "analysis_partition": "development outer validation folds plus preselected locked-test cases for explanation only",
+  "random_seed": 20260912,
+  "class_order": [
+    "Luminal A",
+    "Luminal B",
+    "Basal-like",
+    "HER2-enriched"
+  ],
+  "elastic_net": {
+    "source": "saved outer-fold standardized coefficients",
+    "model": "multinomial_logistic_elastic_net",
+    "outer_folds": 5,
+    "missing_or_unselected_coefficient": 0.0,
+    "class_top_positive": 20,
+    "class_top_negative": 20,
+    "stability_cutoffs": [
+      20,
+      50,
+      100
+    ],
+    "primary_stability_cutoff": 20
+  },
+  "permutation_importance": {
+    "model": "random_forest",
+    "fit_partition": "each locked outer-training fold",
+    "evaluation_partition": "corresponding locked outer-validation fold only",
+    "locked_test_rows_loaded": 0,
+    "scoring": [
+      "macro_f1",
+      "balanced_accuracy"
+    ],
+    "primary_scoring": "macro_f1",
+    "repeats": 5,
+    "outer_folds": 5,
+    "forest_n_jobs": 1,
+    "permutation_n_jobs": 4,
+    "stability_cutoffs": [
+      20,
+      50,
+      100
+    ],
+    "primary_stability_cutoff": 20,
+    "missing_or_unselected_importance": 0.0
+  },
+  "shap": {
+    "version": "0.52.0",
+    "explainer": "TreeExplainer",
+    "feature_perturbation": "interventional",
+    "model_output": "probability",
+    "model": "frozen final random_forest refit on all development cases",
+    "background_partition": "development only",
+    "background_n": 100,
+    "background_selection": "class-stratified deterministic sample locked before SHAP computation",
+    "case_selection": "saved prediction class, correctness, confidence and top-two probability margin only",
+    "selected_test_case_n": 6,
+    "purpose": "post-evaluation explanation only; no performance scoring, tuning, or model selection",
+    "predicted_class_top_contributions": 20
+  },
+  "biological_validation": {
+    "stable_gene_rule": "top-20 in at least 3 of 5 outer folds for random-forest permutation importance or for any Elastic-net class",
+    "stable_gene_minimum_outer_folds": 3,
+    "expression_partition": "development only",
+    "subtype_test": "Kruskal-Wallis with Benjamini-Hochberg correction",
+    "pam50_overlap": "locked 50-gene PAM50 signature, including recorded current-symbol alias resolution",
+    "enrichment_service": "g:Profiler g:GOSt JSON API",
+    "enrichment_sources": [
+      "GO:BP",
+      "REAC"
+    ],
+    "enrichment_domain_scope": "custom",
+    "enrichment_background": "union of protein-coding genes passing the training-only low-expression filter in at least one outer fold",
+    "enrichment_background_sensitivity": "genes passing the low-expression filter in all five outer folds",
+    "multiple_testing": "Benjamini-Hochberg FDR",
+    "fdr_threshold": 0.05,
+    "receptor_partition": "development cases with Positive or Negative IHC status",
+    "receptor_test": "two-sided Mann-Whitney U with per-receptor Benjamini-Hochberg correction and rank-biserial effect size",
+    "classification_rules": {
+      "known_marker_or_PAM50": "predeclared expected marker or locked PAM50 signature member",
+      "clinically_correlated_non_PAM50": "not known/PAM50 and any receptor q<0.05 with absolute rank-biserial correlation >=0.33",
+      "potential_candidate_not_novelty_claim": "remaining stable gene with subtype q<0.05; requires independent functional and cohort validation",
+      "other_model_associated": "remaining stable model-associated gene"
+    }
+  },
+  "expected_signal_audit": [
+    "ESR1",
+    "PGR",
+    "ERBB2",
+    "FOXA1",
+    "GATA3",
+    "MKI67",
+    "KRT5",
+    "KRT14",
+    "KRT17",
+    "EGFR"
+  ],
+  "interpretation_caveats": [
+    "High correlation can distribute importance across genes; the first-ranked gene is not necessarily uniquely important.",
+    "All feature attributions are associational and are not causal effects.",
+    "Expected breast-cancer markers are audited but never inserted, promoted, or required to appear.",
+    "PAM50 labels are themselves expression-derived, so prediction is not independent biological subtype discovery."
+  ],
+  "locked_artifacts": {
+    "data/processed/interpretability/shap_case_selection.tsv": "670b3a877c0d2d419fba1deec4bb01682e4a83dd772e45ce743be9f630cc3177",
+    "data/processed/interpretability/shap_background_selection.tsv": "9c284782bb76e64b0744b149375c4b4aa0ba4c39092390c4078950c7c2ccb7a3"
+  },
+  "inputs_sha256": {
+    "config/evaluation.json": "d39d7606b629d537ba8adc3820169636bcef86226153b9a386f2812c34768553",
+    "config/final_model_lock_v1.json": "a6f81c5ee991c9c05deb2144f6347e5a873140e1f1792a222fe80f48f3f4d1b0",
+    "config/random_forest_v1.json": "7e13d03f7bb9a7ea376bcc48633a5517b0a94df0199be505bf42045803ef6b4b",
+    "data/processed/expression/matrix_manifest.json": "c21506bd6a2014dfdb139031f9e706ee7bbd3642d4c92d53a96efb4a34e0dbba",
+    "data/processed/expression/genes.tsv": "5e652730b5cead743014ab039995821bd91f80da80d95dbdb66a5caaa84094cb",
+    "data/processed/expression/protein_coding_gene_indices.npy": "93a3ecfc94c2384a9fe3e48efc1849341801a9919f3e556d9260e720a039c228",
+    "data/processed/labels/pam50_signature_genes_v1.tsv": "1b3394124b09fb55ecf3a6002a2936057d477f85393bc8c3f5426a690c9173a8",
+    "data/processed/splits/four_class_split_assignments.tsv": "8e528e4b7db2112a6240887eb47664048cb32d3ccb28063881dd6ac8333989ca",
+    "data/processed/splits/final_test_access_v1.json": "94bf10e23c0d98687ada237d2896e411e09a95e8e7beb907c915592454d07052",
+    "outputs/eda/tables/analysis_samples.tsv": "bdbf7180e8cbfd3ca4decb7a13f39f648bd9054a34989d4ddb3768e4fa4b6b2e",
+    "outputs/final_evaluation/locked_test_predictions.tsv": "3e035cb4f593212a17f9550e91f94abfec55cda2fb909cff6d0dad685e8879a2",
+    "outputs/final_evaluation/selected_hyperparameters.json": "96da9bf6b632b6db732220e8eb9fb666668c7f5cd28000ed2c6c019c878a3870",
+    "outputs/modeling/logistic_comparison/outer_fold_coefficients.tsv.gz": "1bff114102a76bbee84199845a599acaacd60e5d130d277d90b4b46919474566",
+    "outputs/modeling/random_forest/best_hyperparameters.tsv": "e6396e569c5057977110b9f8988642c04c7aee3c3bb6ad2f61deb87cb3c7e2ce",
+    "scripts/run_interpretability.py": "556d52add6f9e06d0751ff095f86c092f4f809fb777935a9d7a3af1cb839f062",
+    "scripts/run_biological_validation.py": "d0fb1980425f1bb87a5df1dbd61461f1d3bb08c1ffdf34d6d80c7e7fa805a36a",
+    "scripts/fetch_functional_enrichment.py": "97963207fe5eafff460f29688516fdc0b64964b80cf73fa924570b321f9e680e",
+    "scripts/generate_interpretability_report.py": "ee3b009feae6165d6675e3c05d1ebd0f36bb53958e4461b87a0c7732c23ca760",
+    "scripts/verify_interpretability.py": "a3fb1662702096087dd6b90f6431877c15a003c545164c9dd343722e5a43f664",
+    "requirements-interpretability.txt": "b2a1cf8ddd47ca815501542828f5ad8b4416e47fa12725f9e3345dca553801a2"
+  },
+  "locker_sha256": "181c7922b1079815c2921b28eaef10fa0808f2b4305c08d64418bce1e98f2b2e"
+}

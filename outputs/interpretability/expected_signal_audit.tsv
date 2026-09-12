@@ -1,0 +1,41 @@
+pam50_class	matrix_column	gene_name	mean_coefficient_including_zeros	mean_absolute_coefficient_including_zeros	selected_fold_count	nonzero_fold_count	sign_consistency	top20_outer_fold_count	top20_outer_fold_frequency	rf_selected_fold_count	macro_f1_importance_mean_including_unselected_zeros	balanced_accuracy_importance_mean_including_unselected_zeros	rf_top20_outer_fold_count	rf_top20_outer_fold_frequency	audit_status
+Basal-like	8865	EGFR	0.0243998407386243	0.0243998407386243	5.0	3.0	1.0	0.0	0.0	5	0.0	0.0	0.0	0.0	observed_without_forcing
+HER2-enriched	8865	EGFR	0.0	0.0	5.0	0.0	0.0	0.0	0.0	5	0.0	0.0	0.0	0.0	observed_without_forcing
+Luminal A	8865	EGFR	0.0	0.0	5.0	0.0	0.0	0.0	0.0	5	0.0	0.0	0.0	0.0	observed_without_forcing
+Luminal B	8865	EGFR	0.0	0.0	5.0	0.0	0.0	0.0	0.0	5	0.0	0.0	0.0	0.0	observed_without_forcing
+Basal-like	8162	ERBB2	0.0	0.0	5.0	0.0	0.0	0.0	0.0	5	-0.0017671655789918	-0.0003024193548387	0.0	0.0	observed_without_forcing
+HER2-enriched	8162	ERBB2	0.5211081504821777	0.5211081504821777	5.0	5.0	1.0	5.0	1.0	5	-0.0017671655789918	-0.0003024193548387	0.0	0.0	observed_without_forcing
+Luminal A	8162	ERBB2	0.0	0.0	5.0	0.0	0.0	0.0	0.0	5	-0.0017671655789918	-0.0003024193548387	0.0	0.0	observed_without_forcing
+Luminal B	8162	ERBB2	0.0	0.0	5.0	0.0	0.0	0.0	0.0	5	-0.0017671655789918	-0.0003024193548387	0.0	0.0	observed_without_forcing
+Basal-like	1943	ESR1	0.0	0.0	5.0	0.0	0.0	0.0	0.0	5	0.0003808622676241	0.0005110111662531	0.0	0.0	observed_without_forcing
+HER2-enriched	1943	ESR1	-0.1244824275374412	0.1244824275374412	5.0	4.0	1.0	3.0	0.6	5	0.0003808622676241	0.0005110111662531	0.0	0.0	observed_without_forcing
+Luminal A	1943	ESR1	0.0	0.0	5.0	0.0	0.0	0.0	0.0	5	0.0003808622676241	0.0005110111662531	0.0	0.0	observed_without_forcing
+Luminal B	1943	ESR1	0.3379001945257187	0.3379001945257187	5.0	5.0	1.0	5.0	1.0	5	0.0003808622676241	0.0005110111662531	0.0	0.0	observed_without_forcing
+Basal-like	6150	FOXA1	-0.2603623181581497	0.2603623181581497	5.0	5.0	1.0	5.0	1.0	5	-0.0001623617806396	0.0001975806451612	0.0	0.0	observed_without_forcing
+HER2-enriched	6150	FOXA1	0.0	0.0	5.0	0.0	0.0	0.0	0.0	5	-0.0001623617806396	0.0001975806451612	0.0	0.0	observed_without_forcing
+Luminal A	6150	FOXA1	0.0	0.0	5.0	0.0	0.0	0.0	0.0	5	-0.0001623617806396	0.0001975806451612	0.0	0.0	observed_without_forcing
+Luminal B	6150	FOXA1	0.0	0.0	5.0	0.0	0.0	0.0	0.0	5	-0.0001623617806396	0.0001975806451612	0.0	0.0	observed_without_forcing
+Basal-like	3420	GATA3	-0.0214565232396125	0.0214565232396125	5.0	2.0	1.0	2.0	0.4	5	0.0012990385736243	0.0005	1.0	0.2	observed_without_forcing
+HER2-enriched	3420	GATA3	0.0	0.0	5.0	0.0	0.0	0.0	0.0	5	0.0012990385736243	0.0005	1.0	0.2	observed_without_forcing
+Luminal A	3420	GATA3	0.0178357824683189	0.0178357824683189	5.0	1.0	1.0	0.0	0.0	5	0.0012990385736243	0.0005	1.0	0.2	observed_without_forcing
+Luminal B	3420	GATA3	0.0	0.0	5.0	0.0	0.0	0.0	0.0	5	0.0012990385736243	0.0005	1.0	0.2	observed_without_forcing
+Basal-like	16335	KRT14	0.0	0.0	5.0	0.0	0.0	0.0	0.0	5	0.0011130716815086	0.0016261484279297	1.0	0.2	observed_without_forcing
+HER2-enriched	16335	KRT14	0.0	0.0	5.0	0.0	0.0	0.0	0.0	5	0.0011130716815086	0.0016261484279297	1.0	0.2	observed_without_forcing
+Luminal A	16335	KRT14	0.0368602357804775	0.0368602357804775	5.0	3.0	1.0	0.0	0.0	5	0.0011130716815086	0.0016261484279297	1.0	0.2	observed_without_forcing
+Luminal B	16335	KRT14	0.0	0.0	5.0	0.0	0.0	0.0	0.0	5	0.0011130716815086	0.0016261484279297	1.0	0.2	observed_without_forcing
+Basal-like	6022	KRT17	0.0	0.0	5.0	0.0	0.0	0.0	0.0	5	0.0005187699200064	0.0008427419354838	0.0	0.0	observed_without_forcing
+HER2-enriched	6022	KRT17	0.0	0.0	5.0	0.0	0.0	0.0	0.0	5	0.0005187699200064	0.0008427419354838	0.0	0.0	observed_without_forcing
+Luminal A	6022	KRT17	0.0244912423193454	0.0244912423193454	5.0	2.0	1.0	0.0	0.0	5	0.0005187699200064	0.0008427419354838	0.0	0.0	observed_without_forcing
+Luminal B	6022	KRT17	-0.3105064570903778	0.3105064570903778	5.0	5.0	1.0	5.0	1.0	5	0.0005187699200064	0.0008427419354838	0.0	0.0	observed_without_forcing
+Basal-like	16147	KRT5	0.0	0.0	5.0	0.0	0.0	0.0	0.0	5	0.000247249860668	0.0010927419354838	0.0	0.0	observed_without_forcing
+HER2-enriched	16147	KRT5	0.0	0.0	5.0	0.0	0.0	0.0	0.0	5	0.000247249860668	0.0010927419354838	0.0	0.0	observed_without_forcing
+Luminal A	16147	KRT5	0.0	0.0	5.0	0.0	0.0	0.0	0.0	5	0.000247249860668	0.0010927419354838	0.0	0.0	observed_without_forcing
+Luminal B	16147	KRT5	-0.0339265152812003	0.0339265152812003	5.0	4.0	1.0	0.0	0.0	5	0.000247249860668	0.0010927419354838	0.0	0.0	observed_without_forcing
+Basal-like	9131	MKI67	0.0	0.0	0.0	0.0	0.0	0.0	0.0	5	0.0009572820288019	0.0016875	2.0	0.4	observed_without_forcing
+HER2-enriched	9131	MKI67	0.0	0.0	0.0	0.0	0.0	0.0	0.0	5	0.0009572820288019	0.0016875	2.0	0.4	observed_without_forcing
+Luminal A	9131	MKI67	0.0	0.0	0.0	0.0	0.0	0.0	0.0	5	0.0009572820288019	0.0016875	2.0	0.4	observed_without_forcing
+Luminal B	9131	MKI67	0.0	0.0	0.0	0.0	0.0	0.0	0.0	5	0.0009572820288019	0.0016875	2.0	0.4	observed_without_forcing
+Basal-like	1559	PGR	0.0	0.0	5.0	0.0	0.0	0.0	0.0	5	-8.909784875115247e-06	2.016129032258e-05	0.0	0.0	observed_without_forcing
+HER2-enriched	1559	PGR	0.0	0.0	5.0	0.0	0.0	0.0	0.0	5	-8.909784875115247e-06	2.016129032258e-05	0.0	0.0	observed_without_forcing
+Luminal A	1559	PGR	0.0293227583169937	0.0293227583169937	5.0	1.0	1.0	0.0	0.0	5	-8.909784875115247e-06	2.016129032258e-05	0.0	0.0	observed_without_forcing
+Luminal B	1559	PGR	0.0	0.0	5.0	0.0	0.0	0.0	0.0	5	-8.909784875115247e-06	2.016129032258e-05	0.0	0.0	observed_without_forcing

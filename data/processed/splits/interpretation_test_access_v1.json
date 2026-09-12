@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0.0",
+  "status": "COMPLETE",
+  "started_at_utc": "2026-09-12T16:37:01Z",
+  "purpose": "post-evaluation explanation only; no performance scoring, tuning, or model selection",
+  "interpretation_config_sha256": "e33eb9bcc269cfea68cdc36800d5626e9508b311685e4e6e5ed380e02325d319",
+  "selected_case_file_sha256": "670b3a877c0d2d419fba1deec4bb01682e4a83dd772e45ce743be9f630cc3177",
+  "selected_locked_test_case_n": 6,
+  "performance_metrics_computed": 0,
+  "model_selection_performed": false,
+  "completed_at_utc": "2026-09-12T16:37:03Z",
+  "locked_test_expression_rows_loaded": 6,
+  "shap_explanations_generated": 6,
+  "shap_values_sha256": "55d29fa588c78fc7ac79c8579c979f66584104629164193af2655a14d633be5f"
+}

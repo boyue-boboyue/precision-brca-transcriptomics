@@ -47,3 +47,12 @@
 - 结果：balanced accuracy `0.907`（1,000次分层bootstrap 95% CI `0.855–0.945`）；macro F1 `0.885`（`0.836–0.929`）。
 - 协议保护：没有为Dummy、L2、elastic-net、LinearSVC或PAM50-excluded候选分别生成locked-test性能，因为这会把测试集用于模型比较并违反一次性评估政策。
 - 边界敏感性决定：未在测试解锁前结果驱动地扩展随机森林2,000基因上限。任何更大特征数实验只能作为后续development-only补充分析，不能改变已经完成的locked-test评估。
+
+## 2026-09-13：解释性分析与内部生物学验证
+
+- 修改内容：新增三层解释、稳定基因验证和功能富集。Elastic-net使用已保存外层模型的标准化系数；random forest permutation importance只在对应outer-validation折上计算；TreeSHAP使用100例development-only background解释6例按预测类别、正确性和概率预选的locked-test病例。
+- 时间顺序：`config/interpretability_v1.json`在正式permutation、SHAP、稳定基因筛选和富集前锁定。稳定基因规则为任一Elastic-net类别或RF permutation的top 20至少进入3/5折；预期标志基因没有强制入选。
+- 生物学验证：所有稳定基因表达和ER/PR/HER2关联仅使用development病例；GO:BP/Reactome主背景为至少一个outer-training低表达过滤器通过的全部蛋白编码基因，5/5折均通过背景作为敏感性分析；多重检验使用BH-FDR。
+- 测试访问：解释专用记录只加载6个预锁定病例，计算性能指标数为0，模型选择标志为false；最终189例测试性能没有重算。
+- 实现修订：g:Profiler返回的`intersections`是与查询基因逐位对应的证据代码嵌套列表。首次结果序列化在两套原始响应均保存后停止；`config/interpretability_execution_amendment_v1.json`记录了从原始响应重建基因交集的修复及让GO/Reactome分别可见的纯展示调整。查询基因、背景、来源、FDR阈值和原始响应均未改变，也没有重新调用API。
+- 解释限制：高相关基因会分摊系数、permutation importance和SHAP值；任何“排名第一”都不是唯一性、因果性、新颖性或临床可用性的证明。

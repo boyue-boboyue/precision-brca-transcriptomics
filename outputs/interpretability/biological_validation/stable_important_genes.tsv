@@ -1,0 +1,59 @@
+stable_gene_order	matrix_column	gene_name	elastic_max_top20_fold_count	elastic_mean_top20_frequency	elastic_classes	elastic_directions	rf_top20_outer_fold_count	rf_top20_outer_fold_frequency	stable_source	maximum_top20_fold_count	gene_id	gene_id_without_version	gene_type
+1	12507	AR	5	1.0	Basal-like	negative	0	0.0	Elastic-net	5	ENSG00000169083.18	ENSG00000169083	protein_coding
+2	5027	CCDC170	5	0.9	HER2-enriched;Luminal B	negative;positive	0	0.0	Elastic-net	5	ENSG00000120262.10	ENSG00000120262	protein_coding
+3	11448	DEFB1	5	1.0	Luminal B	negative	0	0.0	Elastic-net	5	ENSG00000164825.4	ENSG00000164825	protein_coding
+4	8162	ERBB2	5	1.0	HER2-enriched	positive	0	0.0	Elastic-net	5	ENSG00000141736.14	ENSG00000141736	protein_coding
+5	1943	ESR1	5	0.8	HER2-enriched;Luminal B	negative;positive	0	0.0	Elastic-net	5	ENSG00000091831.24	ENSG00000091831	protein_coding
+6	5888	FGD3	5	1.0	Luminal A	positive	0	0.0	Elastic-net	5	ENSG00000127084.19	ENSG00000127084	protein_coding
+7	10541	FGFR4	5	1.0	HER2-enriched	positive	0	0.0	Elastic-net	5	ENSG00000160867.15	ENSG00000160867	protein_coding
+8	6150	FOXA1	5	1.0	Basal-like	negative	0	0.0	Elastic-net	5	ENSG00000129514.8	ENSG00000129514	protein_coding
+9	730	FOXC1	5	1.0	Basal-like	positive	0	0.0	Elastic-net	5	ENSG00000054598.9	ENSG00000054598	protein_coding
+10	6022	KRT17	5	1.0	Luminal B	negative	0	0.0	Elastic-net	5	ENSG00000128422.17	ENSG00000128422	protein_coding
+11	16341	MAPT	5	1.0	Luminal A	positive	0	0.0	Elastic-net	5	ENSG00000186868.16	ENSG00000186868	protein_coding
+12	17165	MMP1	5	1.0	Luminal A	negative	0	0.0	Elastic-net	5	ENSG00000196611.5	ENSG00000196611	protein_coding
+13	2431	MYBL2	5	1.0	Luminal A;Luminal B	negative;positive	0	0.0	Elastic-net	5	ENSG00000101057.16	ENSG00000101057	protein_coding
+14	17835	PPP1R14C	5	1.0	Basal-like	positive	0	0.0	Elastic-net	5	ENSG00000198729.5	ENSG00000198729	protein_coding
+15	2904	SFRP1	5	1.0	Basal-like	positive	0	0.0	Elastic-net	5	ENSG00000104332.12	ENSG00000104332	protein_coding
+16	1210	SIDT1	5	1.0	Basal-like	negative	0	0.0	Elastic-net	5	ENSG00000072858.11	ENSG00000072858	protein_coding
+17	8167	STAC2	5	1.0	Luminal B	negative	0	0.0	Elastic-net	5	ENSG00000141750.7	ENSG00000141750	protein_coding
+18	9445	TMEM45B	5	1.0	HER2-enriched	positive	0	0.0	Elastic-net	5	ENSG00000151715.8	ENSG00000151715	protein_coding
+19	7790	AMIGO2	4	0.8	Luminal B	positive	0	0.0	Elastic-net	4	ENSG00000139211.7	ENSG00000139211	protein_coding
+20	7735	ANXA3	4	0.8	Luminal B	negative	0	0.0	Elastic-net	4	ENSG00000138772.13	ENSG00000138772	protein_coding
+21	10871	CAPN13	4	0.8	Basal-like	negative	0	0.0	Elastic-net	4	ENSG00000162949.16	ENSG00000162949	protein_coding
+22	8549	CDCA7	4	0.8	Luminal A	negative	0	0.0	Elastic-net	4	ENSG00000144354.14	ENSG00000144354	protein_coding
+23	10119	CREB3L1	4	0.8	HER2-enriched	positive	0	0.0	Elastic-net	4	ENSG00000157613.11	ENSG00000157613	protein_coding
+24	8163	GRB7	4	0.8	HER2-enriched	positive	0	0.0	Elastic-net	4	ENSG00000141738.14	ENSG00000141738	protein_coding
+25	7962	IGF1R	4	0.8	HER2-enriched	negative	0	0.0	Elastic-net	4	ENSG00000140443.15	ENSG00000140443	protein_coding
+26	10877	KCNF1	4	0.8	Luminal A	positive	0	0.0	Elastic-net	4	ENSG00000162975.5	ENSG00000162975	protein_coding
+27	4464	MLPH	4	0.8	Basal-like	negative	0	0.0	Elastic-net	4	ENSG00000115648.14	ENSG00000115648	protein_coding
+28	5282	NXPH1	4	0.8	HER2-enriched	positive	0	0.0	Elastic-net	4	ENSG00000122584.13	ENSG00000122584	protein_coding
+29	2910	PLAT	4	0.8	Luminal A	positive	0	0.0	Elastic-net	4	ENSG00000104368.19	ENSG00000104368	protein_coding
+30	16716	SERPINA5	4	0.8	HER2-enriched	negative	0	0.0	Elastic-net	4	ENSG00000188488.14	ENSG00000188488	protein_coding
+31	5452	SLPI	4	0.8	Luminal B	negative	0	0.0	Elastic-net	4	ENSG00000124107.5	ENSG00000124107	protein_coding
+32	5565	SPDEF	4	0.8	Basal-like	negative	0	0.0	Elastic-net	4	ENSG00000124664.11	ENSG00000124664	protein_coding
+33	28755	SPINK8	4	0.8	HER2-enriched	positive	0	0.0	Elastic-net	4	ENSG00000229453.2	ENSG00000229453	protein_coding
+34	10428	TFF3	4	0.8	Basal-like	negative	0	0.0	Elastic-net	4	ENSG00000160180.15	ENSG00000160180	protein_coding
+35	13248	TPSAB1	4	0.8	Luminal A	positive	0	0.0	Elastic-net	4	ENSG00000172236.18	ENSG00000172236	protein_coding
+36	5834	WNK4	4	0.8	Luminal A	positive	0	0.0	Elastic-net	4	ENSG00000126562.17	ENSG00000126562	protein_coding
+37	2222	XBP1	4	0.8	Basal-like	negative	0	0.0	Elastic-net	4	ENSG00000100219.16	ENSG00000100219	protein_coding
+38	10893	ACTG2	3	0.6	Luminal B	negative	0	0.0	Elastic-net	3	ENSG00000163017.14	ENSG00000163017	protein_coding
+39	14703	ALOX15B	3	0.6	HER2-enriched	positive	0	0.0	Elastic-net	3	ENSG00000179593.16	ENSG00000179593	protein_coding
+40	187	BAIAP3	3	0.6	Luminal A	positive	0	0.0	Elastic-net	3	ENSG00000007516.14	ENSG00000007516	protein_coding
+41	13138	BCL2	3	0.6	Luminal A	positive	0	0.0	Elastic-net	3	ENSG00000171791.14	ENSG00000171791	protein_coding
+42	17764	C2CD4A	3	0.6	HER2-enriched	positive	0	0.0	Elastic-net	3	ENSG00000198535.5	ENSG00000198535	protein_coding
+43	6220	CNN1	3	0.6	Luminal A	positive	0	0.0	Elastic-net	3	ENSG00000130176.8	ENSG00000130176	protein_coding
+44	9784	CXADR	3	0.6	Luminal B	negative	0	0.0	Elastic-net	3	ENSG00000154639.19	ENSG00000154639	protein_coding
+45	664	ELN	3	0.6	Luminal A	positive	0	0.0	Elastic-net	3	ENSG00000049540.18	ENSG00000049540	protein_coding
+46	12464	ENHO	3	0.6	HER2-enriched	negative	0	0.0	Elastic-net	3	ENSG00000168913.7	ENSG00000168913	protein_coding
+47	9013	FAM83A	3	0.6	Luminal A	negative	0	0.0	Elastic-net	3	ENSG00000147689.16	ENSG00000147689	protein_coding
+48	342	GPRC5A	3	0.6	Basal-like	negative	0	0.0	Elastic-net	3	ENSG00000013588.9	ENSG00000013588	protein_coding
+49	1625	GSTP1	3	0.6	Luminal B	negative	0	0.0	Elastic-net	3	ENSG00000084207.18	ENSG00000084207	protein_coding
+50	37327	HBB	3	0.6	HER2-enriched;Luminal A	negative;positive	0	0.0	Elastic-net	3	ENSG00000244734.4	ENSG00000244734	protein_coding
+51	11253	HPGD	3	0.6	Luminal B	negative	0	0.0	Elastic-net	3	ENSG00000164120.14	ENSG00000164120	protein_coding
+52	2109	IGFALS	3	0.6	Luminal A	positive	0	0.0	Elastic-net	3	ENSG00000099769.6	ENSG00000099769	protein_coding
+53	16129	LEMD1	3	0.6	Basal-like	positive	0	0.0	Elastic-net	3	ENSG00000186007.10	ENSG00000186007	protein_coding
+54	13318	MAB21L4	3	0.6	HER2-enriched	positive	0	0.0	Elastic-net	3	ENSG00000172478.18	ENSG00000172478	protein_coding
+55	6751	MYH11	3	0.6	Luminal A	positive	0	0.0	Elastic-net	3	ENSG00000133392.18	ENSG00000133392	protein_coding
+56	2209	SEPTIN3	3	0.6	Luminal A	negative	0	0.0	Elastic-net	3	ENSG00000100167.20	ENSG00000100167	protein_coding
+57	19840	SLC44A4	3	0.6	Basal-like	negative	0	0.0	Elastic-net	3	ENSG00000204385.13	ENSG00000204385	protein_coding
+58	4753	CENPF	0	0.0			3	0.6	RF_permutation	3	ENSG00000117724.13	ENSG00000117724	protein_coding

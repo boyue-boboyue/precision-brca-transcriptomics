@@ -1,13 +1,13 @@
 # OncoStratify-BRCA 项目交接说明
 
-**快照日期：** 2026-09-11  
+**快照日期：** 2026-09-13
 **工作目录：** `oncostratify-brca-interpretable-machine-learning-for`  
 **协议版本：** 0.1.3  
-**当前阶段：** 数据、标签、表达矩阵、探索性分析、严格评估框架、五模型nested CV、PAM50排除敏感性、最终模型冻结及唯一一次locked-test评估均已完成；统一性能报告与验证状态为`PASS`。
+**当前阶段：** 数据、标签、表达矩阵、探索性分析、严格评估框架、五模型nested CV、PAM50排除敏感性、最终模型冻结、唯一一次locked-test评估、三层模型解释及内部生物学验证均已完成；性能与解释验证状态均为`PASS`。
 
 ## 1. 可从这里继续
 
-下一步应进行模型解释：在未参与相应拟合的数据上计算permutation importance，使用仅来自development的SHAP background，并完成跨折特征稳定性分析。189例locked test已按冻结规则评估一次，禁止再次用于候选模型比较、追加调参或模型选择。
+下一步科学重点应为独立外部队列验证：冻结现有预处理规则、2,000基因选择程序、随机森林参数和PAM50标签映射后，在新队列上检验性能、特征稳定性及解释迁移性。189例locked test已按冻结规则评估一次；解释阶段只读取预先按预测表现选定的6例并没有重算性能，禁止再用测试集进行候选模型比较、追加调参或模型选择。
 
 随机森林五折均命中特征数网格上限。若探索高于2,000个基因，必须标记为查看结果后触发的development-only补充敏感性分析，且不得借此重新访问locked test。
 
@@ -130,6 +130,19 @@ EDA已生成并验证以下10类图表：
 - 置信区间使用1,000次病例级、按真实类别分层的percentile bootstrap；有效重复数1,000。
 - 统一报告包含两种特征方案、五个模型的逐折均值/SD、聚合OOF混淆矩阵、逐类precision/recall/F1、ROC-AUC、PR-AUC、曲线点及最终测试结果；验证状态`PASS`。
 
+### 2.10 三层解释与生物学验证
+
+- Elastic-net：从已保存的五个外层模型汇总标准化系数；未选择基因按0计入跨折均值，保存每类top positive/negative及top 20/50/100指示。稳定性主指标为各基因在5个外层折进入top 20的次数。
+- Random forest：每折仅在outer-train拟合，在相应outer-validation上执行2,000特征×5次重复置换，同时记录macro F1和balanced accuracy下降；permutation阶段加载locked-test表达行数为0。
+- 全局held-out permutation前列包括`CENPF`、`FAM83D`、`CENPA`、`ASPM`、`FOXM1`、`KIF20A`和`TOP2A`，但数值较小且受相关特征分摊影响，不能把第一名解释为唯一关键基因。
+- 类别级Elastic-net信号包括Luminal B的`ESR1` positive、Basal-like的`FOXC1` positive和`FOXA1` negative、HER2-enriched的`ERBB2/GRB7` positive；所有结果均来自数据，没有强制插入预期标志物。
+- SHAP：100例background全部来自development并在解释前锁定；解释6例prediction-defined测试病例（四类各1例正确高置信、1例高置信误分、1例最低概率间隔病例）。四类×2,000特征的概率归因最大加和残差`4.02e-09`。
+- 稳定基因规则在查看解释结果前固定为“任一Elastic-net类别或RF permutation的top 20至少出现3/5折”，得到58个基因；14个与锁定PAM50 50基因重叠，4个属于预声明检查基因（`ESR1`、`ERBB2`、`FOXA1`、`KRT17`）。
+- 稳定基因的逐development病例表达、四亚型分布、Kruskal-Wallis+BH、PAM50重叠、ER/PR/HER2 Positive-vs-Negative Mann-Whitney+BH及rank-biserial效应量均已保存。
+- 证据分层：14个`known_marker_or_PAM50`、34个`clinically_correlated_non_PAM50`、10个`potential_candidate_not_novelty_claim`；后者只是需要外部与功能验证的候选，不是新颖性或因果声明。
+- g:Profiler GO:BP/Reactome使用15,238个至少一折通过训练折低表达过滤的蛋白编码基因作为主背景，15,118个5/5折通过基因作为敏感性背景，BH-FDR 0.05。主结果包括estrogen response、ERBB/EGFR signaling及Reactome `GRB7 events in ERBB2 signaling`。
+- 解释与生物学验证端到端校验状态为`PASS`；包括分区隔离、background来源、病例选择、SHAP加和、PAM50重叠、富集背景、受体多重检验、输出哈希和65张图形。
+
 ## 3. 关键文件
 
 ### 协议与报告
@@ -174,6 +187,11 @@ EDA已生成并验证以下10类图表：
 - `scripts/run_final_locked_test.py`：完整development内部调参、一次性locked-test评估及分层bootstrap。
 - `scripts/generate_unified_performance_report.py`：从已保存预测生成统一表格、ROC/PR曲线和报告。
 - `scripts/verify_unified_performance_report.py`：验证OOF完整性、PAM50零重合、模型锁、测试集唯一访问、bootstrap和产物哈希。
+- `scripts/lock_interpretability_plan.py`：在解释拟合前锁定病例、SHAP background、置换次数、稳定阈值和生物学验证规则。
+- `scripts/run_interpretability.py`：Elastic-net系数稳定性、outer-validation permutation importance及development-background TreeSHAP。
+- `scripts/run_biological_validation.py`：稳定基因表达分布、PAM50重叠、IHC受体关联与证据分层。
+- `scripts/fetch_functional_enrichment.py`：使用表达过滤背景请求并锁定g:Profiler GO:BP/Reactome结果。
+- `scripts/generate_interpretability_report.py`、`verify_interpretability.py`：生成解释/生物学报告、65张图并进行端到端验证。
 
 ### 评估配置与输出
 
@@ -194,12 +212,17 @@ EDA已生成并验证以下10类图表：
 - `data/processed/splits/final_test_access_v1.json`：不可追加第二次评估的一次性访问记录。
 - `outputs/final_evaluation/`：最终模型调参、189例预测、逐类结果、curve points和1,000次bootstrap。
 - `outputs/performance_report/`：统一Markdown报告、TSV表、9张图、manifest和`PASS`验证报告。
+- `config/interpretability_v1.json`：解释病例、development-only background、稳定性和生物学验证的预运行锁。
+- `config/interpretability_execution_amendment_v1.json`：g:Profiler嵌套交集字段序列化修复及纯展示层修订；统计方案、查询、背景和阈值均未改变。
+- `data/processed/interpretability/`：6例SHAP病例及100例development background的锁定表。
+- `data/processed/splits/interpretation_test_access_v1.json`：解释专用测试访问记录；加载6行、性能指标0、模型选择false。
+- `outputs/interpretability/`：三层解释表、稳定性、完整SHAP、内部生物学验证、富集原始响应、综合报告、65张图与`PASS`验证报告。
 
 ## 4. 恢复环境与校验
 
 ```bash
 python3 -m venv .venv
-.venv/bin/python -m pip install -r requirements-eda.txt
+.venv/bin/python -m pip install -r requirements-interpretability.txt
 .venv/bin/python scripts/verify_expression_matrix.py
 .venv/bin/python scripts/verify_eda.py
 .venv/bin/python scripts/verify_evaluation_framework.py
@@ -207,6 +230,7 @@ python3 -m venv .venv
 .venv/bin/python scripts/verify_linear_svc.py
 .venv/bin/python scripts/verify_random_forest.py
 .venv/bin/python scripts/verify_unified_performance_report.py
+.venv/bin/python scripts/verify_interpretability.py
 ```
 
 预期所有校验脚本均输出 `"status": "PASS"`。
@@ -224,11 +248,11 @@ python3 -m venv .venv
 
 ## 6. 下一阶段建议清单
 
-1. 对最终random forest执行held-out permutation importance，并报告跨重采样稳定性。
-2. 使用development-only background计算SHAP；展示病例须遵循协议中的预先定义选择规则。
-3. 对逻辑回归/SVM系数和随机森林重要性做跨折特征稳定性与通路层级汇总。
-4. 如探索高于2,000个基因，先另行锁定development-only补充方案，且不得重新评估locked test。
-5. 将性能与解释结果整合为最终方法学/限制说明。
+1. 使用冻结预处理、标签映射、2,000基因程序和模型参数进行独立外部队列验证。
+2. 在外部队列检查58个稳定基因的方向、排序、受体关联和SHAP解释是否迁移。
+3. 对高度相关基因做基因模块/通路层解释，避免把单基因排名误认为唯一机制。
+4. 对10个`potential_candidate_not_novelty_claim`候选开展独立文献与功能验证；不得据内部关联直接声称新颖性或临床效用。
+5. 如探索高于2,000个基因，先另行锁定development-only补充方案，且不得重新评估locked test。
 
 ## 7. 注意事项
 

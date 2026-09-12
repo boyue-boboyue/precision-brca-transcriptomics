@@ -1,0 +1,59 @@
+stable_gene_order	matrix_column	gene_name	stable_source	maximum_top20_fold_count	is_predeclared_expected_marker	is_locked_pam50_gene	evidence_category	pam50_source_symbol
+1	12507	AR	Elastic-net	5	False	False	clinically_correlated_non_PAM50	
+2	5027	CCDC170	Elastic-net	5	False	False	clinically_correlated_non_PAM50	
+3	11448	DEFB1	Elastic-net	5	False	False	clinically_correlated_non_PAM50	
+4	8162	ERBB2	Elastic-net	5	True	True	known_marker_or_PAM50	ERBB2
+5	1943	ESR1	Elastic-net	5	True	True	known_marker_or_PAM50	ESR1
+6	5888	FGD3	Elastic-net	5	False	False	clinically_correlated_non_PAM50	
+7	10541	FGFR4	Elastic-net	5	False	True	known_marker_or_PAM50	FGFR4
+8	6150	FOXA1	Elastic-net	5	True	True	known_marker_or_PAM50	FOXA1
+9	730	FOXC1	Elastic-net	5	False	True	known_marker_or_PAM50	FOXC1
+10	6022	KRT17	Elastic-net	5	True	True	known_marker_or_PAM50	KRT17
+11	16341	MAPT	Elastic-net	5	False	True	known_marker_or_PAM50	MAPT
+12	17165	MMP1	Elastic-net	5	False	False	clinically_correlated_non_PAM50	
+13	2431	MYBL2	Elastic-net	5	False	True	known_marker_or_PAM50	MYBL2
+14	17835	PPP1R14C	Elastic-net	5	False	False	clinically_correlated_non_PAM50	
+15	2904	SFRP1	Elastic-net	5	False	True	known_marker_or_PAM50	SFRP1
+16	1210	SIDT1	Elastic-net	5	False	False	clinically_correlated_non_PAM50	
+17	8167	STAC2	Elastic-net	5	False	False	clinically_correlated_non_PAM50	
+18	9445	TMEM45B	Elastic-net	5	False	True	known_marker_or_PAM50	TMEM45B
+19	7790	AMIGO2	Elastic-net	4	False	False	clinically_correlated_non_PAM50	
+20	7735	ANXA3	Elastic-net	4	False	False	clinically_correlated_non_PAM50	
+21	10871	CAPN13	Elastic-net	4	False	False	clinically_correlated_non_PAM50	
+22	8549	CDCA7	Elastic-net	4	False	False	clinically_correlated_non_PAM50	
+23	10119	CREB3L1	Elastic-net	4	False	False	clinically_correlated_non_PAM50	
+24	8163	GRB7	Elastic-net	4	False	True	known_marker_or_PAM50	GRB7
+25	7962	IGF1R	Elastic-net	4	False	False	clinically_correlated_non_PAM50	
+26	10877	KCNF1	Elastic-net	4	False	False	clinically_correlated_non_PAM50	
+27	4464	MLPH	Elastic-net	4	False	True	known_marker_or_PAM50	MLPH
+28	5282	NXPH1	Elastic-net	4	False	False	clinically_correlated_non_PAM50	
+29	2910	PLAT	Elastic-net	4	False	False	clinically_correlated_non_PAM50	
+30	16716	SERPINA5	Elastic-net	4	False	False	clinically_correlated_non_PAM50	
+31	5452	SLPI	Elastic-net	4	False	False	clinically_correlated_non_PAM50	
+32	5565	SPDEF	Elastic-net	4	False	False	clinically_correlated_non_PAM50	
+33	28755	SPINK8	Elastic-net	4	False	False	clinically_correlated_non_PAM50	
+34	10428	TFF3	Elastic-net	4	False	False	clinically_correlated_non_PAM50	
+35	13248	TPSAB1	Elastic-net	4	False	False	clinically_correlated_non_PAM50	
+36	5834	WNK4	Elastic-net	4	False	False	clinically_correlated_non_PAM50	
+37	2222	XBP1	Elastic-net	4	False	False	clinically_correlated_non_PAM50	
+38	10893	ACTG2	Elastic-net	3	False	False	potential_candidate_not_novelty_claim	
+39	14703	ALOX15B	Elastic-net	3	False	False	potential_candidate_not_novelty_claim	
+40	187	BAIAP3	Elastic-net	3	False	False	clinically_correlated_non_PAM50	
+41	13138	BCL2	Elastic-net	3	False	True	known_marker_or_PAM50	BCL2
+42	17764	C2CD4A	Elastic-net	3	False	False	potential_candidate_not_novelty_claim	
+43	6220	CNN1	Elastic-net	3	False	False	potential_candidate_not_novelty_claim	
+44	9784	CXADR	Elastic-net	3	False	False	clinically_correlated_non_PAM50	
+45	664	ELN	Elastic-net	3	False	False	potential_candidate_not_novelty_claim	
+46	12464	ENHO	Elastic-net	3	False	False	potential_candidate_not_novelty_claim	
+47	9013	FAM83A	Elastic-net	3	False	False	potential_candidate_not_novelty_claim	
+48	342	GPRC5A	Elastic-net	3	False	False	clinically_correlated_non_PAM50	
+49	1625	GSTP1	Elastic-net	3	False	False	clinically_correlated_non_PAM50	
+50	37327	HBB	Elastic-net	3	False	False	potential_candidate_not_novelty_claim	
+51	11253	HPGD	Elastic-net	3	False	False	potential_candidate_not_novelty_claim	
+52	2109	IGFALS	Elastic-net	3	False	False	clinically_correlated_non_PAM50	
+53	16129	LEMD1	Elastic-net	3	False	False	clinically_correlated_non_PAM50	
+54	13318	MAB21L4	Elastic-net	3	False	False	potential_candidate_not_novelty_claim	
+55	6751	MYH11	Elastic-net	3	False	False	clinically_correlated_non_PAM50	
+56	2209	SEPTIN3	Elastic-net	3	False	False	clinically_correlated_non_PAM50	
+57	19840	SLC44A4	Elastic-net	3	False	False	clinically_correlated_non_PAM50	
+58	4753	CENPF	RF_permutation	3	False	True	known_marker_or_PAM50	CENPF

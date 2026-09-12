@@ -4,7 +4,7 @@ Interpretable machine learning for breast cancer molecular subtype classificatio
 
 ## Current status
 
-Snapshot date: **2026-09-11**
+Snapshot date: **2026-09-13**
 
 - GDC Release 46.0 TCGA-BRCA STAR Counts downloaded and verified: 1,111 files, 1,095 unique Primary Tumor cases.
 - PanCancer Atlas PAM50 labels locked: 981 five-class cases and 945 four-class primary-analysis cases.
@@ -18,6 +18,8 @@ Snapshot date: **2026-09-11**
 - The 50-gene PAM50 signature was locked and removed before every Pipeline step for a full five-model sensitivity rerun. Random-forest performance was nearly unchanged: macro F1 `0.902` excluded versus `0.905` included; balanced accuracy `0.906` versus `0.905`.
 - The preregistered mean outer-fold macro F1 rule selected the PAM50-included random forest; its `0.015` lead over elastic-net exceeded the `0.01` tie threshold. The final model and procedure are frozen in `config/final_model_lock_v1.json`.
 - The 189-case locked test was evaluated exactly once. Final random-forest balanced accuracy was `0.907` (95% stratified-bootstrap CI `0.855–0.945`) and macro F1 was `0.885` (`0.836–0.929`).
+- Three-level interpretability is complete and verified: cross-fold Elastic-net coefficients, random-forest permutation importance computed only on the five outer validation folds, and TreeSHAP for six prediction-defined locked-test cases using a 100-case development-only background.
+- The locked top-20 stability rule identified 58 genes; 14 overlap the locked PAM50 signature and four overlap the predeclared marker audit list. Development-only subtype distributions, PAM50 overlap, ER/PR/HER2 IHC associations, and GO:BP/Reactome enrichment with a 15,238-gene expression-filter background are available in the integrated report.
 
 See [`docs/protocol.md`](docs/protocol.md) for the preregistered-style analysis plan and [`docs/handoff.md`](docs/handoff.md) for the exact continuation point.
 
@@ -35,6 +37,7 @@ outputs/eda/                 Verified figures, tables, report, and artifact mani
 outputs/modeling/            Nested-CV metrics, OOF predictions, model reports, and hashes
 outputs/final_evaluation/     One-time locked-test predictions, metrics, curves, and bootstrap CIs
 outputs/performance_report/   Unified tables, figures, model selection, report, and verification
+outputs/interpretability/     Global/class/individual explanations, biological validation, figures, and verification
 outputs/exports/             Portable handoff archives
 ```
 
@@ -59,6 +62,7 @@ python3 -m venv .venv
 .venv/bin/python scripts/verify_linear_svc.py
 .venv/bin/python scripts/verify_random_forest.py
 .venv/bin/python scripts/verify_unified_performance_report.py
+.venv/bin/python scripts/verify_interpretability.py
 ```
 
 To reproduce the EDA after verification:
@@ -67,7 +71,7 @@ To reproduce the EDA after verification:
 .venv/bin/python scripts/run_eda.py
 ```
 
-The next stage is model interpretation: held-out permutation importance, SHAP with development-only background data, and cross-fold feature-stability analysis. Any feature-count expansion beyond the preregistered 2,000-gene grid must remain a clearly labeled post-result development-only sensitivity analysis and cannot trigger another locked-test evaluation.
+Model interpretation and internal biological validation are complete. The next scientific priority is external-cohort validation with frozen preprocessing, genes, parameters, and label mapping. Any feature-count expansion beyond the preregistered 2,000-gene grid must remain a clearly labeled post-result development-only sensitivity analysis and cannot trigger another locked-test evaluation.
 
 ## Full rebuild order
 

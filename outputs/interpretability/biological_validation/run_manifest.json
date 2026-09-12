@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0.0",
+  "status": "COMPLETE",
+  "created_at_utc": "2026-09-12T16:37:20Z",
+  "development_expression_n": 756,
+  "locked_test_expression_rows_loaded": 0,
+  "stable_gene_n": 58,
+  "pam50_overlap_n": 14,
+  "expected_marker_overlap_n": 4,
+  "input_sha256": {
+    "config/interpretability_v1.json": "e33eb9bcc269cfea68cdc36800d5626e9508b311685e4e6e5ed380e02325d319",
+    "outputs/interpretability/run_manifest.json": "e06f5fe0395fbbf36cf6b3b55e5b93451ffd68e12dbd7461a7dc924b9d9749f9",
+    "outputs/eda/tables/analysis_samples.tsv": "bdbf7180e8cbfd3ca4decb7a13f39f648bd9054a34989d4ddb3768e4fa4b6b2e",
+    "data/processed/labels/pam50_signature_genes_v1.tsv": "1b3394124b09fb55ecf3a6002a2936057d477f85393bc8c3f5426a690c9173a8"
+  },
+  "output_sha256": {
+    "stable_important_genes.tsv": "320ba853ffc25dd453fa4cf6ebb161c7f33afefb3048597e9d3d1934652a9789",
+    "stable_gene_expression_by_development_sample.tsv.gz": "12587464c50c91edd78460c62445b36fe6611e49dd8a46b77ad088a182bdeb55",
+    "stable_gene_subtype_expression_summary.tsv": "43d2825dac72e8e418f307090705114935f148e9866b84c12c23ab9bbcedcb14",
+    "stable_gene_subtype_tests.tsv": "3a4c6af3e74a3ea85bd01d13c6ebbe4f0f85d0f02761ccaa4f12fed8f6a358d3",
+    "stable_gene_pam50_overlap.tsv": "a0fa49bb31ab4561944190bedfb6ce22558f7bb01c578bd065a52141ec61cd9d",
+    "stable_gene_receptor_associations.tsv": "e37a015806226b26e6f66cc5e8e90ba075f981f00e743a6b4e192391527e7249",
+    "stable_gene_evidence_classification.tsv": "932e2b0210e0b52bc92bbbebeaa618486d4af511d6adb6bc93f1f9f00f9b4fed",
+    "functional_enrichment_request.json": "ff0b1bef6911d8e3628135e77990c9a04116bd4b3271c4625859d145cdb83ce0",
+    "functional_enrichment_results.tsv": "5978f8937582d0327ddc2de5496455c845fa725614657db729d205a04f527914",
+    "gprofiler_primary_raw.json": "b3c39a018501b0d2a3d29fad25dc54d685c120bde018d33ddddadaec0f78a0b3",
+    "gprofiler_consensus_background_raw.json": "cbc6ec6ad15352d5c8f0fe09f1e827e9ae512cd91856a7c29ebbb2d16cec5de6",
+    "gprofiler_data_versions.json": "ed5c47d30bed779f4a7aabca6684fe8a1f6203f2dfa012dac33bb07f982d8439"
+  },
+  "runner_sha256": "d0fb1980425f1bb87a5df1dbd61461f1d3bb08c1ffdf34d6d80c7e7fa805a36a",
+  "enrichment_completed_at_utc": "2026-09-12T16:41:52Z",
+  "enrichment_service": "https://biit.cs.ut.ee/gprofiler/api/gost/profile/",
+  "enrichment_sources": [
+    "GO:BP",
+    "REAC"
+  ],
+  "enrichment_domain_scope": "custom",
+  "enrichment_multiple_testing": "Benjamini-Hochberg FDR",
+  "enrichment_primary_result_n": 241,
+  "enrichment_sensitivity_result_n": 240,
+  "enrichment_fetcher_sha256": "ea17f57dc816f0b3cf7b2e4b1bc6c4f31b64c9d8e74eb042353773e3683ca293"
+}

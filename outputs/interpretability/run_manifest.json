@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0.0",
+  "status": "COMPLETE",
+  "created_at_utc": "2026-09-12T16:37:03Z",
+  "interpretability_config_sha256": "e33eb9bcc269cfea68cdc36800d5626e9508b311685e4e6e5ed380e02325d319",
+  "runner_sha256": "556d52add6f9e06d0751ff095f86c092f4f809fb777935a9d7a3af1cb839f062",
+  "development_n": 756,
+  "locked_test_n": 189,
+  "permutation_locked_test_expression_rows_loaded": 0,
+  "shap_locked_test_expression_rows_loaded": 6,
+  "shap_background_partition": "development",
+  "shap_background_n": 100,
+  "shap_version": "0.52.0",
+  "output_sha256": {
+    "elastic_net_outer_fold_feature_ranks.tsv.gz": "4ff6e832effb6cc708975f48ad0ae0b19694571af5e0e5ef9c2de91e97fe3714",
+    "elastic_net_top20_stability.tsv": "92e4a4d5fbad078a859da51d8e9ed80ed51132934181ee5160c7421d46f6fd79",
+    "elastic_net_coefficient_summary.tsv.gz": "37bed75fdea5ec86b23d55dcb348612f84f33b0a324f195aba11c59c1b3e65b6",
+    "elastic_net_class_top_genes.tsv": "dcea8b71e9f5d2e9357c9e4182ce8b05d10aa51cfa78745750707e0d16b39f76",
+    "elastic_net_global_coefficients.tsv": "7fc07887adafcbe7d98112b5f51ac77c33c2c980f3125bc0458c8d2f78a7723f",
+    "rf_outer_validation_permutation_importance.tsv.gz": "935c515bdd3294c6b8b225508ec6808b42e9c40a57f8b5428f3407d83e656004",
+    "rf_outer_validation_permutation_repeats.tsv.gz": "95062a9c896f155f3871f578f8b741bee703ff01ddd188701460848952ad38c8",
+    "rf_permutation_partition_audit.tsv": "831728c974b4fef135a21ca639cb5f5ca40f44984f93693db708232ca354beae",
+    "expression_filter_background_by_fold.tsv.gz": "f30949b973bb7a427e6d77a7aa0247e91526a67ff85527d6b94decd7cfd7d1cc",
+    "enrichment_background.tsv": "02ec93a680b95fb5e2bae1e821b1361fccf930c21336026407dd1f169cb5468b",
+    "rf_top20_stability.tsv": "297f5d3c71d1e1e835db5993ec9d5036e160ebc28ffc94f2d9a139f5f1e1e72b",
+    "rf_permutation_importance_summary.tsv.gz": "73ce24503294c2c80df6e657db87ef8bc76ca4a3ed24cbd4965a39cc228f7d48",
+    "shap_values_selected_cases.tsv.gz": "55d29fa588c78fc7ac79c8579c979f66584104629164193af2655a14d633be5f",
+    "shap_case_summary.tsv": "db9003d7ae23e02c0999312e3a5dd8af785e52d9c01e59755dc2d2a6fb7485f6",
+    "shap_predicted_class_top_contributions.tsv": "97bfc739bb365316066ba7cfb38344715f3bf7faa248fae962a08890d8d3ed97",
+    "expected_signal_development_expression.tsv": "e7dd74c618983679ef237e1fd0a42a17ed267f2921efa7a5abac3658336e44a1",
+    "expected_signal_audit.tsv": "433dbafe029a485da75bf0956d2788957c1b786fb7cf96639994870ed8599a01"
+  }
+}

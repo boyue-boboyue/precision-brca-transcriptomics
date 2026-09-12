@@ -1,0 +1,2 @@
+-r requirements-eda.txt
+shap==0.52.0

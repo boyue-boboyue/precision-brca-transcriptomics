@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0.0",
+  "recorded_at_utc": "2026-09-12T16:40:00Z",
+  "interpretability_lock_sha256": "e33eb9bcc269cfea68cdc36800d5626e9508b311685e4e6e5ed380e02325d319",
+  "reason": "The g:Profiler API returned intersections as a nested list. The locked serializer expected a flat list and stopped after both exact raw responses were saved.",
+  "correction": "Reconstruct intersecting genes by aligning each evidence-code list to query_metadata, preserve the evidence codes separately, and permit an exact table-only rebuild from the saved raw API responses. Update the verifier to recognize only the exact hashes in this amendment.",
+  "statistical_plan_changed": false,
+  "query_genes_changed": false,
+  "background_genes_changed": false,
+  "enrichment_sources_changed": false,
+  "multiple_testing_changed": false,
+  "raw_api_responses_requeried": false,
+  "presentation_only_change": "The enrichment chart and report table were changed from overall top terms to the top terms within each source so both GO:BP and Reactome remain visible.",
+  "hash_corrections": {
+    "scripts/fetch_functional_enrichment.py": {
+      "locked_sha256": "97963207fe5eafff460f29688516fdc0b64964b80cf73fa924570b321f9e680e",
+      "corrected_sha256": "ea17f57dc816f0b3cf7b2e4b1bc6c4f31b64c9d8e74eb042353773e3683ca293"
+    },
+    "scripts/verify_interpretability.py": {
+      "locked_sha256": "a3fb1662702096087dd6b90f6431877c15a003c545164c9dd343722e5a43f664",
+      "corrected_sha256": "6c47b3fc0c837e8dd084d5ce5d18de813601a89663a678d1b418657e08da7d99"
+    },
+    "scripts/generate_interpretability_report.py": {
+      "locked_sha256": "ee3b009feae6165d6675e3c05d1ebd0f36bb53958e4461b87a0c7732c23ca760",
+      "corrected_sha256": "8f4b74ad670f091eb7c243d7276a22c057d8bacf7297c3b9c9ae4193f59dc853"
+    }
+  }
+}

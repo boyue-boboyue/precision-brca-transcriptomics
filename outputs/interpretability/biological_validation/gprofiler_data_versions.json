@@ -1,0 +1,55 @@
+{
+  "biomart": "Ensembl",
+  "biomart_version": "114",
+  "display_name": "Human",
+  "genebuild": "GRCh38.p14",
+  "gprofiler_version": "e114_eg62_p19_27110d83",
+  "organism": "hsapiens",
+  "sources": {
+    "CORUM": {
+      "name": "CORUM protein complexes",
+      "version": "28.11.2022 Corum 4.1"
+    },
+    "GO:BP": {
+      "name": "biological process",
+      "version": "annotations: BioMart\nclasses: releases/2026-01-23"
+    },
+    "GO:CC": {
+      "name": "cellular component",
+      "version": "annotations: BioMart\nclasses: releases/2026-01-23"
+    },
+    "GO:MF": {
+      "name": "molecular function",
+      "version": "annotations: BioMart\nclasses: releases/2026-01-23"
+    },
+    "HP": {
+      "name": "Human Phenotype Ontology",
+      "version": "annotations: 03.2026\nclasses: None"
+    },
+    "HPA": {
+      "name": "Human Protein Atlas",
+      "version": "annotations: HPA website: 25-11-06\nclasses: script: 26-01-20"
+    },
+    "KEGG": {
+      "name": "Kyoto Encyclopedia of Genes and Genomes",
+      "version": "KEGG FTP Release 2026-03-15"
+    },
+    "MIRNA": {
+      "name": "miRTarBase",
+      "version": "Release 10.0"
+    },
+    "REAC": {
+      "name": "Reactome",
+      "version": "annotations: BioMart\nclasses: 2026-3-20"
+    },
+    "TF": {
+      "name": "Transfac",
+      "version": "annotations: TRANSFAC Release 2025.2\nclasses: v2"
+    },
+    "WP": {
+      "name": "WikiPathways",
+      "version": "20260310"
+    }
+  },
+  "taxonomy_id": "9606"
+}
