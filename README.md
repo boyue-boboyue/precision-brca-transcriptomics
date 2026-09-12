@@ -20,6 +20,8 @@ Snapshot date: **2026-09-13**
 - The 189-case locked test was evaluated exactly once. Final random-forest balanced accuracy was `0.907` (95% stratified-bootstrap CI `0.855–0.945`) and macro F1 was `0.885` (`0.836–0.929`).
 - Three-level interpretability is complete and verified: cross-fold Elastic-net coefficients, random-forest permutation importance computed only on the five outer validation folds, and TreeSHAP for six prediction-defined locked-test cases using a 100-case development-only background.
 - The locked top-20 stability rule identified 58 genes; 14 overlap the locked PAM50 signature and four overlap the predeclared marker audit list. Development-only subtype distributions, PAM50 overlap, ER/PR/HER2 IHC associations, and GO:BP/Reactome enrichment with a 15,238-gene expression-filter background are available in the integrated report.
+- Post-selection robustness analysis is complete across 13 fixed-model scenarios (65 outer fits) without reusing the locked test. Four-class macro F1 was stable to PAM50-gene exclusion (`0.899`), log2 CPM (`0.911`), three low-expression rules (`0.906–0.909`), and three grouped seeds (`0.905–0.907`); removing class weights reduced it to `0.878`. Five-class macro F1 was `0.817`, driven partly by the 29-case Normal-like class (pooled F1 `0.512`).
+- Label propagation from the raw PanCancer Atlas response through the expression and split tables is 100% concordant. The independent TCGA 2012 PAM50 freeze agrees with PanCancer Atlas for 398/447 overlapping cases (`89.0%`, Cohen's κ `0.838`). The complete limitations analysis and reproducibility audit both pass.
 
 See [`docs/protocol.md`](docs/protocol.md) for the preregistered-style analysis plan and [`docs/handoff.md`](docs/handoff.md) for the exact continuation point.
 
@@ -38,6 +40,7 @@ outputs/modeling/            Nested-CV metrics, OOF predictions, model reports, 
 outputs/final_evaluation/     One-time locked-test predictions, metrics, curves, and bootstrap CIs
 outputs/performance_report/   Unified tables, figures, model selection, report, and verification
 outputs/interpretability/     Global/class/individual explanations, biological validation, figures, and verification
+outputs/robustness/           Fixed-model sensitivity analyses, label audit, limitations report, and verification
 outputs/exports/             Portable handoff archives
 ```
 
@@ -63,6 +66,7 @@ python3 -m venv .venv
 .venv/bin/python scripts/verify_random_forest.py
 .venv/bin/python scripts/verify_unified_performance_report.py
 .venv/bin/python scripts/verify_interpretability.py
+.venv/bin/python scripts/verify_robustness.py
 ```
 
 To reproduce the EDA after verification:
@@ -71,7 +75,7 @@ To reproduce the EDA after verification:
 .venv/bin/python scripts/run_eda.py
 ```
 
-Model interpretation and internal biological validation are complete. The next scientific priority is external-cohort validation with frozen preprocessing, genes, parameters, and label mapping. Any feature-count expansion beyond the preregistered 2,000-gene grid must remain a clearly labeled post-result development-only sensitivity analysis and cannot trigger another locked-test evaluation.
+Model interpretation, internal biological validation, and the specified robustness analyses are complete. The next scientific priority is external-cohort validation with frozen preprocessing, genes, parameters, and label mapping. Any feature-count expansion beyond the preregistered 2,000-gene grid must remain a clearly labeled post-result development-only sensitivity analysis and cannot trigger another locked-test evaluation.
 
 ## Full rebuild order
 

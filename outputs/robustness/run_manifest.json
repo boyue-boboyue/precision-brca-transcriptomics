@@ -1,0 +1,60 @@
+{
+  "analysis_partition": "development_only",
+  "created_at_utc": "2026-09-12T17:08:07Z",
+  "development_cases": {
+    "five_class": 785,
+    "four_class": 756
+  },
+  "fixed_estimator": {
+    "bootstrap": true,
+    "class": "RandomForestClassifier",
+    "criterion": "gini",
+    "default_class_weight": "balanced",
+    "max_depth": 16,
+    "max_features": "sqrt",
+    "min_samples_leaf": 1,
+    "n_estimators": 750,
+    "source": "config/final_model_lock_v1.json",
+    "variance_selector_k": 2000
+  },
+  "forest_n_jobs": 4,
+  "input_sha256": {
+    "config/final_model_lock_v1.json": "a6f81c5ee991c9c05deb2144f6347e5a873140e1f1792a222fe80f48f3f4d1b0",
+    "config/robustness_v1.json": "b254a87a8287c14af60ffb86645e6928d5a00fc1f537f03ff3387d29076b9ad2",
+    "data/metadata/brca_2012_final_full_sample_summary.tsv": "f66e3c3b350e675cb930c602cfc4d1a7f1dbcccdb562058a594600ffac22de3c",
+    "data/processed/expression/genes.tsv": "5e652730b5cead743014ab039995821bd91f80da80d95dbdb66a5caaa84094cb",
+    "data/processed/expression/matrix_manifest.json": "c21506bd6a2014dfdb139031f9e706ee7bbd3642d4c92d53a96efb4a34e0dbba",
+    "data/processed/expression/samples.tsv": "b97f70c3a3ce933adcacd7004ed15c1a012b54b4cec0f17bb749dda64a7b8cbb",
+    "data/processed/labels/pam50_signature_genes_v1.tsv": "1b3394124b09fb55ecf3a6002a2936057d477f85393bc8c3f5426a690c9173a8",
+    "data/processed/labels/pancanatlas_pam50_locked.tsv": "d228bac88aa323cb510510cdb0f787f5b2e78dfb56b573e4f26715c41d1c7ce8",
+    "data/processed/splits/five_class_split_assignments.tsv": "6afa62597dc3ec030ac115a6c3a5401025531dec8336e892a08e9ea30fb2c2fe",
+    "data/processed/splits/four_class_split_assignments.tsv": "8e528e4b7db2112a6240887eb47664048cb32d3ccb28063881dd6ac8333989ca"
+  },
+  "locked_test_cases_in_assignment_files": {
+    "five_class": 196,
+    "four_class": 189
+  },
+  "locked_test_expression_rows_loaded": 0,
+  "locked_test_performance_metrics_generated": 0,
+  "locked_test_predictions_generated": 0,
+  "outer_fits": 65,
+  "output_sha256": {
+    "figures/01_robustness_performance.png": "22d727228323964d9db4f4422c8011eea70a127deb3af08f8034f93c5aee0844",
+    "figures/02_random_seed_sensitivity.png": "f5b031e1a6caf46f0fc12b85d8f74bccef01a8817b0dcbe2ff57436e8fc3dc8f",
+    "figures/03_label_source_concordance.png": "9817999b813b08ffd190c00a510779a49caeb5ab9e623cc7a25fb63ee1f2fb64",
+    "fold_feature_counts.tsv": "ccfae307f4cefb10624d79a29625cf43cee4a64f4defc62705eac881981029d3",
+    "label_source_audit.tsv": "d6c0cdc018a778a7001221af3f5b04f2fc9e453c3f8ceda0337bd26e57e2fa38",
+    "label_source_case_comparison.tsv": "16a7147b93169b6f280ae0b9d0ae7da50dce5e30786ded0816abf7a2737be828",
+    "label_source_confusion_matrix.tsv": "f450bafa25f68881c62ca46d026e236de63cf049d4d80940a38a8bd2c7cab9a1",
+    "robustness_and_limitations_report.md": "dd23edbd22a3f8d2808ab3cbceb18e53775edc2e58899faee9c674166d2db206",
+    "scenario_confusion_matrices.tsv": "b358e844f08c5aaceb71d3527b73476de89929e09804943af0eef4da844292c9",
+    "scenario_fold_metrics.tsv": "8d61fbe3422d98f6e29174443923c9333ad22feefcca59be68ad980d6bd1ff70",
+    "scenario_oof_predictions.tsv.gz": "51616d2a9221794e2546d88764eb822c3d5ccbec336ced4d70ac562a8d4362c6",
+    "scenario_per_class_metrics.tsv": "c6c775a2cff3ddcc72a93d2600b3cbaf5a3151175a68dc50bbfc049f91f92808",
+    "scenario_summary.tsv": "d11d7d87d30b4544064275390f2ec978f42faa82be87b29080608a0899a2b9df",
+    "split_integrity.tsv": "b5557437cceff4c24c552df97c60102e55e4b2ff27c8c2d9ea97160e161386d5"
+  },
+  "runner_sha256": "68e861ef9dfb8b4d0102325bc67ce29c2d86b1c084316589f75f30de2b16081f",
+  "scenario_count": 13,
+  "status": "COMPLETE"
+}

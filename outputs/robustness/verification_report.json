@@ -1,0 +1,295 @@
+{
+  "status": "PASS",
+  "check_count": 71,
+  "scenario_count": 13,
+  "outer_fit_count": 65,
+  "locked_test_expression_rows_loaded": 0,
+  "locked_test_predictions_generated": 0,
+  "maximum_patient_overlap": 0,
+  "checks": [
+    {
+      "check": "run manifest is COMPLETE",
+      "passed": true
+    },
+    {
+      "check": "analysis is explicitly development-only",
+      "passed": true
+    },
+    {
+      "check": "zero locked-test expression rows loaded",
+      "passed": true
+    },
+    {
+      "check": "zero locked-test predictions generated",
+      "passed": true
+    },
+    {
+      "check": "zero locked-test performance metrics generated",
+      "passed": true
+    },
+    {
+      "check": "all configured robustness scenarios are present",
+      "passed": true
+    },
+    {
+      "check": "five folds per scenario",
+      "passed": true
+    },
+    {
+      "check": "each scenario has five unique folds",
+      "passed": true
+    },
+    {
+      "check": "summary contains every scenario exactly once",
+      "passed": true
+    },
+    {
+      "check": "all reported fold metrics are finite",
+      "passed": true
+    },
+    {
+      "check": "no patient group crosses a train/validation boundary",
+      "passed": true
+    },
+    {
+      "check": "current development matrices contain one sample per case",
+      "passed": true
+    },
+    {
+      "check": "OOF prediction table contains no locked-test case",
+      "passed": true
+    },
+    {
+      "check": "four_class_tpm_primary has one OOF prediction per development case",
+      "passed": true
+    },
+    {
+      "check": "four_class_tpm_primary probabilities sum to one",
+      "passed": true
+    },
+    {
+      "check": "five_class_tpm_primary has one OOF prediction per development case",
+      "passed": true
+    },
+    {
+      "check": "five_class_tpm_primary probabilities sum to one",
+      "passed": true
+    },
+    {
+      "check": "four_class_pam50_excluded has one OOF prediction per development case",
+      "passed": true
+    },
+    {
+      "check": "four_class_pam50_excluded probabilities sum to one",
+      "passed": true
+    },
+    {
+      "check": "four_class_log2_cpm has one OOF prediction per development case",
+      "passed": true
+    },
+    {
+      "check": "four_class_log2_cpm probabilities sum to one",
+      "passed": true
+    },
+    {
+      "check": "four_class_filter_tpm0_5_frac0_10 has one OOF prediction per development case",
+      "passed": true
+    },
+    {
+      "check": "four_class_filter_tpm0_5_frac0_10 probabilities sum to one",
+      "passed": true
+    },
+    {
+      "check": "four_class_filter_tpm1_frac0_20 has one OOF prediction per development case",
+      "passed": true
+    },
+    {
+      "check": "four_class_filter_tpm1_frac0_20 probabilities sum to one",
+      "passed": true
+    },
+    {
+      "check": "four_class_filter_tpm5_frac0_10 has one OOF prediction per development case",
+      "passed": true
+    },
+    {
+      "check": "four_class_filter_tpm5_frac0_10 probabilities sum to one",
+      "passed": true
+    },
+    {
+      "check": "four_class_unweighted has one OOF prediction per development case",
+      "passed": true
+    },
+    {
+      "check": "four_class_unweighted probabilities sum to one",
+      "passed": true
+    },
+    {
+      "check": "four_class_pam50_only has one OOF prediction per development case",
+      "passed": true
+    },
+    {
+      "check": "four_class_pam50_only probabilities sum to one",
+      "passed": true
+    },
+    {
+      "check": "four_class_seed_20260909_patient_grouped has one OOF prediction per development case",
+      "passed": true
+    },
+    {
+      "check": "four_class_seed_20260909_patient_grouped probabilities sum to one",
+      "passed": true
+    },
+    {
+      "check": "four_class_seed_20260910_patient_grouped has one OOF prediction per development case",
+      "passed": true
+    },
+    {
+      "check": "four_class_seed_20260910_patient_grouped probabilities sum to one",
+      "passed": true
+    },
+    {
+      "check": "four_class_seed_20260911_patient_grouped has one OOF prediction per development case",
+      "passed": true
+    },
+    {
+      "check": "four_class_seed_20260911_patient_grouped probabilities sum to one",
+      "passed": true
+    },
+    {
+      "check": "four_class_seed_20260909_sample_stratified has one OOF prediction per development case",
+      "passed": true
+    },
+    {
+      "check": "four_class_seed_20260909_sample_stratified probabilities sum to one",
+      "passed": true
+    },
+    {
+      "check": "pooled per-class metrics have the expected class rows",
+      "passed": true
+    },
+    {
+      "check": "confusion matrices have all observed/predicted class cells",
+      "passed": true
+    },
+    {
+      "check": "fixed reference rerun reproduces the selected-model outer metrics",
+      "passed": true
+    },
+    {
+      "check": "PAM50-only analysis starts with exactly 50 genes",
+      "passed": true
+    },
+    {
+      "check": "PAM50-excluded analysis removes exactly 50 protein-coding genes",
+      "passed": true
+    },
+    {
+      "check": "raw, locked, expression-axis, and split labels are exactly concordant",
+      "passed": true
+    },
+    {
+      "check": "historical-versus-PanCancer label audit has the expected 447-case overlap",
+      "passed": true
+    },
+    {
+      "check": "input hash matches: config/final_model_lock_v1.json",
+      "passed": true
+    },
+    {
+      "check": "input hash matches: config/robustness_v1.json",
+      "passed": true
+    },
+    {
+      "check": "input hash matches: data/metadata/brca_2012_final_full_sample_summary.tsv",
+      "passed": true
+    },
+    {
+      "check": "input hash matches: data/processed/expression/genes.tsv",
+      "passed": true
+    },
+    {
+      "check": "input hash matches: data/processed/expression/matrix_manifest.json",
+      "passed": true
+    },
+    {
+      "check": "input hash matches: data/processed/expression/samples.tsv",
+      "passed": true
+    },
+    {
+      "check": "input hash matches: data/processed/labels/pam50_signature_genes_v1.tsv",
+      "passed": true
+    },
+    {
+      "check": "input hash matches: data/processed/labels/pancanatlas_pam50_locked.tsv",
+      "passed": true
+    },
+    {
+      "check": "input hash matches: data/processed/splits/five_class_split_assignments.tsv",
+      "passed": true
+    },
+    {
+      "check": "input hash matches: data/processed/splits/four_class_split_assignments.tsv",
+      "passed": true
+    },
+    {
+      "check": "runner hash matches manifest",
+      "passed": true
+    },
+    {
+      "check": "output hash matches: figures/01_robustness_performance.png",
+      "passed": true
+    },
+    {
+      "check": "output hash matches: figures/02_random_seed_sensitivity.png",
+      "passed": true
+    },
+    {
+      "check": "output hash matches: figures/03_label_source_concordance.png",
+      "passed": true
+    },
+    {
+      "check": "output hash matches: fold_feature_counts.tsv",
+      "passed": true
+    },
+    {
+      "check": "output hash matches: label_source_audit.tsv",
+      "passed": true
+    },
+    {
+      "check": "output hash matches: label_source_case_comparison.tsv",
+      "passed": true
+    },
+    {
+      "check": "output hash matches: label_source_confusion_matrix.tsv",
+      "passed": true
+    },
+    {
+      "check": "output hash matches: robustness_and_limitations_report.md",
+      "passed": true
+    },
+    {
+      "check": "output hash matches: scenario_confusion_matrices.tsv",
+      "passed": true
+    },
+    {
+      "check": "output hash matches: scenario_fold_metrics.tsv",
+      "passed": true
+    },
+    {
+      "check": "output hash matches: scenario_oof_predictions.tsv.gz",
+      "passed": true
+    },
+    {
+      "check": "output hash matches: scenario_per_class_metrics.tsv",
+      "passed": true
+    },
+    {
+      "check": "output hash matches: scenario_summary.tsv",
+      "passed": true
+    },
+    {
+      "check": "output hash matches: split_integrity.tsv",
+      "passed": true
+    }
+  ]
+}

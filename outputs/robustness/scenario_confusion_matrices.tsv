@@ -1,0 +1,218 @@
+scenario	observed	predicted	count
+four_class_tpm_primary	Luminal A	Luminal A	368
+four_class_tpm_primary	Luminal A	Luminal B	29
+four_class_tpm_primary	Luminal A	Basal-like	0
+four_class_tpm_primary	Luminal A	HER2-enriched	2
+four_class_tpm_primary	Luminal B	Luminal A	19
+four_class_tpm_primary	Luminal B	Luminal B	138
+four_class_tpm_primary	Luminal B	Basal-like	0
+four_class_tpm_primary	Luminal B	HER2-enriched	1
+four_class_tpm_primary	Basal-like	Luminal A	0
+four_class_tpm_primary	Basal-like	Luminal B	0
+four_class_tpm_primary	Basal-like	Basal-like	135
+four_class_tpm_primary	Basal-like	HER2-enriched	2
+four_class_tpm_primary	HER2-enriched	Luminal A	0
+four_class_tpm_primary	HER2-enriched	Luminal B	9
+four_class_tpm_primary	HER2-enriched	Basal-like	1
+four_class_tpm_primary	HER2-enriched	HER2-enriched	52
+five_class_tpm_primary	Luminal A	Luminal A	368
+five_class_tpm_primary	Luminal A	Luminal B	27
+five_class_tpm_primary	Luminal A	Basal-like	0
+five_class_tpm_primary	Luminal A	HER2-enriched	1
+five_class_tpm_primary	Luminal A	Normal-like	3
+five_class_tpm_primary	Luminal B	Luminal A	18
+five_class_tpm_primary	Luminal B	Luminal B	139
+five_class_tpm_primary	Luminal B	Basal-like	0
+five_class_tpm_primary	Luminal B	HER2-enriched	1
+five_class_tpm_primary	Luminal B	Normal-like	0
+five_class_tpm_primary	Basal-like	Luminal A	0
+five_class_tpm_primary	Basal-like	Luminal B	0
+five_class_tpm_primary	Basal-like	Basal-like	135
+five_class_tpm_primary	Basal-like	HER2-enriched	2
+five_class_tpm_primary	Basal-like	Normal-like	0
+five_class_tpm_primary	HER2-enriched	Luminal A	0
+five_class_tpm_primary	HER2-enriched	Luminal B	9
+five_class_tpm_primary	HER2-enriched	Basal-like	1
+five_class_tpm_primary	HER2-enriched	HER2-enriched	52
+five_class_tpm_primary	HER2-enriched	Normal-like	0
+five_class_tpm_primary	Normal-like	Luminal A	9
+five_class_tpm_primary	Normal-like	Luminal B	1
+five_class_tpm_primary	Normal-like	Basal-like	5
+five_class_tpm_primary	Normal-like	HER2-enriched	3
+five_class_tpm_primary	Normal-like	Normal-like	11
+four_class_pam50_excluded	Luminal A	Luminal A	368
+four_class_pam50_excluded	Luminal A	Luminal B	27
+four_class_pam50_excluded	Luminal A	Basal-like	0
+four_class_pam50_excluded	Luminal A	HER2-enriched	4
+four_class_pam50_excluded	Luminal B	Luminal A	22
+four_class_pam50_excluded	Luminal B	Luminal B	135
+four_class_pam50_excluded	Luminal B	Basal-like	0
+four_class_pam50_excluded	Luminal B	HER2-enriched	1
+four_class_pam50_excluded	Basal-like	Luminal A	0
+four_class_pam50_excluded	Basal-like	Luminal B	0
+four_class_pam50_excluded	Basal-like	Basal-like	135
+four_class_pam50_excluded	Basal-like	HER2-enriched	2
+four_class_pam50_excluded	HER2-enriched	Luminal A	1
+four_class_pam50_excluded	HER2-enriched	Luminal B	8
+four_class_pam50_excluded	HER2-enriched	Basal-like	1
+four_class_pam50_excluded	HER2-enriched	HER2-enriched	52
+four_class_log2_cpm	Luminal A	Luminal A	372
+four_class_log2_cpm	Luminal A	Luminal B	24
+four_class_log2_cpm	Luminal A	Basal-like	0
+four_class_log2_cpm	Luminal A	HER2-enriched	3
+four_class_log2_cpm	Luminal B	Luminal A	22
+four_class_log2_cpm	Luminal B	Luminal B	135
+four_class_log2_cpm	Luminal B	Basal-like	0
+four_class_log2_cpm	Luminal B	HER2-enriched	1
+four_class_log2_cpm	Basal-like	Luminal A	0
+four_class_log2_cpm	Basal-like	Luminal B	0
+four_class_log2_cpm	Basal-like	Basal-like	135
+four_class_log2_cpm	Basal-like	HER2-enriched	2
+four_class_log2_cpm	HER2-enriched	Luminal A	1
+four_class_log2_cpm	HER2-enriched	Luminal B	7
+four_class_log2_cpm	HER2-enriched	Basal-like	0
+four_class_log2_cpm	HER2-enriched	HER2-enriched	54
+four_class_filter_tpm0_5_frac0_10	Luminal A	Luminal A	371
+four_class_filter_tpm0_5_frac0_10	Luminal A	Luminal B	26
+four_class_filter_tpm0_5_frac0_10	Luminal A	Basal-like	0
+four_class_filter_tpm0_5_frac0_10	Luminal A	HER2-enriched	2
+four_class_filter_tpm0_5_frac0_10	Luminal B	Luminal A	18
+four_class_filter_tpm0_5_frac0_10	Luminal B	Luminal B	139
+four_class_filter_tpm0_5_frac0_10	Luminal B	Basal-like	0
+four_class_filter_tpm0_5_frac0_10	Luminal B	HER2-enriched	1
+four_class_filter_tpm0_5_frac0_10	Basal-like	Luminal A	0
+four_class_filter_tpm0_5_frac0_10	Basal-like	Luminal B	0
+four_class_filter_tpm0_5_frac0_10	Basal-like	Basal-like	135
+four_class_filter_tpm0_5_frac0_10	Basal-like	HER2-enriched	2
+four_class_filter_tpm0_5_frac0_10	HER2-enriched	Luminal A	0
+four_class_filter_tpm0_5_frac0_10	HER2-enriched	Luminal B	9
+four_class_filter_tpm0_5_frac0_10	HER2-enriched	Basal-like	1
+four_class_filter_tpm0_5_frac0_10	HER2-enriched	HER2-enriched	52
+four_class_filter_tpm1_frac0_20	Luminal A	Luminal A	370
+four_class_filter_tpm1_frac0_20	Luminal A	Luminal B	26
+four_class_filter_tpm1_frac0_20	Luminal A	Basal-like	0
+four_class_filter_tpm1_frac0_20	Luminal A	HER2-enriched	3
+four_class_filter_tpm1_frac0_20	Luminal B	Luminal A	19
+four_class_filter_tpm1_frac0_20	Luminal B	Luminal B	138
+four_class_filter_tpm1_frac0_20	Luminal B	Basal-like	0
+four_class_filter_tpm1_frac0_20	Luminal B	HER2-enriched	1
+four_class_filter_tpm1_frac0_20	Basal-like	Luminal A	0
+four_class_filter_tpm1_frac0_20	Basal-like	Luminal B	0
+four_class_filter_tpm1_frac0_20	Basal-like	Basal-like	135
+four_class_filter_tpm1_frac0_20	Basal-like	HER2-enriched	2
+four_class_filter_tpm1_frac0_20	HER2-enriched	Luminal A	0
+four_class_filter_tpm1_frac0_20	HER2-enriched	Luminal B	9
+four_class_filter_tpm1_frac0_20	HER2-enriched	Basal-like	1
+four_class_filter_tpm1_frac0_20	HER2-enriched	HER2-enriched	52
+four_class_filter_tpm5_frac0_10	Luminal A	Luminal A	370
+four_class_filter_tpm5_frac0_10	Luminal A	Luminal B	27
+four_class_filter_tpm5_frac0_10	Luminal A	Basal-like	0
+four_class_filter_tpm5_frac0_10	Luminal A	HER2-enriched	2
+four_class_filter_tpm5_frac0_10	Luminal B	Luminal A	20
+four_class_filter_tpm5_frac0_10	Luminal B	Luminal B	137
+four_class_filter_tpm5_frac0_10	Luminal B	Basal-like	0
+four_class_filter_tpm5_frac0_10	Luminal B	HER2-enriched	1
+four_class_filter_tpm5_frac0_10	Basal-like	Luminal A	0
+four_class_filter_tpm5_frac0_10	Basal-like	Luminal B	0
+four_class_filter_tpm5_frac0_10	Basal-like	Basal-like	135
+four_class_filter_tpm5_frac0_10	Basal-like	HER2-enriched	2
+four_class_filter_tpm5_frac0_10	HER2-enriched	Luminal A	1
+four_class_filter_tpm5_frac0_10	HER2-enriched	Luminal B	8
+four_class_filter_tpm5_frac0_10	HER2-enriched	Basal-like	1
+four_class_filter_tpm5_frac0_10	HER2-enriched	HER2-enriched	52
+four_class_unweighted	Luminal A	Luminal A	388
+four_class_unweighted	Luminal A	Luminal B	11
+four_class_unweighted	Luminal A	Basal-like	0
+four_class_unweighted	Luminal A	HER2-enriched	0
+four_class_unweighted	Luminal B	Luminal A	50
+four_class_unweighted	Luminal B	Luminal B	108
+four_class_unweighted	Luminal B	Basal-like	0
+four_class_unweighted	Luminal B	HER2-enriched	0
+four_class_unweighted	Basal-like	Luminal A	0
+four_class_unweighted	Basal-like	Luminal B	0
+four_class_unweighted	Basal-like	Basal-like	135
+four_class_unweighted	Basal-like	HER2-enriched	2
+four_class_unweighted	HER2-enriched	Luminal A	5
+four_class_unweighted	HER2-enriched	Luminal B	8
+four_class_unweighted	HER2-enriched	Basal-like	1
+four_class_unweighted	HER2-enriched	HER2-enriched	48
+four_class_pam50_only	Luminal A	Luminal A	369
+four_class_pam50_only	Luminal A	Luminal B	28
+four_class_pam50_only	Luminal A	Basal-like	0
+four_class_pam50_only	Luminal A	HER2-enriched	2
+four_class_pam50_only	Luminal B	Luminal A	17
+four_class_pam50_only	Luminal B	Luminal B	139
+four_class_pam50_only	Luminal B	Basal-like	0
+four_class_pam50_only	Luminal B	HER2-enriched	2
+four_class_pam50_only	Basal-like	Luminal A	0
+four_class_pam50_only	Basal-like	Luminal B	0
+four_class_pam50_only	Basal-like	Basal-like	136
+four_class_pam50_only	Basal-like	HER2-enriched	1
+four_class_pam50_only	HER2-enriched	Luminal A	1
+four_class_pam50_only	HER2-enriched	Luminal B	5
+four_class_pam50_only	HER2-enriched	Basal-like	1
+four_class_pam50_only	HER2-enriched	HER2-enriched	55
+four_class_seed_20260909_patient_grouped	Luminal A	Luminal A	364
+four_class_seed_20260909_patient_grouped	Luminal A	Luminal B	33
+four_class_seed_20260909_patient_grouped	Luminal A	Basal-like	0
+four_class_seed_20260909_patient_grouped	Luminal A	HER2-enriched	2
+four_class_seed_20260909_patient_grouped	Luminal B	Luminal A	17
+four_class_seed_20260909_patient_grouped	Luminal B	Luminal B	140
+four_class_seed_20260909_patient_grouped	Luminal B	Basal-like	0
+four_class_seed_20260909_patient_grouped	Luminal B	HER2-enriched	1
+four_class_seed_20260909_patient_grouped	Basal-like	Luminal A	0
+four_class_seed_20260909_patient_grouped	Basal-like	Luminal B	0
+four_class_seed_20260909_patient_grouped	Basal-like	Basal-like	135
+four_class_seed_20260909_patient_grouped	Basal-like	HER2-enriched	2
+four_class_seed_20260909_patient_grouped	HER2-enriched	Luminal A	0
+four_class_seed_20260909_patient_grouped	HER2-enriched	Luminal B	9
+four_class_seed_20260909_patient_grouped	HER2-enriched	Basal-like	1
+four_class_seed_20260909_patient_grouped	HER2-enriched	HER2-enriched	52
+four_class_seed_20260910_patient_grouped	Luminal A	Luminal A	367
+four_class_seed_20260910_patient_grouped	Luminal A	Luminal B	29
+four_class_seed_20260910_patient_grouped	Luminal A	Basal-like	0
+four_class_seed_20260910_patient_grouped	Luminal A	HER2-enriched	3
+four_class_seed_20260910_patient_grouped	Luminal B	Luminal A	15
+four_class_seed_20260910_patient_grouped	Luminal B	Luminal B	142
+four_class_seed_20260910_patient_grouped	Luminal B	Basal-like	0
+four_class_seed_20260910_patient_grouped	Luminal B	HER2-enriched	1
+four_class_seed_20260910_patient_grouped	Basal-like	Luminal A	0
+four_class_seed_20260910_patient_grouped	Basal-like	Luminal B	0
+four_class_seed_20260910_patient_grouped	Basal-like	Basal-like	135
+four_class_seed_20260910_patient_grouped	Basal-like	HER2-enriched	2
+four_class_seed_20260910_patient_grouped	HER2-enriched	Luminal A	0
+four_class_seed_20260910_patient_grouped	HER2-enriched	Luminal B	10
+four_class_seed_20260910_patient_grouped	HER2-enriched	Basal-like	1
+four_class_seed_20260910_patient_grouped	HER2-enriched	HER2-enriched	51
+four_class_seed_20260911_patient_grouped	Luminal A	Luminal A	368
+four_class_seed_20260911_patient_grouped	Luminal A	Luminal B	29
+four_class_seed_20260911_patient_grouped	Luminal A	Basal-like	0
+four_class_seed_20260911_patient_grouped	Luminal A	HER2-enriched	2
+four_class_seed_20260911_patient_grouped	Luminal B	Luminal A	18
+four_class_seed_20260911_patient_grouped	Luminal B	Luminal B	139
+four_class_seed_20260911_patient_grouped	Luminal B	Basal-like	0
+four_class_seed_20260911_patient_grouped	Luminal B	HER2-enriched	1
+four_class_seed_20260911_patient_grouped	Basal-like	Luminal A	0
+four_class_seed_20260911_patient_grouped	Basal-like	Luminal B	0
+four_class_seed_20260911_patient_grouped	Basal-like	Basal-like	135
+four_class_seed_20260911_patient_grouped	Basal-like	HER2-enriched	2
+four_class_seed_20260911_patient_grouped	HER2-enriched	Luminal A	0
+four_class_seed_20260911_patient_grouped	HER2-enriched	Luminal B	9
+four_class_seed_20260911_patient_grouped	HER2-enriched	Basal-like	1
+four_class_seed_20260911_patient_grouped	HER2-enriched	HER2-enriched	52
+four_class_seed_20260909_sample_stratified	Luminal A	Luminal A	368
+four_class_seed_20260909_sample_stratified	Luminal A	Luminal B	29
+four_class_seed_20260909_sample_stratified	Luminal A	Basal-like	0
+four_class_seed_20260909_sample_stratified	Luminal A	HER2-enriched	2
+four_class_seed_20260909_sample_stratified	Luminal B	Luminal A	19
+four_class_seed_20260909_sample_stratified	Luminal B	Luminal B	138
+four_class_seed_20260909_sample_stratified	Luminal B	Basal-like	0
+four_class_seed_20260909_sample_stratified	Luminal B	HER2-enriched	1
+four_class_seed_20260909_sample_stratified	Basal-like	Luminal A	0
+four_class_seed_20260909_sample_stratified	Basal-like	Luminal B	0
+four_class_seed_20260909_sample_stratified	Basal-like	Basal-like	135
+four_class_seed_20260909_sample_stratified	Basal-like	HER2-enriched	2
+four_class_seed_20260909_sample_stratified	HER2-enriched	Luminal A	0
+four_class_seed_20260909_sample_stratified	HER2-enriched	Luminal B	9
+four_class_seed_20260909_sample_stratified	HER2-enriched	Basal-like	1
+four_class_seed_20260909_sample_stratified	HER2-enriched	HER2-enriched	52

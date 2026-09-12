@@ -1,0 +1,6 @@
+source_a	source_b	overlap_cases	agreement_cases	discordant_cases	exact_concordance	cohen_kappa	note
+raw_cBioPortal_PanCancer_SUBTYPE	locked_PanCancer_table	981	981	0	1.0	1.0	Serialization and standardization integrity check
+locked_PanCancer_table	expression_sample_axis	981	981	0	1.0	1.0	Label propagation to the expression matrix
+locked_PanCancer_table	five_class_split_table	981	981	0	1.0	1.0	Label propagation to all five-class assignments
+locked_PanCancer_table	four_class_split_table	945	945	0	1.0	1.0	Label propagation after excluding Normal-like
+TCGA_2012_publication_PAM50	PanCancer_Atlas_PAM50	447	398	49	0.8903803131991052	0.8379248340622016	Independent historical data freeze; discordance is scientifically meaningful, not a serialization failure

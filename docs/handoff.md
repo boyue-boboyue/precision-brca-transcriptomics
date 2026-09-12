@@ -3,7 +3,7 @@
 **快照日期：** 2026-09-13
 **工作目录：** `oncostratify-brca-interpretable-machine-learning-for`  
 **协议版本：** 0.1.3  
-**当前阶段：** 数据、标签、表达矩阵、探索性分析、严格评估框架、五模型nested CV、PAM50排除敏感性、最终模型冻结、唯一一次locked-test评估、三层模型解释及内部生物学验证均已完成；性能与解释验证状态均为`PASS`。
+**当前阶段：** 数据、标签、表达矩阵、探索性分析、严格评估框架、五模型nested CV、最终模型冻结、唯一一次locked-test评估、三层模型解释、内部生物学验证，以及13场景稳健性与局限性分析均已完成；全部相应验证状态均为`PASS`。
 
 ## 1. 可从这里继续
 
@@ -143,6 +143,16 @@ EDA已生成并验证以下10类图表：
 - g:Profiler GO:BP/Reactome使用15,238个至少一折通过训练折低表达过滤的蛋白编码基因作为主背景，15,118个5/5折通过基因作为敏感性背景，BH-FDR 0.05。主结果包括estrogen response、ERBB/EGFR signaling及Reactome `GRB7 events in ERBB2 signaling`。
 - 解释与生物学验证端到端校验状态为`PASS`；包括分区隔离、background来源、病例选择、SHAP加和、PAM50重叠、富集背景、受体多重检验、输出哈希和65张图形。
 
+### 2.11 稳健性与局限性分析
+
+- 使用冻结的最终随机森林参数完成13个development-only场景、65个外层拟合；没有加载locked-test表达行或生成新的测试集性能。
+- 四分类参考macro F1 `0.905`；PAM50-excluded `0.899`、log2(CPM+1) `0.911`、替代低表达规则 `0.906–0.909`、三个病例级种子 `0.905–0.907`、不加权 `0.878`、PAM50-only `0.917`。
+- 五分类macro F1为`0.817`；新增Normal-like仅29例development病例，其pooled precision/recall/F1分别为`0.786/0.379/0.512`，是五分类下降和不确定性的主要来源之一。
+- 病例分组与样本分层的同种子结果相同；当前病例最多一个样本且全部训练/验证patient overlap为0，因此只能确认实现，不能量化重复样本场景的泄漏偏倚。
+- 标签从原始PanCancer Atlas响应到锁定表、表达轴和split表均100%一致。TCGA 2012与PanCancer Atlas在447个重叠病例中一致398个（`89.0%`，Cohen's κ `0.838`），主要差异集中在Luminal A/B边界。
+- `outputs/robustness/verification_report.json`状态为`PASS`：71项检查通过，包含13场景完整性、65个outer fits、概率和、病例隔离、参考结果复现、50基因轴、标签一致性和全部产物哈希。
+- 关键边界：这些是固定参数的内部敏感性结果，不是外部验证；PAM50标签—表达特征具有内生性；排除signature不等于移除全部相关代理；Normal-like较小；三个随机种子覆盖有限。
+
 ## 3. 关键文件
 
 ### 协议与报告
@@ -192,6 +202,8 @@ EDA已生成并验证以下10类图表：
 - `scripts/run_biological_validation.py`：稳定基因表达分布、PAM50重叠、IHC受体关联与证据分层。
 - `scripts/fetch_functional_enrichment.py`：使用表达过滤背景请求并锁定g:Profiler GO:BP/Reactome结果。
 - `scripts/generate_interpretability_report.py`、`verify_interpretability.py`：生成解释/生物学报告、65张图并进行端到端验证。
+- `scripts/run_robustness_analysis.py`：运行13个固定模型development-only场景、标签来源一致性检查、图表和局限性报告。
+- `scripts/verify_robustness.py`：验证场景/OOF完整性、病例隔离、参考结果复现、PAM50轴、标签一致性与产物哈希。
 
 ### 评估配置与输出
 
@@ -217,6 +229,8 @@ EDA已生成并验证以下10类图表：
 - `data/processed/interpretability/`：6例SHAP病例及100例development background的锁定表。
 - `data/processed/splits/interpretation_test_access_v1.json`：解释专用测试访问记录；加载6行、性能指标0、模型选择false。
 - `outputs/interpretability/`：三层解释表、稳定性、完整SHAP、内部生物学验证、富集原始响应、综合报告、65张图与`PASS`验证报告。
+- `config/robustness_v1.json`：post-selection固定模型敏感性场景、种子、预处理和测试集禁用规则。
+- `outputs/robustness/`：逐折/逐类指标、OOF预测、混淆矩阵、特征数、split与标签审计、3张图、局限性报告、manifest和`PASS`验证报告。
 
 ## 4. 恢复环境与校验
 
@@ -231,6 +245,7 @@ python3 -m venv .venv
 .venv/bin/python scripts/verify_random_forest.py
 .venv/bin/python scripts/verify_unified_performance_report.py
 .venv/bin/python scripts/verify_interpretability.py
+.venv/bin/python scripts/verify_robustness.py
 ```
 
 预期所有校验脚本均输出 `"status": "PASS"`。

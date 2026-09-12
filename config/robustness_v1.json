@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0.0",
+  "locked_at_utc": "2026-09-12T17:04:48Z",
+  "analysis_partition": "development_only",
+  "locked_test_policy": "Locked assignments may be read for partition filtering and integrity checks, but no locked-test expression may be loaded and no locked-test prediction or performance metric may be generated.",
+  "reference_scenario": "four_class_tpm_primary",
+  "estimator": {
+    "class": "RandomForestClassifier",
+    "source": "config/final_model_lock_v1.json",
+    "n_estimators": 750,
+    "max_depth": 16,
+    "min_samples_leaf": 1,
+    "max_features": "sqrt",
+    "criterion": "gini",
+    "bootstrap": true,
+    "variance_selector_k": 2000,
+    "default_class_weight": "balanced"
+  },
+  "cross_validation": {
+    "folds": 5,
+    "primary_split_source": "data/processed/splits/four_class_split_assignments.tsv",
+    "five_class_split_source": "data/processed/splits/five_class_split_assignments.tsv",
+    "seed_sensitivity": [20260909, 20260910, 20260911],
+    "seed_sensitivity_changes": ["patient-grouped fold allocation", "random-forest random_state"]
+  },
+  "preprocessing": {
+    "primary": "log2(TPM + 1)",
+    "alternative": "log2(CPM + 1) from GDC unstranded counts and per-sample all-gene library totals",
+    "training_fold_pipeline": [
+      "low_expression_filter",
+      "median_imputation",
+      "top_variance_feature_selection",
+      "standard_scaling",
+      "classifier"
+    ],
+    "low_expression_rules": [
+      {"name": "permissive", "abundance": 0.5, "minimum_training_fraction": 0.1},
+      {"name": "primary", "abundance": 1.0, "minimum_training_fraction": 0.1},
+      {"name": "stricter_fraction", "abundance": 1.0, "minimum_training_fraction": 0.2},
+      {"name": "stricter_abundance", "abundance": 5.0, "minimum_training_fraction": 0.1}
+    ]
+  },
+  "feature_schemes": [
+    "all protein-coding genes with PAM50 included",
+    "all protein-coding genes with the locked PAM50 signature excluded",
+    "locked PAM50 signature genes only"
+  ],
+  "comparisons": [
+    "four-class versus five-class",
+    "PAM50 included versus excluded",
+    "log2 TPM versus log2 CPM",
+    "low-expression filtering thresholds",
+    "random seeds",
+    "balanced versus unweighted classes",
+    "PAM50-only versus whole-transcriptome candidate features",
+    "patient-grouped versus sample-stratified splitting",
+    "PanCancer Atlas versus TCGA 2012 PAM50 label-source consistency"
+  ],
+  "interpretation": "Post-selection development-only robustness analysis. Fixed hyperparameters isolate analysis perturbations and are not a new model-selection exercise."
+}

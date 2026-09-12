@@ -56,3 +56,13 @@
 - 测试访问：解释专用记录只加载6个预锁定病例，计算性能指标数为0，模型选择标志为false；最终189例测试性能没有重算。
 - 实现修订：g:Profiler返回的`intersections`是与查询基因逐位对应的证据代码嵌套列表。首次结果序列化在两套原始响应均保存后停止；`config/interpretability_execution_amendment_v1.json`记录了从原始响应重建基因交集的修复及让GO/Reactome分别可见的纯展示调整。查询基因、背景、来源、FDR阈值和原始响应均未改变，也没有重新调用API。
 - 解释限制：高相关基因会分摊系数、permutation importance和SHAP值；任何“排名第一”都不是唯一性、因果性、新颖性或临床可用性的证明。
+
+## 2026-09-13：最终模型选择后的稳健性与标签一致性分析
+
+- 修改内容：新增`config/robustness_v1.json`并对已经选择的随机森林执行13个development-only固定模型场景、共65个外层拟合。覆盖四/五分类、PAM50 included/excluded、log2(TPM+1)/log2(CPM+1)、四种低表达规则、三个病例级随机种子、balanced/unweighted、PAM50-only/全蛋白编码转录组，以及病例分组/样本分层拆分；同时比较原始PanCancer Atlas标签链路与TCGA 2012 publication freeze。
+- 时间顺序：该分析发生在最终模型选择和唯一一次locked-test评估之后，因此明确属于post-selection敏感性分析。场景、随机种子和固定参数在正式65次拟合前保存；首次5-tree冒烟测试不产生正式结果。正式分析没有加载locked-test表达行、生成测试预测或重新计算测试性能。
+- 固定模型理由：沿用最终随机森林的2,000个训练折高方差基因、750棵树、depth 16、leaf 1和`sqrt`特征采样，不对每种替代方案重新调参，以隔离分析选择本身的影响。该设计可能低估替代方案单独优化后的性能。
+- 主要结果：四分类参考macro F1为`0.905`；PAM50-excluded `0.899`、log2 CPM `0.911`、三个替代低表达规则`0.906–0.909`、三个病例级随机种子`0.905–0.907`、unweighted `0.878`、PAM50-only `0.917`。五分类macro F1为`0.817`，其中29例Normal-like的pooled F1为`0.512`。
+- 标签一致性：原始cBioPortal记录、锁定表、表达样本轴与split表完全一致。TCGA 2012与PanCancer Atlas在447个重叠病例中一致398个（`89.0%`，κ `0.838`）；不同数据冻结、平台和PAM50实现可能导致真实版本差异，不把49个不一致病例自动视作数据错误。
+- 解释边界：PAM50-only的较高内部CV性能符合标签由同类表达信号定义的预期，不是临床效用证据；排除50个signature基因也不能移除共表达代理。所有结果只支持内部稳健性，不能替代独立外部验证，也不得据此重新选择模型或再次访问locked test。
+- 分析类型：预设项目范围的post-selection development-only敏感性补充及局限性审计；不改变主分析、最终模型锁或已报告的唯一测试集结果。

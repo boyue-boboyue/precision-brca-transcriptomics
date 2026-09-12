@@ -1,0 +1,26 @@
+historical_2012	pancancer_atlas	count
+Luminal A	Luminal A	198
+Luminal A	Luminal B	3
+Luminal A	Basal-like	2
+Luminal A	HER2-enriched	0
+Luminal A	Normal-like	1
+Luminal B	Luminal A	29
+Luminal B	Luminal B	76
+Luminal B	Basal-like	0
+Luminal B	HER2-enriched	0
+Luminal B	Normal-like	0
+Basal-like	Luminal A	2
+Basal-like	Luminal B	0
+Basal-like	Basal-like	74
+Basal-like	HER2-enriched	0
+Basal-like	Normal-like	1
+HER2-enriched	Luminal A	3
+HER2-enriched	Luminal B	6
+HER2-enriched	Basal-like	0
+HER2-enriched	HER2-enriched	43
+HER2-enriched	Normal-like	1
+Normal-like	Luminal A	1
+Normal-like	Luminal B	0
+Normal-like	Basal-like	0
+Normal-like	HER2-enriched	0
+Normal-like	Normal-like	7

@@ -1,0 +1,448 @@
+case_barcode	historical_standard	pancancer_standard	agreement
+TCGA-A1-A0SD	Luminal A	Luminal A	True
+TCGA-A1-A0SE	Luminal A	Luminal A	True
+TCGA-A1-A0SH	Luminal A	Luminal A	True
+TCGA-A1-A0SJ	Luminal A	Luminal A	True
+TCGA-A1-A0SK	Basal-like	Basal-like	True
+TCGA-A1-A0SO	Basal-like	Basal-like	True
+TCGA-A2-A04N	Luminal A	Luminal A	True
+TCGA-A2-A04P	Basal-like	Basal-like	True
+TCGA-A2-A04Q	Basal-like	Basal-like	True
+TCGA-A2-A04R	Luminal B	Luminal B	True
+TCGA-A2-A04V	Luminal A	Luminal A	True
+TCGA-A2-A04W	HER2-enriched	HER2-enriched	True
+TCGA-A2-A04X	HER2-enriched	HER2-enriched	True
+TCGA-A2-A04Y	Luminal A	Luminal B	False
+TCGA-A2-A0CL	HER2-enriched	Normal-like	False
+TCGA-A2-A0CM	Basal-like	Basal-like	True
+TCGA-A2-A0CP	Luminal A	Luminal A	True
+TCGA-A2-A0CQ	Luminal A	Luminal A	True
+TCGA-A2-A0CS	Luminal A	Luminal A	True
+TCGA-A2-A0CT	Luminal B	Luminal A	False
+TCGA-A2-A0CU	Luminal A	Luminal A	True
+TCGA-A2-A0CV	Luminal A	Luminal A	True
+TCGA-A2-A0D0	Basal-like	Basal-like	True
+TCGA-A2-A0D1	HER2-enriched	HER2-enriched	True
+TCGA-A2-A0D2	Basal-like	Basal-like	True
+TCGA-A2-A0D3	Luminal A	Luminal A	True
+TCGA-A2-A0D4	Luminal B	Luminal B	True
+TCGA-A2-A0EM	Luminal A	Luminal A	True
+TCGA-A2-A0EN	Luminal A	Luminal A	True
+TCGA-A2-A0EO	Luminal A	Luminal A	True
+TCGA-A2-A0EQ	HER2-enriched	HER2-enriched	True
+TCGA-A2-A0ER	Luminal B	Luminal A	False
+TCGA-A2-A0ES	Luminal A	Luminal A	True
+TCGA-A2-A0ET	Luminal A	Luminal A	True
+TCGA-A2-A0EU	Luminal A	Luminal A	True
+TCGA-A2-A0EV	Luminal A	Luminal A	True
+TCGA-A2-A0EW	Luminal A	Luminal A	True
+TCGA-A2-A0EX	Luminal A	Luminal A	True
+TCGA-A2-A0EY	Luminal B	Luminal B	True
+TCGA-A2-A0ST	Basal-like	Basal-like	True
+TCGA-A2-A0SU	Luminal A	Luminal A	True
+TCGA-A2-A0SV	Luminal B	Luminal B	True
+TCGA-A2-A0SW	Luminal B	Luminal B	True
+TCGA-A2-A0SX	Basal-like	Basal-like	True
+TCGA-A2-A0SY	Luminal A	Luminal A	True
+TCGA-A2-A0T0	Basal-like	Basal-like	True
+TCGA-A2-A0T1	HER2-enriched	HER2-enriched	True
+TCGA-A2-A0T2	Basal-like	Basal-like	True
+TCGA-A2-A0T3	Luminal B	Luminal B	True
+TCGA-A2-A0T4	Luminal B	Luminal A	False
+TCGA-A2-A0T6	Luminal A	Luminal A	True
+TCGA-A2-A0T7	Luminal A	Luminal A	True
+TCGA-A2-A0YC	Luminal A	Luminal A	True
+TCGA-A2-A0YD	Luminal A	Luminal A	True
+TCGA-A2-A0YF	Luminal A	Luminal A	True
+TCGA-A2-A0YG	Luminal B	Luminal B	True
+TCGA-A2-A0YH	Luminal B	Luminal B	True
+TCGA-A2-A0YI	Luminal A	Luminal A	True
+TCGA-A2-A0YK	Normal-like	Normal-like	True
+TCGA-A2-A0YL	Luminal A	Luminal A	True
+TCGA-A2-A0YM	Basal-like	Basal-like	True
+TCGA-A7-A0CD	Luminal A	Luminal A	True
+TCGA-A7-A0CE	Basal-like	Basal-like	True
+TCGA-A7-A0CG	Luminal A	Luminal A	True
+TCGA-A7-A0CH	Luminal A	Luminal A	True
+TCGA-A7-A0CJ	Luminal B	Luminal B	True
+TCGA-A7-A0D9	Luminal A	Luminal A	True
+TCGA-A7-A0DA	Basal-like	Basal-like	True
+TCGA-A7-A0DB	Luminal A	Luminal A	True
+TCGA-A7-A13D	Basal-like	Basal-like	True
+TCGA-A7-A13F	Luminal B	Luminal B	True
+TCGA-A8-A06N	Luminal B	Luminal B	True
+TCGA-A8-A06O	Luminal B	Luminal B	True
+TCGA-A8-A06P	Luminal A	Luminal A	True
+TCGA-A8-A06Q	Luminal B	Luminal B	True
+TCGA-A8-A06T	Luminal A	Luminal A	True
+TCGA-A8-A06Y	Luminal A	Luminal A	True
+TCGA-A8-A06Z	Luminal B	Luminal B	True
+TCGA-A8-A075	HER2-enriched	Luminal B	False
+TCGA-A8-A076	HER2-enriched	Luminal B	False
+TCGA-A8-A079	Luminal B	Luminal B	True
+TCGA-A8-A07B	HER2-enriched	Luminal A	False
+TCGA-A8-A07E	Luminal A	Luminal A	True
+TCGA-A8-A07F	Luminal A	Luminal A	True
+TCGA-A8-A07G	Luminal A	Luminal A	True
+TCGA-A8-A07I	HER2-enriched	HER2-enriched	True
+TCGA-A8-A07J	Luminal A	Luminal A	True
+TCGA-A8-A07L	Luminal B	Luminal B	True
+TCGA-A8-A07O	Basal-like	Basal-like	True
+TCGA-A8-A07P	Luminal A	Luminal A	True
+TCGA-A8-A07U	Basal-like	Basal-like	True
+TCGA-A8-A07W	Luminal B	Luminal B	True
+TCGA-A8-A07Z	Luminal B	Luminal A	False
+TCGA-A8-A081	HER2-enriched	Luminal B	False
+TCGA-A8-A082	Luminal B	Luminal B	True
+TCGA-A8-A083	Luminal A	Luminal A	True
+TCGA-A8-A086	Luminal A	Luminal A	True
+TCGA-A8-A08A	Luminal A	Luminal A	True
+TCGA-A8-A08B	HER2-enriched	HER2-enriched	True
+TCGA-A8-A08G	Luminal B	Luminal B	True
+TCGA-A8-A08H	Basal-like	Normal-like	False
+TCGA-A8-A08I	Luminal B	Luminal B	True
+TCGA-A8-A08J	HER2-enriched	HER2-enriched	True
+TCGA-A8-A08L	HER2-enriched	HER2-enriched	True
+TCGA-A8-A08O	Luminal A	Luminal A	True
+TCGA-A8-A08R	Basal-like	Basal-like	True
+TCGA-A8-A08T	Luminal A	Luminal A	True
+TCGA-A8-A08X	HER2-enriched	HER2-enriched	True
+TCGA-A8-A08Z	Luminal A	Luminal A	True
+TCGA-A8-A090	Luminal A	Luminal A	True
+TCGA-A8-A091	Luminal A	Luminal A	True
+TCGA-A8-A092	HER2-enriched	Luminal B	False
+TCGA-A8-A093	Luminal A	Luminal A	True
+TCGA-A8-A094	HER2-enriched	HER2-enriched	True
+TCGA-A8-A095	Luminal B	Luminal B	True
+TCGA-A8-A096	Luminal B	Luminal B	True
+TCGA-A8-A097	Luminal B	Luminal A	False
+TCGA-A8-A099	Luminal A	Luminal A	True
+TCGA-A8-A09A	Luminal A	Luminal A	True
+TCGA-A8-A09B	Luminal A	Luminal A	True
+TCGA-A8-A09C	Luminal B	Luminal B	True
+TCGA-A8-A09D	Luminal B	Luminal A	False
+TCGA-A8-A09G	HER2-enriched	HER2-enriched	True
+TCGA-A8-A09I	Luminal B	Luminal B	True
+TCGA-A8-A09M	Luminal B	Luminal B	True
+TCGA-A8-A09N	Luminal B	Luminal B	True
+TCGA-A8-A09Q	Luminal B	Luminal B	True
+TCGA-A8-A09R	Luminal B	Luminal B	True
+TCGA-A8-A09T	Luminal A	Luminal A	True
+TCGA-A8-A09X	HER2-enriched	HER2-enriched	True
+TCGA-A8-A0A1	Luminal A	Luminal A	True
+TCGA-A8-A0A2	Luminal A	Luminal A	True
+TCGA-A8-A0A4	Luminal A	Luminal A	True
+TCGA-A8-A0A7	HER2-enriched	HER2-enriched	True
+TCGA-A8-A0A9	Luminal B	Luminal A	False
+TCGA-A8-A0AB	Luminal B	Luminal A	False
+TCGA-A8-A0AD	Luminal A	Luminal A	True
+TCGA-AN-A03X	Luminal A	Luminal A	True
+TCGA-AN-A03Y	Luminal B	Luminal B	True
+TCGA-AN-A041	Luminal B	Luminal A	False
+TCGA-AN-A049	Luminal B	Luminal A	False
+TCGA-AN-A04A	Luminal A	Luminal A	True
+TCGA-AN-A04C	HER2-enriched	HER2-enriched	True
+TCGA-AN-A04D	Basal-like	Basal-like	True
+TCGA-AN-A0AJ	Luminal B	Luminal B	True
+TCGA-AN-A0AL	Basal-like	Basal-like	True
+TCGA-AN-A0AM	Luminal B	Luminal B	True
+TCGA-AN-A0AR	Basal-like	Basal-like	True
+TCGA-AN-A0AS	Luminal B	Luminal A	False
+TCGA-AN-A0FD	Luminal A	Luminal A	True
+TCGA-AN-A0FF	Luminal B	Luminal B	True
+TCGA-AN-A0FJ	Basal-like	Basal-like	True
+TCGA-AN-A0FK	Luminal B	Luminal A	False
+TCGA-AN-A0FL	Basal-like	Basal-like	True
+TCGA-AN-A0FN	Luminal A	Luminal A	True
+TCGA-AN-A0FS	Luminal A	Luminal A	True
+TCGA-AN-A0FT	Luminal A	Luminal A	True
+TCGA-AN-A0FV	HER2-enriched	HER2-enriched	True
+TCGA-AN-A0FW	Luminal A	Luminal A	True
+TCGA-AN-A0FX	Basal-like	Basal-like	True
+TCGA-AN-A0FY	Luminal B	Luminal B	True
+TCGA-AN-A0FZ	Luminal A	Luminal A	True
+TCGA-AN-A0XL	Luminal A	Luminal A	True
+TCGA-AN-A0XN	Luminal A	Luminal A	True
+TCGA-AN-A0XO	Luminal A	Luminal A	True
+TCGA-AN-A0XP	Luminal A	Luminal A	True
+TCGA-AN-A0XR	Luminal B	Luminal B	True
+TCGA-AN-A0XS	Luminal A	Luminal A	True
+TCGA-AN-A0XT	Luminal A	Luminal A	True
+TCGA-AN-A0XU	Basal-like	Basal-like	True
+TCGA-AN-A0XV	Luminal A	Luminal A	True
+TCGA-AN-A0XW	Luminal B	Luminal A	False
+TCGA-AO-A03L	HER2-enriched	Luminal A	False
+TCGA-AO-A03N	HER2-enriched	Luminal B	False
+TCGA-AO-A03O	Luminal B	Luminal B	True
+TCGA-AO-A03R	Normal-like	Normal-like	True
+TCGA-AO-A03T	Normal-like	Normal-like	True
+TCGA-AO-A03U	Normal-like	Normal-like	True
+TCGA-AO-A03V	Luminal A	Luminal A	True
+TCGA-AO-A0J2	HER2-enriched	HER2-enriched	True
+TCGA-AO-A0J3	Luminal B	Luminal B	True
+TCGA-AO-A0J4	Basal-like	Basal-like	True
+TCGA-AO-A0J6	Basal-like	Basal-like	True
+TCGA-AO-A0J7	Luminal B	Luminal B	True
+TCGA-AO-A0J8	Luminal A	Luminal A	True
+TCGA-AO-A0J9	Luminal A	Luminal A	True
+TCGA-AO-A0JA	Luminal A	Luminal A	True
+TCGA-AO-A0JB	Normal-like	Normal-like	True
+TCGA-AO-A0JC	Luminal B	Luminal A	False
+TCGA-AO-A0JD	Luminal B	Luminal B	True
+TCGA-AO-A0JE	HER2-enriched	HER2-enriched	True
+TCGA-AO-A0JF	Luminal A	Luminal A	True
+TCGA-AO-A0JG	Luminal A	Luminal A	True
+TCGA-AO-A0JI	Luminal B	Luminal A	False
+TCGA-AO-A0JJ	Luminal A	Luminal A	True
+TCGA-AO-A0JM	Luminal B	Luminal B	True
+TCGA-AO-A124	Basal-like	Basal-like	True
+TCGA-AO-A125	Luminal A	Luminal A	True
+TCGA-AO-A126	Luminal A	Luminal A	True
+TCGA-AO-A129	Basal-like	Basal-like	True
+TCGA-AO-A12A	Luminal A	Luminal A	True
+TCGA-AO-A12B	Luminal B	Luminal A	False
+TCGA-AO-A12D	HER2-enriched	HER2-enriched	True
+TCGA-AO-A12E	Luminal A	Luminal A	True
+TCGA-AO-A12F	Basal-like	Basal-like	True
+TCGA-AO-A12G	Luminal A	Luminal A	True
+TCGA-AO-A12H	Luminal A	Luminal A	True
+TCGA-AQ-A04H	Luminal B	Luminal B	True
+TCGA-AQ-A04J	Basal-like	Basal-like	True
+TCGA-AR-A0TP	Basal-like	Basal-like	True
+TCGA-AR-A0TQ	Luminal B	Luminal B	True
+TCGA-AR-A0TR	Luminal A	Luminal A	True
+TCGA-AR-A0TS	Basal-like	Basal-like	True
+TCGA-AR-A0TT	Luminal B	Luminal B	True
+TCGA-AR-A0TV	Luminal B	Luminal B	True
+TCGA-AR-A0TX	HER2-enriched	HER2-enriched	True
+TCGA-AR-A0TY	Luminal B	Luminal B	True
+TCGA-AR-A0TZ	Luminal B	Luminal A	False
+TCGA-AR-A0U2	Luminal B	Luminal B	True
+TCGA-AR-A0U3	Luminal B	Luminal A	False
+TCGA-AR-A0U4	Basal-like	Basal-like	True
+TCGA-AR-A1AH	Basal-like	Basal-like	True
+TCGA-AR-A1AI	Basal-like	Basal-like	True
+TCGA-AR-A1AJ	Basal-like	Basal-like	True
+TCGA-AR-A1AK	Luminal A	Luminal A	True
+TCGA-AR-A1AL	Luminal A	Luminal A	True
+TCGA-AR-A1AN	Luminal A	Luminal A	True
+TCGA-AR-A1AO	Normal-like	Normal-like	True
+TCGA-AR-A1AP	Luminal A	Luminal A	True
+TCGA-AR-A1AQ	Basal-like	Basal-like	True
+TCGA-AR-A1AR	Basal-like	Basal-like	True
+TCGA-AR-A1AS	Luminal A	Luminal A	True
+TCGA-AR-A1AU	Luminal A	Luminal A	True
+TCGA-AR-A1AW	Luminal A	Luminal B	False
+TCGA-AR-A1AX	Luminal A	Luminal A	True
+TCGA-AR-A1AY	Basal-like	Basal-like	True
+TCGA-B6-A0I2	Basal-like	Basal-like	True
+TCGA-B6-A0I5	Luminal A	Luminal A	True
+TCGA-B6-A0I9	HER2-enriched	HER2-enriched	True
+TCGA-B6-A0IA	Luminal A	Luminal A	True
+TCGA-B6-A0IB	Luminal B	Luminal B	True
+TCGA-B6-A0IC	Luminal B	Luminal A	False
+TCGA-B6-A0IE	Normal-like	Luminal A	False
+TCGA-B6-A0IH	Luminal A	Luminal A	True
+TCGA-B6-A0IJ	Basal-like	Basal-like	True
+TCGA-B6-A0IK	HER2-enriched	HER2-enriched	True
+TCGA-B6-A0IM	Luminal B	Luminal A	False
+TCGA-B6-A0IN	Luminal A	Luminal B	False
+TCGA-B6-A0IO	Luminal A	Luminal A	True
+TCGA-B6-A0IP	Luminal A	Luminal A	True
+TCGA-B6-A0IQ	Basal-like	Basal-like	True
+TCGA-B6-A0RE	Basal-like	Basal-like	True
+TCGA-B6-A0RG	Luminal A	Luminal A	True
+TCGA-B6-A0RH	HER2-enriched	HER2-enriched	True
+TCGA-B6-A0RI	Luminal A	Luminal A	True
+TCGA-B6-A0RL	Luminal B	Luminal B	True
+TCGA-B6-A0RM	Luminal A	Luminal A	True
+TCGA-B6-A0RN	Luminal A	Luminal A	True
+TCGA-B6-A0RO	Luminal A	Luminal A	True
+TCGA-B6-A0RP	Luminal A	Luminal A	True
+TCGA-B6-A0RQ	Luminal A	Normal-like	False
+TCGA-B6-A0RS	HER2-enriched	HER2-enriched	True
+TCGA-B6-A0RT	Basal-like	Basal-like	True
+TCGA-B6-A0RU	Basal-like	Basal-like	True
+TCGA-B6-A0RV	Luminal A	Luminal A	True
+TCGA-B6-A0WS	Luminal A	Luminal A	True
+TCGA-B6-A0WT	Luminal A	Luminal A	True
+TCGA-B6-A0WV	Luminal B	Luminal B	True
+TCGA-B6-A0WW	Luminal B	Luminal B	True
+TCGA-B6-A0WX	Basal-like	Basal-like	True
+TCGA-B6-A0WY	Luminal A	Luminal A	True
+TCGA-B6-A0WZ	Luminal A	Luminal A	True
+TCGA-B6-A0X0	Luminal A	Luminal A	True
+TCGA-B6-A0X4	Luminal A	Luminal A	True
+TCGA-B6-A0X5	Luminal B	Luminal B	True
+TCGA-B6-A0X7	Luminal A	Luminal A	True
+TCGA-BH-A0AU	Luminal B	Luminal B	True
+TCGA-BH-A0AV	Basal-like	Basal-like	True
+TCGA-BH-A0AW	HER2-enriched	HER2-enriched	True
+TCGA-BH-A0AY	Luminal B	Luminal A	False
+TCGA-BH-A0AZ	Luminal A	Luminal A	True
+TCGA-BH-A0B0	Luminal A	Luminal A	True
+TCGA-BH-A0B3	Basal-like	Basal-like	True
+TCGA-BH-A0B5	Luminal B	Luminal A	False
+TCGA-BH-A0B7	HER2-enriched	HER2-enriched	True
+TCGA-BH-A0B9	Basal-like	Basal-like	True
+TCGA-BH-A0BA	Luminal A	Luminal A	True
+TCGA-BH-A0BC	Luminal A	Luminal A	True
+TCGA-BH-A0BD	Luminal B	Luminal B	True
+TCGA-BH-A0BF	Luminal B	Luminal B	True
+TCGA-BH-A0BG	Basal-like	Basal-like	True
+TCGA-BH-A0BJ	Luminal A	Luminal A	True
+TCGA-BH-A0BL	Basal-like	Basal-like	True
+TCGA-BH-A0BM	Luminal A	Luminal A	True
+TCGA-BH-A0BO	Luminal A	Luminal A	True
+TCGA-BH-A0BP	Luminal A	Luminal A	True
+TCGA-BH-A0BQ	Luminal A	Luminal A	True
+TCGA-BH-A0BR	Luminal A	Luminal A	True
+TCGA-BH-A0BS	Luminal A	Luminal A	True
+TCGA-BH-A0BT	Luminal A	Luminal A	True
+TCGA-BH-A0BV	Luminal A	Luminal A	True
+TCGA-BH-A0BW	Basal-like	Basal-like	True
+TCGA-BH-A0BZ	Luminal B	Luminal B	True
+TCGA-BH-A0C0	Luminal B	Luminal B	True
+TCGA-BH-A0C1	Luminal A	Luminal A	True
+TCGA-BH-A0C3	Luminal B	Luminal B	True
+TCGA-BH-A0C7	Luminal B	Luminal B	True
+TCGA-BH-A0DE	Luminal A	Luminal A	True
+TCGA-BH-A0DG	Luminal A	Luminal A	True
+TCGA-BH-A0DH	Luminal A	Luminal A	True
+TCGA-BH-A0DI	Luminal A	Luminal A	True
+TCGA-BH-A0DK	Luminal A	Luminal A	True
+TCGA-BH-A0DL	Basal-like	Basal-like	True
+TCGA-BH-A0DO	Luminal A	Luminal A	True
+TCGA-BH-A0DP	Luminal A	Luminal A	True
+TCGA-BH-A0DQ	Luminal A	Luminal A	True
+TCGA-BH-A0DS	Luminal A	Luminal A	True
+TCGA-BH-A0DT	Luminal A	Luminal A	True
+TCGA-BH-A0DX	Luminal A	Luminal A	True
+TCGA-BH-A0DZ	HER2-enriched	Luminal A	False
+TCGA-BH-A0E0	Basal-like	Basal-like	True
+TCGA-BH-A0E1	Luminal A	Luminal A	True
+TCGA-BH-A0E6	Basal-like	Basal-like	True
+TCGA-BH-A0E7	Luminal A	Luminal A	True
+TCGA-BH-A0E9	Luminal A	Luminal A	True
+TCGA-BH-A0EA	Luminal A	Luminal A	True
+TCGA-BH-A0EE	HER2-enriched	HER2-enriched	True
+TCGA-BH-A0EI	Luminal A	Luminal A	True
+TCGA-BH-A0GY	Luminal A	Luminal A	True
+TCGA-BH-A0GZ	Luminal A	Luminal A	True
+TCGA-BH-A0H0	Luminal B	Luminal B	True
+TCGA-BH-A0H3	Luminal A	Luminal A	True
+TCGA-BH-A0H5	Luminal A	Luminal A	True
+TCGA-BH-A0H6	Luminal A	Luminal A	True
+TCGA-BH-A0H7	Luminal A	Luminal A	True
+TCGA-BH-A0H9	Luminal A	Luminal A	True
+TCGA-BH-A0HA	Luminal A	Luminal A	True
+TCGA-BH-A0HB	Luminal A	Luminal A	True
+TCGA-BH-A0HI	Luminal A	Luminal A	True
+TCGA-BH-A0HK	Luminal A	Luminal A	True
+TCGA-BH-A0HO	Luminal A	Luminal A	True
+TCGA-BH-A0HP	Luminal A	Luminal A	True
+TCGA-BH-A0HU	Luminal B	Luminal B	True
+TCGA-BH-A0HW	Luminal B	Luminal B	True
+TCGA-BH-A0HX	Luminal A	Luminal A	True
+TCGA-BH-A0RX	Basal-like	Basal-like	True
+TCGA-BH-A0W3	Luminal B	Luminal B	True
+TCGA-BH-A0W4	Luminal A	Luminal A	True
+TCGA-BH-A0W5	Luminal A	Luminal A	True
+TCGA-BH-A0W7	Luminal A	Luminal A	True
+TCGA-BH-A0WA	Basal-like	Basal-like	True
+TCGA-BH-A18F	Luminal B	Luminal A	False
+TCGA-BH-A18H	Luminal A	Luminal A	True
+TCGA-BH-A18I	Luminal A	Luminal A	True
+TCGA-BH-A18J	Luminal B	Luminal A	False
+TCGA-BH-A18K	Basal-like	Luminal A	False
+TCGA-BH-A18L	Luminal B	Luminal B	True
+TCGA-BH-A18M	Luminal A	Luminal A	True
+TCGA-BH-A18N	Luminal A	Luminal A	True
+TCGA-BH-A18P	HER2-enriched	HER2-enriched	True
+TCGA-BH-A18Q	Basal-like	Basal-like	True
+TCGA-BH-A18R	HER2-enriched	HER2-enriched	True
+TCGA-BH-A18S	Luminal A	Luminal A	True
+TCGA-BH-A18T	Luminal A	Basal-like	False
+TCGA-BH-A18U	Luminal B	Luminal B	True
+TCGA-BH-A18V	Basal-like	Basal-like	True
+TCGA-BH-A1EO	Luminal A	Luminal A	True
+TCGA-BH-A1ET	Luminal A	Luminal A	True
+TCGA-BH-A1EU	Luminal A	Luminal A	True
+TCGA-BH-A1EV	HER2-enriched	HER2-enriched	True
+TCGA-BH-A1EW	Luminal B	Luminal A	False
+TCGA-BH-A1F0	Basal-like	Basal-like	True
+TCGA-C8-A12K	Basal-like	Basal-like	True
+TCGA-C8-A12L	HER2-enriched	HER2-enriched	True
+TCGA-C8-A12M	Luminal B	Luminal B	True
+TCGA-C8-A12N	Luminal A	Luminal A	True
+TCGA-C8-A12P	HER2-enriched	HER2-enriched	True
+TCGA-C8-A12Q	HER2-enriched	HER2-enriched	True
+TCGA-C8-A12T	HER2-enriched	HER2-enriched	True
+TCGA-C8-A12U	Luminal B	Luminal B	True
+TCGA-C8-A12V	Basal-like	Basal-like	True
+TCGA-C8-A12W	Luminal B	Luminal B	True
+TCGA-C8-A12X	Luminal B	Luminal A	False
+TCGA-C8-A12Y	Luminal A	Luminal A	True
+TCGA-C8-A12Z	HER2-enriched	HER2-enriched	True
+TCGA-C8-A130	HER2-enriched	Luminal B	False
+TCGA-C8-A131	Basal-like	Basal-like	True
+TCGA-C8-A132	Luminal A	Luminal A	True
+TCGA-C8-A133	Luminal A	Luminal A	True
+TCGA-C8-A134	Basal-like	Basal-like	True
+TCGA-C8-A135	HER2-enriched	HER2-enriched	True
+TCGA-C8-A138	HER2-enriched	HER2-enriched	True
+TCGA-C8-A1HF	HER2-enriched	HER2-enriched	True
+TCGA-C8-A1HG	Luminal B	Luminal B	True
+TCGA-C8-A1HI	Luminal A	Luminal A	True
+TCGA-C8-A1HL	Luminal B	Luminal B	True
+TCGA-C8-A1HM	Luminal B	Luminal B	True
+TCGA-D8-A13Y	Luminal B	Luminal B	True
+TCGA-D8-A13Z	HER2-enriched	HER2-enriched	True
+TCGA-D8-A141	Luminal A	Luminal A	True
+TCGA-D8-A142	Basal-like	Basal-like	True
+TCGA-D8-A145	Luminal A	Luminal A	True
+TCGA-D8-A147	Basal-like	Basal-like	True
+TCGA-E2-A105	Luminal A	Luminal A	True
+TCGA-E2-A107	Luminal B	Luminal A	False
+TCGA-E2-A108	Normal-like	Normal-like	True
+TCGA-E2-A109	Luminal B	Luminal B	True
+TCGA-E2-A10A	Luminal B	Luminal A	False
+TCGA-E2-A10B	Luminal A	Luminal A	True
+TCGA-E2-A10C	Luminal B	Luminal B	True
+TCGA-E2-A10F	Luminal A	Luminal A	True
+TCGA-E2-A14N	Basal-like	Basal-like	True
+TCGA-E2-A14O	Luminal B	Luminal B	True
+TCGA-E2-A14P	HER2-enriched	HER2-enriched	True
+TCGA-E2-A14Q	Luminal A	Luminal A	True
+TCGA-E2-A14R	Basal-like	Basal-like	True
+TCGA-E2-A14V	HER2-enriched	HER2-enriched	True
+TCGA-E2-A14X	Basal-like	Basal-like	True
+TCGA-E2-A14Y	Basal-like	Basal-like	True
+TCGA-E2-A14Z	Luminal A	Luminal A	True
+TCGA-E2-A150	Basal-like	Basal-like	True
+TCGA-E2-A152	HER2-enriched	HER2-enriched	True
+TCGA-E2-A153	Luminal A	Luminal A	True
+TCGA-E2-A154	Luminal A	Luminal A	True
+TCGA-E2-A155	Luminal B	Luminal B	True
+TCGA-E2-A156	Luminal A	Luminal A	True
+TCGA-E2-A158	Basal-like	Basal-like	True
+TCGA-E2-A159	Basal-like	Basal-like	True
+TCGA-E2-A15A	Luminal B	Luminal B	True
+TCGA-E2-A15C	Luminal A	Luminal A	True
+TCGA-E2-A15E	Luminal A	Luminal A	True
+TCGA-E2-A15G	Luminal A	Luminal A	True
+TCGA-E2-A15H	Luminal A	Luminal A	True
+TCGA-E2-A15I	Luminal A	Luminal A	True
+TCGA-E2-A15J	Luminal A	Luminal A	True
+TCGA-E2-A15K	Luminal B	Luminal B	True
+TCGA-E2-A15M	Luminal B	Luminal A	False
+TCGA-E2-A15O	Luminal A	Luminal A	True
+TCGA-E2-A15P	Luminal A	Luminal A	True
+TCGA-E2-A15R	Luminal A	Luminal A	True
+TCGA-E2-A1B0	HER2-enriched	HER2-enriched	True
+TCGA-E2-A1B1	Luminal A	Luminal A	True
+TCGA-E2-A1B4	Luminal A	Luminal A	True
+TCGA-E2-A1B5	Basal-like	Luminal A	False
+TCGA-E2-A1B6	Luminal A	Basal-like	False
+TCGA-E2-A1BC	Luminal A	Luminal A	True
+TCGA-E2-A1BD	Luminal A	Luminal A	True
