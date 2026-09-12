@@ -7,6 +7,25 @@ download_root="${project_root}/data/raw/gdc/star_counts"
 report="${project_root}/data/metadata/gdc_download_verification.tsv"
 summary="${project_root}/data/metadata/gdc_download_verification_summary.json"
 
+file_md5() {
+  if command -v md5 >/dev/null 2>&1; then
+    md5 -q "$1"
+  elif command -v md5sum >/dev/null 2>&1; then
+    md5sum "$1" | awk '{print $1}'
+  else
+    echo "Neither md5 nor md5sum is available" >&2
+    return 127
+  fi
+}
+
+file_size() {
+  if stat -f '%z' "$1" >/dev/null 2>&1; then
+    stat -f '%z' "$1"
+  else
+    stat -c '%s' "$1"
+  fi
+}
+
 printf 'file_id\tfile_name\texpected_size\tactual_size\texpected_md5\tactual_md5\tstatus\n' \
   > "${report}"
 
@@ -29,8 +48,8 @@ while IFS=$'\t' read -r file_id file_name expected_md5 expected_size state; do
     continue
   fi
 
-  observed_size="$(stat -f '%z' "${target}")"
-  observed_md5="$(md5 -q "${target}")"
+  observed_size="$(file_size "${target}")"
+  observed_md5="$(file_md5 "${target}")"
   actual_bytes=$((actual_bytes + observed_size))
 
   if [[ "${observed_size}" == "${expected_size}" && "${observed_md5}" == "${expected_md5}" ]]; then
@@ -75,4 +94,3 @@ jq . "${summary}"
 if [[ "${failed_count}" -ne 0 || "${expected_count}" -ne "${verified_count}" ]]; then
   exit 1
 fi
-

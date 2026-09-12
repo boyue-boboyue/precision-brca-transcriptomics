@@ -13,6 +13,25 @@ if [[ ! -s "${manifest}" ]]; then
   exit 1
 fi
 
+file_md5() {
+  if command -v md5 >/dev/null 2>&1; then
+    md5 -q "$1"
+  elif command -v md5sum >/dev/null 2>&1; then
+    md5sum "$1" | awk '{print $1}'
+  else
+    echo "Neither md5 nor md5sum is available" >&2
+    return 127
+  fi
+}
+
+file_size() {
+  if stat -f '%z' "$1" >/dev/null 2>&1; then
+    stat -f '%z' "$1"
+  else
+    stat -c '%s' "$1"
+  fi
+}
+
 download_one() {
   local file_id="$1"
   local file_name="$2"
@@ -26,7 +45,7 @@ download_one() {
 
   if [[ -f "${target}" ]]; then
     local actual_md5
-    actual_md5="$(md5 -q "${target}")"
+    actual_md5="$(file_md5 "${target}")"
     if [[ "${actual_md5}" == "${expected_md5}" ]]; then
       printf 'SKIP\t%s\t%s\n' "${file_id}" "${file_name}"
       return 0
@@ -41,8 +60,8 @@ download_one() {
     "https://api.gdc.cancer.gov/data/${file_id}"
 
   local actual_size actual_md5
-  actual_size="$(stat -f '%z' "${partial}")"
-  actual_md5="$(md5 -q "${partial}")"
+  actual_size="$(file_size "${partial}")"
+  actual_md5="$(file_md5 "${partial}")"
 
   if [[ "${actual_size}" != "${expected_size}" ]]; then
     printf 'Size mismatch for %s: expected %s, got %s\n' \
@@ -60,7 +79,7 @@ download_one() {
 }
 
 export project_root manifest download_root log_dir
-export -f download_one
+export -f file_md5 file_size download_one
 
 download_workers="${GDC_DOWNLOAD_WORKERS:-12}"
 

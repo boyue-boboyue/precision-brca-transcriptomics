@@ -53,46 +53,45 @@ expression arrays, and local handoff archives are intentionally excluded from
 normal Git history. See [`docs/data_availability.md`](docs/data_availability.md)
 for exact exclusions and reconstruction instructions.
 
-## Resume from processed data
+## Reproducible Make entry points
 
 ```bash
-python3 -m venv .venv
-.venv/bin/python -m pip install -r requirements-eda.txt
-.venv/bin/python scripts/verify_expression_matrix.py
-.venv/bin/python scripts/verify_eda.py
-.venv/bin/python scripts/verify_evaluation_framework.py
-.venv/bin/python scripts/verify_logistic_comparison.py
-.venv/bin/python scripts/verify_linear_svc.py
-.venv/bin/python scripts/verify_random_forest.py
-.venv/bin/python scripts/verify_unified_performance_report.py
-.venv/bin/python scripts/verify_interpretability.py
-.venv/bin/python scripts/verify_robustness.py
+make environment
+make metadata
+make cohort
+make matrix
+make eda
+make train
+make evaluate
+make explain
+make test
 ```
 
-To reproduce the EDA after verification:
+The targets form one explicit chain:
+
+```text
+environment → metadata → cohort → matrix → eda → train → evaluate → explain → test
+```
+
+Calling a downstream target automatically runs its prerequisites, so a bare
+`make` or `make test` checks the complete delivery. `make matrix` verifies the
+three local arrays when present; in a fresh clone it downloads the 1,111 files
+in the locked GDC manifest, verifies MD5 and byte sizes, rebuilds the arrays,
+and requires their hashes to match the committed matrix manifest. Download
+parallelism can be changed, for example with `GDC_DOWNLOAD_WORKERS=4`.
+
+The final test and the six SHAP test cases are protected by one-time access
+records. For that reason `train`, `evaluate`, and `explain` verify the frozen
+canonical result chain without rerunning those irreversible steps. Tables and
+figures that do not reopen the locked test can be redrawn from frozen result
+tables with:
 
 ```bash
-.venv/bin/python scripts/run_eda.py
+make test REBUILD_REPORTS=1
 ```
 
 Model interpretation, internal biological validation, and the specified robustness analyses are complete. The next scientific priority is external-cohort validation with frozen preprocessing, genes, parameters, and label mapping. Any feature-count expansion beyond the preregistered 2,000-gene grid must remain a clearly labeled post-result development-only sensitivity analysis and cannot trigger another locked-test evaluation.
 
-## Full rebuild order
-
-```bash
-bash scripts/query_gdc.sh
-bash scripts/download_gdc_star_counts.sh
-bash scripts/verify_gdc_download.sh
-bash scripts/build_gdc_metadata_tables.sh
-bash scripts/fetch_pancanatlas_pam50.sh
-python3 scripts/lock_pancanatlas_pam50.py
-python3 scripts/build_expression_matrix.py
-python3 scripts/verify_expression_matrix.py
-bash scripts/fetch_cbioportal_receptors.sh
-python3 scripts/run_eda.py
-python3 scripts/verify_eda.py
-python3 scripts/lock_evaluation_splits.py
-python3 scripts/verify_evaluation_framework.py
-```
-
-Network access is required only for the GDC/cBioPortal fetch steps.
+Network access is required only when the Git-omitted GDC STAR Counts must be
+downloaded. Metadata, PAM50 annotations, receptor sources, and enrichment raw
+responses are version-frozen and checksum-verified locally by default.
