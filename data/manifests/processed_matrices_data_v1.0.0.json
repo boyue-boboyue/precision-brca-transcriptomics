@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0.0",
+  "release_tag": "data-v1.0.0",
+  "release_url": "https://github.com/boyue-boboyue/precision-brca-transcriptomics/releases/tag/data-v1.0.0",
+  "asset": {
+    "file_name": "oncostratify-brca-expression-matrices-data-v1.0.0.tar.gz",
+    "bytes": 354035355,
+    "sha256": "fb800d92bd7c958aa854204dbc87304943c72231885c50e4fa6468054d079383",
+    "format": "gzip-compressed POSIX tar archive"
+  },
+  "source": {
+    "project": "TCGA-BRCA",
+    "provider": "NCI Genomic Data Commons",
+    "data_type": "Gene Expression Quantification",
+    "workflow_type": "STAR - Counts",
+    "gdc_data_release": "Data Release 46.0 - August 10, 2026",
+    "gdc_file_count": 1111,
+    "gdc_manifest_sha256": "f04f45312bda4cfa9de411861eed344d2e1e8859154190228cd8013abce15d62",
+    "gene_model": "GENCODE v36"
+  },
+  "matrix_definition": {
+    "axis_order": "rows=samples; columns=genes",
+    "sample_count": 1095,
+    "gene_count": 60660,
+    "protein_coding_gene_count": 19962,
+    "case_selection": "one Primary Tumor STAR Counts file per TCGA case",
+    "matrix_manifest_sha256": "c21506bd6a2014dfdb139031f9e706ee7bbd3642d4c92d53a96efb4a34e0dbba",
+    "matrices": {
+      "counts_uint32.npy": {
+        "dtype": "uint32",
+        "sha256": "8a820d8dd77a47ec8b133d7221bd9d36a95a7b338c49d1ab97589a9b06f10eb4"
+      },
+      "tpm_float32.npy": {
+        "dtype": "float32",
+        "sha256": "6e7a19af690dccb941bebf06acccc1429861918417625a39f8e4ab5fee1273c8"
+      },
+      "log2_tpm_float32.npy": {
+        "dtype": "float32",
+        "transform": "log2(TPM + 1)",
+        "sha256": "992cf12149d7e2bf1e0185a90560835bc9643e89397c2a1200ee4d192eef3542"
+      }
+    }
+  },
+  "contents": [
+    "data/processed/expression/",
+    "data/processed/labels/"
+  ],
+  "access": "Derived exclusively from open-access GDC files; no controlled-access sequence data are included.",
+  "intended_use": "Research and reproducibility only; not for clinical diagnosis or treatment selection."
+}

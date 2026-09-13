@@ -4,14 +4,17 @@
 from __future__ import annotations
 
 import argparse
-import csv
 import hashlib
 import json
 import os
 import subprocess
 import sys
-from datetime import datetime, timezone
 from pathlib import Path
+
+try:
+    from .verify_gdc_download import verify_download
+except ImportError:  # Direct execution: python scripts/ensure_expression_matrix.py
+    from verify_gdc_download import verify_download
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -38,70 +41,12 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
-def md5(path: Path) -> str:
-    digest = hashlib.md5(usedforsecurity=False)
-    with path.open("rb") as handle:
-        for chunk in iter(lambda: handle.read(4 * 1024 * 1024), b""):
-            digest.update(chunk)
-    return digest.hexdigest()
-
-
 def verify_gdc_download() -> None:
-    with GDC_MANIFEST_PATH.open(encoding="utf-8", newline="") as handle:
-        records = list(csv.DictReader(handle, delimiter="\t"))
-    rows: list[dict[str, object]] = []
-    expected_bytes = 0
-    actual_bytes = 0
-    verified_count = 0
-    for record in records:
-        target = GDC_DOWNLOAD_ROOT / record["id"] / record["filename"]
-        expected_size = int(record["size"])
-        expected_bytes += expected_size
-        actual_size = target.stat().st_size if target.is_file() else None
-        actual_md5 = md5(target) if target.is_file() else ""
-        if actual_size is not None:
-            actual_bytes += actual_size
-        status = (
-            "OK"
-            if actual_size == expected_size and actual_md5 == record["md5"]
-            else ("MISSING" if actual_size is None else "FAILED")
-        )
-        verified_count += int(status == "OK")
-        rows.append(
-            {
-                "file_id": record["id"],
-                "file_name": record["filename"],
-                "expected_size": expected_size,
-                "actual_size": "" if actual_size is None else actual_size,
-                "expected_md5": record["md5"],
-                "actual_md5": actual_md5,
-                "status": status,
-            }
-        )
-
-    GDC_VERIFICATION_TABLE.parent.mkdir(parents=True, exist_ok=True)
-    with GDC_VERIFICATION_TABLE.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=list(rows[0]), delimiter="\t")
-        writer.writeheader()
-        writer.writerows(rows)
-    failed_count = len(rows) - verified_count
-    summary = {
-        "verified_at_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "expected_file_count": len(rows),
-        "verified_file_count": verified_count,
-        "failed_file_count": failed_count,
-        "expected_bytes": expected_bytes,
-        "actual_bytes": actual_bytes,
-        "expected_gib": expected_bytes / 1073741824,
-        "actual_gib": actual_bytes / 1073741824,
-        "all_files_verified": (
-            failed_count == 0
-            and expected_bytes == actual_bytes
-            and len(rows) == verified_count
-        ),
-    }
-    GDC_VERIFICATION_SUMMARY.write_text(
-        json.dumps(summary, indent=2) + "\n", encoding="utf-8"
+    _, summary = verify_download(
+        GDC_MANIFEST_PATH,
+        GDC_DOWNLOAD_ROOT,
+        report_path=GDC_VERIFICATION_TABLE,
+        summary_path=GDC_VERIFICATION_SUMMARY,
     )
     print(json.dumps(summary, indent=2), flush=True)
     if not summary["all_files_verified"]:

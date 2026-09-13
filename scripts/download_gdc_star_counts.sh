@@ -5,31 +5,34 @@ project_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 manifest="${project_root}/data/manifests/gdc_manifest_tcga_brca_star_counts.tsv"
 download_root="${project_root}/data/raw/gdc/star_counts"
 log_dir="${project_root}/logs"
+validator="${project_root}/scripts/verify_gdc_download.py"
+python_bin="${PYTHON:-python3}"
 
 mkdir -p "${download_root}" "${log_dir}"
 
-if [[ ! -s "${manifest}" ]]; then
-  echo "Manifest is missing or empty: ${manifest}" >&2
-  exit 1
+for required_command in bash curl xargs "${python_bin}"; do
+  if ! command -v "${required_command}" >/dev/null 2>&1; then
+    echo "Required command not found: ${required_command}" >&2
+    exit 127
+  fi
+done
+
+download_workers="${GDC_DOWNLOAD_WORKERS:-12}"
+if [[ ! "${download_workers}" =~ ^[1-9][0-9]*$ ]]; then
+  echo "GDC_DOWNLOAD_WORKERS must be a positive integer: ${download_workers}" >&2
+  exit 2
 fi
 
-file_md5() {
-  if command -v md5 >/dev/null 2>&1; then
-    md5 -q "$1"
-  elif command -v md5sum >/dev/null 2>&1; then
-    md5sum "$1" | awk '{print $1}'
-  else
-    echo "Neither md5 nor md5sum is available" >&2
-    return 127
-  fi
-}
+# Validate schema, UUIDs, digests, sizes, states, and safe path components
+# before using any manifest value to construct a local path.
+"${python_bin}" "${validator}" manifest --manifest "${manifest}" --quiet
 
-file_size() {
-  if stat -f '%z' "$1" >/dev/null 2>&1; then
-    stat -f '%z' "$1"
-  else
-    stat -c '%s' "$1"
-  fi
+verify_file() {
+  "${python_bin}" "${validator}" file \
+    --path "$1" \
+    --expected-md5 "$2" \
+    --expected-size "$3" \
+    --quiet
 }
 
 download_one() {
@@ -43,34 +46,31 @@ download_one() {
 
   mkdir -p "${target_dir}"
 
-  if [[ -f "${target}" ]]; then
-    local actual_md5
-    actual_md5="$(file_md5 "${target}")"
-    if [[ "${actual_md5}" == "${expected_md5}" ]]; then
-      printf 'SKIP\t%s\t%s\n' "${file_id}" "${file_name}"
-      return 0
-    fi
+  if [[ -f "${target}" ]] && verify_file \
+    "${target}" "${expected_md5}" "${expected_size}"; then
+    printf 'SKIP\t%s\t%s\n' "${file_id}" "${file_name}"
+    return 0
   fi
 
+  if [[ -f "${partial}" ]] && verify_file \
+    "${partial}" "${expected_md5}" "${expected_size}"; then
+    mv "${partial}" "${target}"
+    printf 'OK\t%s\t%s\n' "${file_id}" "${file_name}"
+    return 0
+  fi
+
+  # --retry-connrefused is available on older Linux curl releases where
+  # --retry-all-errors is not, while --retry still covers transient HTTP errors.
   curl --fail --location --show-error \
     --silent \
-    --retry 8 --retry-all-errors --retry-delay 5 \
+    --retry 8 --retry-connrefused --retry-delay 5 \
     --continue-at - \
     --output "${partial}" \
     "https://api.gdc.cancer.gov/data/${file_id}"
 
-  local actual_size actual_md5
-  actual_size="$(file_size "${partial}")"
-  actual_md5="$(file_md5 "${partial}")"
-
-  if [[ "${actual_size}" != "${expected_size}" ]]; then
-    printf 'Size mismatch for %s: expected %s, got %s\n' \
-      "${file_id}" "${expected_size}" "${actual_size}" >&2
-    return 1
-  fi
-  if [[ "${actual_md5}" != "${expected_md5}" ]]; then
-    printf 'MD5 mismatch for %s: expected %s, got %s\n' \
-      "${file_id}" "${expected_md5}" "${actual_md5}" >&2
+  if ! verify_file "${partial}" "${expected_md5}" "${expected_size}"; then
+    printf 'Integrity validation failed for %s (%s)\n' \
+      "${file_id}" "${file_name}" >&2
     return 1
   fi
 
@@ -78,23 +78,20 @@ download_one() {
   printf 'OK\t%s\t%s\n' "${file_id}" "${file_name}"
 }
 
-export project_root manifest download_root log_dir
-export -f file_md5 file_size download_one
+export project_root manifest download_root log_dir validator python_bin
+export -f verify_file download_one
 
-download_workers="${GDC_DOWNLOAD_WORKERS:-12}"
-
-tail -n +2 "${manifest}" \
-  | xargs -P "${download_workers}" -n 5 bash -c 'download_one "$0" "$1" "$2" "$3"' \
+while IFS=$'\t' read -r file_id file_name expected_md5 expected_size state; do
+  printf '%s\0%s\0%s\0%s\0' \
+    "${file_id}" "${file_name}" "${expected_md5}" "${expected_size}"
+done < <(tail -n +2 "${manifest}") \
+  | xargs -0 -P "${download_workers}" -n 4 \
+    bash -c 'download_one "$1" "$2" "$3" "$4"' _ \
   > "${log_dir}/gdc_star_counts_download.log" \
   2> "${log_dir}/gdc_star_counts_download.err"
 
-echo "Download completed. Verifying file count..."
-expected_count="$(tail -n +2 "${manifest}" | wc -l | tr -d ' ')"
-actual_count="$(find "${download_root}" -type f ! -name '*.part' | wc -l | tr -d ' ')"
-
-if [[ "${expected_count}" != "${actual_count}" ]]; then
-  echo "File count mismatch: expected ${expected_count}, got ${actual_count}" >&2
-  exit 1
-fi
-
-echo "Verified ${actual_count} files."
+echo "Download completed. Verifying manifest completeness, sizes, and MD5 digests..."
+"${python_bin}" "${validator}" verify \
+  --manifest "${manifest}" \
+  --download-root "${download_root}" \
+  --no-write-reports

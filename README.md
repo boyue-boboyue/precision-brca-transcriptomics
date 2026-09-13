@@ -175,7 +175,7 @@ The next scientific step is external validation with the preprocessing, feature 
 
 ### Requirements
 
-- macOS or Linux with `bash`, GNU Make, Python 3.12, and network access for a fresh GDC download;
+- macOS or Linux with `bash`, GNU Make, Python 3.12, `curl`, and network access for a fresh GDC download;
 - approximately 4.4 GiB for locked raw STAR Counts plus about 765 MiB for derived matrices;
 - substantially more runtime for the full nested-CV, SHAP, and 65-fit robustness replay than for integrity verification.
 
@@ -193,6 +193,11 @@ make test
 ```
 
 `make test` follows the complete dependency chain. Missing Git-excluded arrays trigger download of the 1,111 files in the locked GDC manifest, MD5/size verification, matrix reconstruction, and SHA-256 comparison with the committed manifest. Existing canonical model, final-test, and interpretation artifacts are verified without reopening protected data-dependent decisions.
+
+Download validation uses the Python standard library on both Linux and macOS,
+rejects unsafe manifest paths and incomplete or unexpected files, and has a
+dedicated Ubuntu CI fixture test. It does not depend on platform-specific
+`stat` or checksum-command syntax.
 
 The nine public entry points are:
 
@@ -259,6 +264,16 @@ tests/                       Split-integrity and reproduction-mode tests
 
 Raw GDC STAR Counts, three derived expression arrays, virtual environments, logs, and local export bundles are intentionally excluded from Git history. The exact source inventory, hashes, and reconstruction policy are described in [data availability](docs/data_availability.md).
 
+### Processed matrix data release
+
+The three Git-excluded matrices, ordered axes, cohort indices, and locked label
+tables are published as the versioned
+[`data-v1.0.0` GitHub Release](https://github.com/boyue-boboyue/precision-brca-transcriptomics/releases/tag/data-v1.0.0):
+
+- [Download the processed matrix bundle (337.63 MiB)](https://github.com/boyue-boboyue/precision-brca-transcriptomics/releases/download/data-v1.0.0/oncostratify-brca-expression-matrices-data-v1.0.0.tar.gz)
+- SHA-256: `fb800d92bd7c958aa854204dbc87304943c72231885c50e4fa6468054d079383`
+- [Release contents, provenance, verification, and restoration instructions](docs/processed_matrix_release.md)
+
 ## Key references
 
 - [NCI Genomic Data Commons: TCGA-BRCA](https://portal.gdc.cancer.gov/projects/TCGA-BRCA)
@@ -276,5 +291,6 @@ Raw GDC STAR Counts, three derived expression arrays, virtual environments, logs
 - [Interpretability and biological validation](outputs/interpretability/interpretability_report.md)
 - [Robustness and limitations](outputs/robustness/robustness_and_limitations_report.md)
 - [Data availability](docs/data_availability.md)
+- [Processed matrix data release](docs/processed_matrix_release.md)
 - [Protocol deviations](docs/deviations.md)
 - [Reproduction mode](docs/reproduction.md)

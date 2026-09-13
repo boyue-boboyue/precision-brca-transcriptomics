@@ -1,0 +1,54 @@
+name: Lightweight acceptance (Ubuntu)
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  MPLCONFIGDIR: ${{ runner.temp }}/matplotlib
+
+concurrency:
+  group: lightweight-acceptance-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  acceptance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-*.txt
+      - name: Install verification dependencies
+        run: python -m pip install --disable-pip-version-check -r requirements-eda.txt
+      - name: Check Bash and Python syntax
+        run: |
+          bash -n scripts/*.sh
+          python -m compileall -q scripts tests
+      - name: Run unit and Linux download-fixture tests
+        run: python -m unittest discover -s tests -p 'test_*.py' -v
+      - name: Validate locked source and cohort provenance
+        run: python scripts/verify_source_artifacts.py --stage cohort
+      - name: Validate committed EDA and model artifacts
+        run: |
+          python scripts/run_readonly_verifier.py -- python scripts/verify_eda.py
+          python scripts/run_readonly_verifier.py -- python scripts/verify_evaluation_framework.py
+          python scripts/run_readonly_verifier.py -- python scripts/verify_logistic_comparison.py
+          python scripts/run_readonly_verifier.py -- python scripts/verify_linear_svc.py
+          python scripts/run_readonly_verifier.py -- python scripts/verify_random_forest.py
+          python scripts/run_readonly_verifier.py -- python scripts/verify_unified_performance_report.py
+          python scripts/run_readonly_verifier.py -- python scripts/verify_interpretability.py
+          python scripts/run_readonly_verifier.py -- python scripts/verify_robustness.py
+      - name: Confirm large data remain external
+        run: |
+          test ! -e data/processed/expression/counts_uint32.npy
+          test ! -e data/processed/expression/tpm_float32.npy
+          test ! -e data/processed/expression/log2_tpm_float32.npy
+          python scripts/verify_gdc_download.py manifest --quiet
