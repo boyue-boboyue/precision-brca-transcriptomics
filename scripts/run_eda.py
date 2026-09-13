@@ -98,7 +98,12 @@ def sha256(path: Path) -> str:
 def save_figure(fig: plt.Figure, stem: str, *, dpi: int = 240, svg: bool = False) -> None:
     fig.savefig(FIG_DIR / f"{stem}.png", dpi=dpi, bbox_inches="tight", facecolor="white")
     if svg:
-        fig.savefig(FIG_DIR / f"{stem}.svg", bbox_inches="tight", facecolor="white")
+        svg_path = FIG_DIR / f"{stem}.svg"
+        fig.savefig(svg_path, bbox_inches="tight", facecolor="white")
+        svg_text = svg_path.read_text()
+        svg_path.write_text(
+            "\n".join(line.rstrip() for line in svg_text.splitlines()) + "\n"
+        )
     plt.close(fig)
 
 
@@ -242,11 +247,11 @@ def draw_flowchart(samples: pd.DataFrame) -> pd.DataFrame:
     ax.set_ylim(0, 1)
     ax.axis("off")
     main_nodes = [
-        (0.36, 0.91, f"GDC STAR Counts\n{queried_files:,} 个文件"),
-        (0.36, 0.73, f"每个病例保留一个 Primary Tumor 文件\n{selected_cases:,} 个唯一病例"),
-        (0.36, 0.55, f"符合分析条件的样本\n{eligible:,}"),
-        (0.36, 0.37, f"锁定的五分类 PAM50 队列\n{labelled:,}"),
-        (0.36, 0.19, f"四分类主分析队列\n{four_class:,}"),
+        (0.36, 0.91, f"GDC STAR Counts\n{queried_files:,} files"),
+        (0.36, 0.73, f"One Primary Tumor file per case\n{selected_cases:,} unique cases"),
+        (0.36, 0.55, f"Analysis-eligible samples\n{eligible:,}"),
+        (0.36, 0.37, f"Locked five-class PAM50 cohort\n{labelled:,}"),
+        (0.36, 0.19, f"Four-class primary analysis cohort\n{four_class:,}"),
     ]
     for x, y, label in main_nodes:
         box = FancyBboxPatch(
@@ -267,13 +272,12 @@ def draw_flowchart(samples: pd.DataFrame) -> pd.DataFrame:
             va="center",
             fontsize=11,
             weight="bold",
-            fontproperties=CJK_FONT,
         )
     exclusions = [
-        (0.82, 0.73, f"排除：{redundant_files:,}\n重复候选文件"),
-        (0.82, 0.55, f"排除：{critical_excluded:,}\n关键 GDC 注释"),
-        (0.82, 0.37, f"排除：{unlabelled_after_eligibility:,}\n无锁定 PAM50 标签"),
-        (0.82, 0.19, f"排除：{normal_like_excluded:,}\nNormal-like"),
+        (0.82, 0.73, f"Excluded: {redundant_files:,}\nRedundant candidate files"),
+        (0.82, 0.55, f"Excluded: {critical_excluded:,}\nCritical GDC annotation"),
+        (0.82, 0.37, f"Excluded: {unlabelled_after_eligibility:,}\nNo locked PAM50 label"),
+        (0.82, 0.19, f"Excluded: {normal_like_excluded:,}\nNormal-like"),
     ]
     for x, y, label in exclusions:
         box = FancyBboxPatch(
@@ -293,7 +297,6 @@ def draw_flowchart(samples: pd.DataFrame) -> pd.DataFrame:
             ha="center",
             va="center",
             fontsize=9.5,
-            fontproperties=CJK_FONT,
         )
     for idx in range(len(main_nodes) - 1):
         x1, y1, _ = main_nodes[idx]
@@ -320,10 +323,9 @@ def draw_flowchart(samples: pd.DataFrame) -> pd.DataFrame:
             )
         )
     ax.set_title(
-        "TCGA-BRCA 样本纳入与排除流程",
+        "TCGA-BRCA sample inclusion and exclusion flow",
         fontsize=15,
         pad=14,
-        fontproperties=CJK_FONT,
     )
     save_figure(fig, "01_sample_inclusion_flow", svg=True)
     return flow

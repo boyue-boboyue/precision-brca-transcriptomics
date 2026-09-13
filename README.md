@@ -34,6 +34,9 @@ The locked GDC manifest contains 1,111 STAR Counts files. After selecting one Pr
 
 ![Sample inclusion and exclusion flow](outputs/eda/figures/01_sample_inclusion_flow.png)
 
+*Figure 1. Sample inclusion and exclusion counts generated from the final
+case-level expression matrix and the locked PanCancer Atlas PAM50 annotations.*
+
 The split was fixed before model comparison using seed `20260909`:
 
 ```text

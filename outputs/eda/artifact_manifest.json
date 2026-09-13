@@ -16,13 +16,13 @@
     },
     {
       "path": "figures/01_sample_inclusion_flow.png",
-      "size_bytes": 180624,
-      "sha256": "fe0fdb02b0f1da179a35533bca747c83a6028e6440d4bd743e8ba488ce893666"
+      "size_bytes": 158660,
+      "sha256": "dddf0e18edb6f7f1f5eb39174c21c2fdbc3e9c21b9093ceef8a7786467c76d91"
     },
     {
       "path": "figures/01_sample_inclusion_flow.svg",
-      "size_bytes": 126153,
-      "sha256": "0d33db87ef0a786aee88c27e919db4cf2eb2b4f57eb7a65212f1c7a302538cb3"
+      "size_bytes": 67626,
+      "sha256": "11d585e1057c8b8ee37e557c719843f4118a0754b6947832f826a151b454fc8c"
     },
     {
       "path": "figures/02_pam50_class_balance.png",
