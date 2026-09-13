@@ -293,6 +293,17 @@ tables are published as the versioned
 - Lundberg SM et al. *From local explanations to global understanding with explainable AI for trees.* Nature Machine Intelligence, 2020. [doi:10.1038/s42256-019-0138-9](https://doi.org/10.1038/s42256-019-0138-9)
 - Kolberg L et al. *g:Profiler—interoperable web service for functional enrichment analysis and gene identifier mapping.* NAR, 2023. [doi:10.1093/nar/gkad347](https://doi.org/10.1093/nar/gkad347)
 
+## License and citation
+
+Original software in this repository is released under the [MIT License](LICENSE).
+TCGA/GDC source data, subtype annotations, and derived data artifacts are not
+automatically relicensed under MIT; their use and redistribution remain subject
+to the applicable source data policies described in [data availability](docs/data_availability.md).
+
+If you use this project or its results, cite the repository using the metadata
+in [`CITATION.cff`](CITATION.cff). GitHub also provides a **Cite this repository**
+control based on this file.
+
 ## Detailed reports
 
 - [Analysis protocol](docs/protocol.md)

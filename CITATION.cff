@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: >-
+  If you use this software or its results, please cite it using the metadata
+  below.
+title: >-
+  OncoStratify-BRCA: Interpretable Machine Learning for Breast Cancer
+  Molecular Subtype Classification from Transcriptomic Data
+type: software
+authors:
+  - family-names: Li
+    given-names: Boyue
+repository-code: "https://github.com/boyue-boboyue/precision-brca-transcriptomics"
+url: "https://github.com/boyue-boboyue/precision-brca-transcriptomics"
+abstract: >-
+  A leakage-controlled and reproducible machine-learning workflow for
+  classifying PAM50 breast cancer molecular subtypes from TCGA-BRCA RNA-seq
+  profiles, with locked patient-level evaluation, model interpretation,
+  biological validation, and robustness analyses.
+keywords:
+  - breast cancer
+  - transcriptomics
+  - TCGA-BRCA
+  - PAM50
+  - machine learning
+  - precision oncology
+  - explainable AI
+license: MIT
