@@ -73,7 +73,7 @@ run; code changes require a new reproduction directory.
 | Stage | Reproduction action |
 |---|---|
 | `metadata` | Verify frozen GDC query and derived metadata hashes. |
-| `cohort` | Verify PanCancer Atlas, receptor, TCGA 2012, and PAM50 lock provenance. |
+| `cohort` | Verify PanCancer Atlas, receptor, and PAM50 lock provenance; verify the optional TCGA 2012 publication originals when complete, skip them when fully absent, and reject a partial restore. |
 | `matrix` | Verify linked arrays or reconstruct and hash-check omitted arrays. |
 | `eda` | Rebuild all EDA tables, figures, and the EDA manifest. |
 | `train` | Rerun Dummy, logistic L2/elastic-net, LinearSVC, random forest, and PAM50-excluded nested CV. |

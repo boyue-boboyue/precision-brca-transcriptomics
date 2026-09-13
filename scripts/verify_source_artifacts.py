@@ -32,23 +32,10 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
-def resolve_checksum_path(manifest: Path, recorded_path: str) -> Path:
-    relative = Path(recorded_path)
-    if relative.is_absolute() or ".." in relative.parts:
-        raise ValueError(f"Unsafe checksum path in {manifest}: {recorded_path}")
-    candidates = (ROOT / relative, manifest.parent / relative)
-    for candidate in candidates:
-        if candidate.is_file():
-            return candidate
-    raise FileNotFoundError(
-        f"Checksum target from {manifest.relative_to(ROOT)} is missing: {recorded_path}"
-    )
-
-
-def verify_checksum_manifest(manifest: Path) -> int:
+def checksum_entries(manifest: Path) -> list[tuple[str, str]]:
     if not manifest.is_file():
         raise FileNotFoundError(manifest)
-    verified = 0
+    entries: list[tuple[str, str]] = []
     for line_number, raw_line in enumerate(
         manifest.read_text(encoding="utf-8").splitlines(), start=1
     ):
@@ -58,18 +45,61 @@ def verify_checksum_manifest(manifest: Path) -> int:
         fields = line.split(maxsplit=1)
         if len(fields) != 2 or len(fields[0]) != 64:
             raise ValueError(f"Malformed checksum line {manifest}:{line_number}")
-        expected, recorded_path = fields
-        path = resolve_checksum_path(manifest, recorded_path.lstrip("*"))
+        entries.append((fields[0].lower(), fields[1].lstrip("*")))
+    if not entries:
+        raise ValueError(f"No checksum entries found in {manifest}")
+    return entries
+
+
+def checksum_target_candidates(manifest: Path, recorded_path: str) -> tuple[Path, Path]:
+    relative = Path(recorded_path)
+    if relative.is_absolute() or ".." in relative.parts:
+        raise ValueError(f"Unsafe checksum path in {manifest}: {recorded_path}")
+    return ROOT / relative, manifest.parent / relative
+
+
+def resolve_checksum_path(manifest: Path, recorded_path: str) -> Path:
+    for candidate in checksum_target_candidates(manifest, recorded_path):
+        if candidate.is_file():
+            return candidate
+    raise FileNotFoundError(
+        f"Checksum target from {manifest.relative_to(ROOT)} is missing: {recorded_path}"
+    )
+
+
+def verify_checksum_manifest(manifest: Path) -> int:
+    verified = 0
+    for expected, recorded_path in checksum_entries(manifest):
+        path = resolve_checksum_path(manifest, recorded_path)
         observed = sha256(path)
-        if observed != expected.lower():
+        if observed != expected:
             raise RuntimeError(
                 f"SHA-256 mismatch for {path.relative_to(ROOT)}: "
-                f"expected {expected.lower()}, observed {observed}"
+                f"expected {expected}, observed {observed}"
             )
         verified += 1
-    if verified == 0:
-        raise ValueError(f"No checksum entries found in {manifest}")
     return verified
+
+
+def checksum_manifest_is_available(manifest: Path) -> bool:
+    """Return true for a complete optional source and reject partial restores."""
+    present: list[str] = []
+    missing: list[str] = []
+    for _, recorded_path in checksum_entries(manifest):
+        candidates = checksum_target_candidates(manifest, recorded_path)
+        if any(candidate.is_file() for candidate in candidates):
+            present.append(recorded_path)
+        else:
+            missing.append(recorded_path)
+    if present and missing:
+        raise RuntimeError(
+            f"Optional checksum source is only partially available: {manifest}. "
+            "Present: "
+            + ", ".join(present)
+            + "; missing: "
+            + ", ".join(missing)
+        )
+    return bool(present)
 
 
 def verify_pam50_lock() -> dict[str, int]:
@@ -118,8 +148,9 @@ def parse_args() -> argparse.Namespace:
         "--skip-unavailable-publication-supplement",
         action="store_true",
         help=(
-            "Skip the Git-excluded TCGA 2012 publication supplement while still "
-            "verifying all versioned cohort sources and the PAM50 lock"
+            "Verify the Git-excluded TCGA 2012 publication supplement when all "
+            "of its files are available; skip it when all are absent, and fail "
+            "if it is only partially restored"
         ),
     )
     return parser.parse_args()
@@ -128,9 +159,16 @@ def parse_args() -> argparse.Namespace:
 def main() -> None:
     args = parse_args()
     checksum_manifests = list(METADATA_CHECKSUMS)
+    publication_supplement_status: str | None = None
     if args.stage == "cohort":
         checksum_manifests.extend(COHORT_CHECKSUMS)
-        if not args.skip_unavailable_publication_supplement:
+        if args.skip_unavailable_publication_supplement:
+            if checksum_manifest_is_available(PUBLICATION_SUPPLEMENT_CHECKSUM):
+                checksum_manifests.append(PUBLICATION_SUPPLEMENT_CHECKSUM)
+                publication_supplement_status = "verified"
+            else:
+                publication_supplement_status = "skipped_unavailable"
+        else:
             checksum_manifests.append(PUBLICATION_SUPPLEMENT_CHECKSUM)
     elif args.skip_unavailable_publication_supplement:
         raise ValueError(
@@ -148,9 +186,11 @@ def main() -> None:
     if args.stage == "cohort":
         result["pam50"] = verify_pam50_lock()
         if args.skip_unavailable_publication_supplement:
-            result["skipped_git_excluded_source"] = str(
-                PUBLICATION_SUPPLEMENT_CHECKSUM.relative_to(ROOT)
-            )
+            result["publication_supplement"] = publication_supplement_status
+            if publication_supplement_status == "skipped_unavailable":
+                result["skipped_git_excluded_source"] = str(
+                    PUBLICATION_SUPPLEMENT_CHECKSUM.relative_to(ROOT)
+                )
     print(json.dumps(result, indent=2, sort_keys=True))
 
 

@@ -197,6 +197,14 @@ make test
 
 `make test` follows the complete dependency chain. Missing Git-excluded arrays trigger download of the 1,111 files in the locked GDC manifest, MD5/size verification, matrix reconstruction, and SHA-256 comparison with the committed manifest. Existing canonical model, final-test, and interpretation artifacts are verified without reopening protected data-dependent decisions.
 
+The original TCGA 2012 publication-supplement workbook is optional because it
+is Git-excluded third-party material and its analysis-ready TSV is versioned.
+The cohort check verifies both original supplement files when they are present,
+skips them only when both are absent in a fresh clone, and fails on a partial
+restore. After restoring the originals, run
+`.venv/bin/python scripts/verify_source_artifacts.py --stage cohort` for a
+strict source-file audit.
+
 Download validation uses the Python standard library on both Linux and macOS,
 rejects unsafe manifest paths and incomplete or unexpected files, and has a
 dedicated Ubuntu CI fixture test. It does not depend on platform-specific

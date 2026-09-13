@@ -307,7 +307,13 @@ def command_plan(
             [python, "scripts/verify_source_artifacts.py", "--stage", "metadata"]
         ],
         "cohort": [
-            [python, "scripts/verify_source_artifacts.py", "--stage", "cohort"]
+            [
+                python,
+                "scripts/verify_source_artifacts.py",
+                "--stage",
+                "cohort",
+                "--skip-unavailable-publication-supplement",
+            ]
         ],
         "matrix": [
             [
@@ -375,7 +381,13 @@ def command_plan(
         ],
         "test": [
             [python, "-m", "unittest", "discover", "-s", "tests", "-v"],
-            [python, "scripts/verify_source_artifacts.py", "--stage", "cohort"],
+            [
+                python,
+                "scripts/verify_source_artifacts.py",
+                "--stage",
+                "cohort",
+                "--skip-unavailable-publication-supplement",
+            ],
             [python, "scripts/verify_expression_matrix.py"],
             [python, "scripts/verify_eda.py"],
             [python, "scripts/verify_evaluation_framework.py"],
@@ -394,7 +406,15 @@ def command_plan(
 def verifier_plan(stage: str, python: str) -> list[list[str]]:
     plans = {
         "metadata": [[python, "scripts/verify_source_artifacts.py", "--stage", "metadata"]],
-        "cohort": [[python, "scripts/verify_source_artifacts.py", "--stage", "cohort"]],
+        "cohort": [
+            [
+                python,
+                "scripts/verify_source_artifacts.py",
+                "--stage",
+                "cohort",
+                "--skip-unavailable-publication-supplement",
+            ]
+        ],
         "matrix": [[python, "scripts/verify_expression_matrix.py"]],
         "eda": [[python, "scripts/verify_eda.py"]],
         "train": [

@@ -59,7 +59,8 @@ cohort: metadata
 		$(REPRO_CMD) cohort; \
 	else \
 		echo "[cohort] Verifying locked PAM50 cohort and source-to-label provenance"; \
-		$(PY) scripts/verify_source_artifacts.py --stage cohort; \
+		$(PY) scripts/verify_source_artifacts.py --stage cohort \
+			--skip-unavailable-publication-supplement; \
 	fi
 
 matrix: cohort
@@ -134,7 +135,8 @@ test: explain
 	else \
 		echo "[test] Running unit tests and all stage verifiers"; \
 		$(PY) -m unittest discover -s tests -v; \
-		$(PY) scripts/verify_source_artifacts.py --stage cohort; \
+		$(PY) scripts/verify_source_artifacts.py --stage cohort \
+			--skip-unavailable-publication-supplement; \
 		$(VERIFY) $(PY) scripts/verify_expression_matrix.py; \
 		$(VERIFY) $(PY) scripts/verify_eda.py; \
 		$(VERIFY) $(PY) scripts/verify_evaluation_framework.py; \

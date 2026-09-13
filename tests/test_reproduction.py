@@ -74,6 +74,26 @@ class ReproductionModeTests(unittest.TestCase):
         self.assertIn([python, "scripts/lock_interpretability_plan.py"], explanation)
         self.assertIn(["<copy-frozen-enrichment-responses>"], explanation)
 
+    def test_fresh_clone_cohort_plan_allows_fully_absent_optional_source(self) -> None:
+        python = str(Path(".venv/bin/python"))
+        expected = [
+            python,
+            "scripts/verify_source_artifacts.py",
+            "--stage",
+            "cohort",
+            "--skip-unavailable-publication-supplement",
+        ]
+        cohort = run_reproduction.command_plan(
+            "cohort",
+            python=python,
+            n_jobs=1,
+            forest_n_jobs=2,
+            download_workers=3,
+        )
+        final_verification = run_reproduction.verifier_plan("cohort", python)
+        self.assertEqual(cohort, [expected])
+        self.assertEqual(final_verification, [expected])
+
     def test_equivalence_allows_only_tiny_numeric_serialization_differences(self) -> None:
         with TemporaryDirectory() as directory:
             root = Path(directory)

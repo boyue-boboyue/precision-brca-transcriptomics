@@ -9,6 +9,7 @@ development-set modeling results required to audit the project.
 | Local artifact | Approximate size | Reason |
 |---|---:|---|
 | `data/raw/gdc/star_counts/` | 4.4 GiB | Re-downloadable open-access GDC source files |
+| `data/raw/gdc/publication_supplement/` | 332 KiB | Git-excluded third-party TCGA 2012 originals; the analysis-ready TSV is versioned |
 | Three `data/processed/expression/*.npy` matrices | 765 MiB total | Published in the versioned [`data-v1.0.0` GitHub Release](https://github.com/boyue-boboyue/precision-brca-transcriptomics/releases/tag/data-v1.0.0) |
 | `outputs/exports/*.tar.gz`, `outputs/handoff/` | 369 MiB total | Local dated handoff bundle and its generated metadata |
 | `.venv/`, `logs/`, `work/` | environment-dependent | Reproducible or temporary files |
@@ -32,6 +33,18 @@ bash scripts/build_gdc_metadata_tables.sh
 
 The downloader resumes partial files and validates both byte size and MD5 before
 promoting each download.
+
+The default cohort verifier treats the two TCGA 2012 publication-supplement
+originals as one optional source unit: it verifies their recorded SHA-256
+digests when both are present, skips the unit when both are absent from a fresh
+clone, and rejects a partial restore. The versioned analysis-ready TSV and all
+canonical robustness outputs remain independently hash-checked. To require the
+original files explicitly, restore both paths listed in
+`data/metadata/brca_2012_supplement.sha256` and run:
+
+```bash
+.venv/bin/python scripts/verify_source_artifacts.py --stage cohort
+```
 
 ### Linux and macOS download verification
 
