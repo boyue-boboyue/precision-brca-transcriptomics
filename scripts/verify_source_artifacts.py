@@ -19,8 +19,8 @@ COHORT_CHECKSUMS = [
     ROOT
     / "data/raw/pancanatlas/cbioportal/brca_tcga_pan_can_atlas_2018/source_files.sha256",
     ROOT / "data/raw/cbioportal/brca_tcga/receptors/source_files.sha256",
-    ROOT / "data/metadata/brca_2012_supplement.sha256",
 ]
+PUBLICATION_SUPPLEMENT_CHECKSUM = ROOT / "data/metadata/brca_2012_supplement.sha256"
 PAM50_LOCK = ROOT / "data/processed/labels/pancanatlas_pam50_lock.json"
 
 
@@ -114,6 +114,14 @@ def verify_pam50_lock() -> dict[str, int]:
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument("--stage", choices=["metadata", "cohort"], required=True)
+    parser.add_argument(
+        "--skip-unavailable-publication-supplement",
+        action="store_true",
+        help=(
+            "Skip the Git-excluded TCGA 2012 publication supplement while still "
+            "verifying all versioned cohort sources and the PAM50 lock"
+        ),
+    )
     return parser.parse_args()
 
 
@@ -122,6 +130,12 @@ def main() -> None:
     checksum_manifests = list(METADATA_CHECKSUMS)
     if args.stage == "cohort":
         checksum_manifests.extend(COHORT_CHECKSUMS)
+        if not args.skip_unavailable_publication_supplement:
+            checksum_manifests.append(PUBLICATION_SUPPLEMENT_CHECKSUM)
+    elif args.skip_unavailable_publication_supplement:
+        raise ValueError(
+            "--skip-unavailable-publication-supplement is valid only for cohort"
+        )
     checked_files = sum(verify_checksum_manifest(path) for path in checksum_manifests)
     result: dict[str, object] = {
         "status": "PASS",
@@ -133,6 +147,10 @@ def main() -> None:
     }
     if args.stage == "cohort":
         result["pam50"] = verify_pam50_lock()
+        if args.skip_unavailable_publication_supplement:
+            result["skipped_git_excluded_source"] = str(
+                PUBLICATION_SUPPLEMENT_CHECKSUM.relative_to(ROOT)
+            )
     print(json.dumps(result, indent=2, sort_keys=True))
 
 
