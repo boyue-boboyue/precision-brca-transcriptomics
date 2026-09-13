@@ -9,7 +9,7 @@ permissions:
   contents: read
 
 env:
-  MPLCONFIGDIR: ${{ runner.temp }}/matplotlib
+  MPLCONFIGDIR: /tmp/oncostratify-matplotlib
 
 concurrency:
   group: lightweight-acceptance-${{ github.ref }}
