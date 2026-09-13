@@ -90,6 +90,27 @@ tables with:
 make test REBUILD_REPORTS=1
 ```
 
+For a computational replay, switch the same nine targets into isolated
+reproduction mode and choose a new run directory:
+
+```bash
+make test \
+  REPRODUCTION=1 \
+  REPRO_DIR=work/reproduction/run-001 \
+  N_JOBS=1 \
+  FOREST_N_JOBS=4
+```
+
+This rebuilds EDA, every nested-CV model, an independent final-model lock and
+test-access record, SHAP/biological interpretation, and all robustness
+analyses inside `REPRO_DIR`. It never overwrites the canonical lock files or
+published outputs. Completed stages are reverified when the same directory is
+resumed; a partial failed stage requires a new run directory. Preview the full
+command plan without creating a workspace using
+`make test REPRODUCTION=1 REPRO_DRY_RUN=1`. See
+[`docs/reproduction.md`](docs/reproduction.md) for the isolation contract,
+stage outputs, and audit records.
+
 Model interpretation, internal biological validation, and the specified robustness analyses are complete. The next scientific priority is external-cohort validation with frozen preprocessing, genes, parameters, and label mapping. Any feature-count expansion beyond the preregistered 2,000-gene grid must remain a clearly labeled post-result development-only sensitivity analysis and cannot trigger another locked-test evaluation.
 
 Network access is required only when the Git-omitted GDC STAR Counts must be

@@ -146,8 +146,13 @@ def main() -> None:
     environment = os.environ.copy()
     environment["GDC_DOWNLOAD_WORKERS"] = str(args.download_workers)
 
-    run(["bash", "scripts/download_gdc_star_counts.sh"], env=environment)
-    verify_gdc_download()
+    if GDC_DOWNLOAD_ROOT.is_symlink():
+        # Isolated reproduction workspaces may link the already verified raw
+        # archive. Never let the downloader write through that link.
+        verify_gdc_download()
+    else:
+        run(["bash", "scripts/download_gdc_star_counts.sh"], env=environment)
+        verify_gdc_download()
     try:
         run([sys.executable, "scripts/build_expression_matrix.py"])
         if canonical is not None:
