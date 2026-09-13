@@ -1,59 +1,200 @@
 # OncoStratify-BRCA
 
-Interpretable machine learning for breast cancer molecular subtype classification from TCGA-BRCA transcriptomic data.
+**Interpretable machine learning for breast cancer molecular subtype classification from TCGA-BRCA transcriptomes**
 
-## Current status
+This repository is a complete, leakage-controlled analysis of whether bulk RNA-seq profiles can recover four major PAM50 breast cancer subtypes. It combines locked patient-level evaluation, nested cross-validation, a one-time held-out test, three levels of model explanation, biological validation, and an isolated full-reproduction mode.
 
-Snapshot date: **2026-09-13**
+> **Research use only.** This project predicts retrospective PAM50 labels in TCGA-BRCA. It is not a diagnostic device, does not predict treatment benefit or patient outcome, and has not been validated for clinical use.
 
-- GDC Release 46.0 TCGA-BRCA STAR Counts downloaded and verified: 1,111 files, 1,095 unique Primary Tumor cases.
-- PanCancer Atlas PAM50 labels locked: 981 five-class cases and 945 four-class primary-analysis cases.
-- Case-level expression matrices built: 1,095 samples × 60,660 genes, including counts, TPM, and log2(TPM + 1).
-- Exploratory analysis completed and verified: inclusion flow, class balance, expression/library QC, PCA, batch diagnostics, a 500-HVG clustered heatmap, cluster/subtype correspondence, and ER/PR/HER2 contingency analysis.
-- Patient-level evaluation assignments locked with seed `20260909`: the four-class primary cohort contains 756 development and 189 locked-test cases; the five-class sensitivity cohort contains 785 development and 196 locked-test cases.
-- Five-by-five nested stratified CV folds, preprocessing Pipelines, candidate models and hyperparameter grids are locked.
-- Development-only Dummy, multinomial logistic L2 and elastic-net nested-CV comparison completed. Elastic-net achieved mean macro F1 `0.890` versus `0.866` for L2 while retaining a mean of 171/1,000 non-zero genes.
-- Development-only LinearSVC nested CV completed with mean macro F1 `0.872`; training-only sigmoid calibration used `CalibratedClassifierCV`, and no RBF model was fitted.
-- Development-only balanced random-forest nested CV completed with mean macro F1 `0.905`, balanced accuracy `0.905`, and accuracy `0.917`. All five outer folds selected 2,000 training-fold high-variance genes, 750 trees, depth 16, leaf size 1, and `max_features="sqrt"`.
-- The 50-gene PAM50 signature was locked and removed before every Pipeline step for a full five-model sensitivity rerun. Random-forest performance was nearly unchanged: macro F1 `0.902` excluded versus `0.905` included; balanced accuracy `0.906` versus `0.905`.
-- The preregistered mean outer-fold macro F1 rule selected the PAM50-included random forest; its `0.015` lead over elastic-net exceeded the `0.01` tie threshold. The final model and procedure are frozen in `config/final_model_lock_v1.json`.
-- The 189-case locked test was evaluated exactly once. Final random-forest balanced accuracy was `0.907` (95% stratified-bootstrap CI `0.855–0.945`) and macro F1 was `0.885` (`0.836–0.929`).
-- Three-level interpretability is complete and verified: cross-fold Elastic-net coefficients, random-forest permutation importance computed only on the five outer validation folds, and TreeSHAP for six prediction-defined locked-test cases using a 100-case development-only background.
-- The locked top-20 stability rule identified 58 genes; 14 overlap the locked PAM50 signature and four overlap the predeclared marker audit list. Development-only subtype distributions, PAM50 overlap, ER/PR/HER2 IHC associations, and GO:BP/Reactome enrichment with a 15,238-gene expression-filter background are available in the integrated report.
-- Post-selection robustness analysis is complete across 13 fixed-model scenarios (65 outer fits) without reusing the locked test. Four-class macro F1 was stable to PAM50-gene exclusion (`0.899`), log2 CPM (`0.911`), three low-expression rules (`0.906–0.909`), and three grouped seeds (`0.905–0.907`); removing class weights reduced it to `0.878`. Five-class macro F1 was `0.817`, driven partly by the 29-case Normal-like class (pooled F1 `0.512`).
-- Label propagation from the raw PanCancer Atlas response through the expression and split tables is 100% concordant. The independent TCGA 2012 PAM50 freeze agrees with PanCancer Atlas for 398/447 overlapping cases (`89.0%`, Cohen's κ `0.838`). The complete limitations analysis and reproducibility audit both pass.
+**Project status:** complete and verified · canonical snapshot `2026-09-13`
 
-See [`docs/protocol.md`](docs/protocol.md) for the preregistered-style analysis plan and [`docs/handoff.md`](docs/handoff.md) for the exact continuation point.
+## At a glance
 
-## Key directories
+| | |
+|---|---|
+| Scientific question | Can patient-level tumour transcriptomes reproduce established PAM50 subtype labels under a strictly leakage-controlled evaluation? |
+| Data | NCI GDC TCGA-BRCA STAR Counts, Data Release 46.0; GENCODE v36 |
+| Primary task | Four-class classification: Luminal A, Luminal B, Basal-like, HER2-enriched |
+| Primary cohort | 945 cases: 756 development + 189 locked test |
+| Evaluation | Patient-grouped 5×5 nested stratified CV, followed by one frozen test evaluation |
+| Selected model | Balanced random forest with training-fold-only filtering and feature selection |
+| Locked-test result | Balanced accuracy **0.907** (95% CI 0.855–0.945); macro F1 **0.885** (0.836–0.929) |
+| Interpretation | Elastic-net coefficients, held-out permutation importance, cross-fold stability, and TreeSHAP |
+| Reproducibility | Nine Make targets, checksummed artifacts, immutable canonical locks, isolated replay mode |
+
+## Scientific question and hypothesis
+
+Breast cancer contains reproducible molecular subtypes with distinct transcriptional programs. The primary hypothesis was that a regularized or ensemble classifier trained on bulk tumour RNA-seq could recover the four major PAM50 labels with high macro F1 and balanced accuracy, while retaining performance after direct PAM50 signature genes were removed.
+
+The task is intentionally narrow: it measures agreement with an established expression-derived label system. It does **not** establish new disease classes or demonstrate clinical utility.
+
+## Cohort and study design
+
+The locked GDC manifest contains 1,111 STAR Counts files. After selecting one Primary Tumor sample per case, the matrix contains 1,095 cases × 60,660 genes, including 19,962 protein-coding genes. Locked PanCancer Atlas annotations provide 981 five-class cases; excluding the 36 Normal-like cases yields the 945-case primary four-class cohort.
+
+![Sample inclusion and exclusion flow](outputs/eda/figures/01_sample_inclusion_flow.png)
+
+The split was fixed before model comparison using seed `20260909`:
 
 ```text
-data/raw/                    Source downloads; large GDC STAR Counts are not portable by default
-data/manifests/              GDC query responses and download manifest
-data/metadata/               Case, sample, aliquot, annotation, and verification metadata
-data/processed/labels/       Locked PanCancer Atlas PAM50 labels
-data/processed/expression/   Expression matrices, axes, cohort indices, and matrix manifest
-docs/                        Protocol and continuation handoff
-scripts/                     Reproducible data, matrix, and EDA scripts
-outputs/eda/                 Verified figures, tables, report, and artifact manifest
-outputs/modeling/            Nested-CV metrics, OOF predictions, model reports, and hashes
-outputs/final_evaluation/     One-time locked-test predictions, metrics, curves, and bootstrap CIs
-outputs/performance_report/   Unified tables, figures, model selection, report, and verification
-outputs/interpretability/     Global/class/individual explanations, biological validation, figures, and verification
-outputs/robustness/           Fixed-model sensitivity analyses, label audit, limitations report, and verification
-outputs/exports/             Portable handoff archives
+945 four-class cases
+├── 756 development cases
+│   └── 5 outer folds × 5 inner folds, stratified and patient-grouped
+└── 189 locked-test cases
+    └── opened once after model and procedure freeze
 ```
 
-## GitHub repository scope
+The five-class sensitivity cohort contains 981 cases: 785 development and 196 locked test. Full class counts and exploratory diagnostics are available in the [EDA report](outputs/eda/eda_report.md).
 
-The repository includes source code, locked configurations, query manifests,
-metadata, labels, matrix axes, predefined evaluation splits, EDA artifacts, and
-development-only modeling outputs. Raw GDC STAR Counts, the three large derived
-expression arrays, and local handoff archives are intentionally excluded from
-normal Git history. See [`docs/data_availability.md`](docs/data_availability.md)
-for exact exclusions and reconstruction instructions.
+## Methods
 
-## Reproducible Make entry points
+All data-dependent preprocessing is fitted inside the applicable training fold:
+
+```text
+protein-coding log2(TPM + 1)
+  → low-expression filter
+  → median imputation
+  → top-variance feature selection
+  → standard scaling
+  → classifier
+```
+
+The low-expression rule retains genes with TPM ≥ 1 in at least 10% of the current training partition. Inner CV selects among 100, 500, 1,000, or 2,000 high-variance features where applicable. Candidate models were:
+
+- DummyClassifier with empirical class priors;
+- multinomial logistic regression with L2 regularization;
+- multinomial elastic-net logistic regression with balanced class weights;
+- balanced LinearSVC with training-only sigmoid calibration for ROC/PR analysis;
+- balanced random forest with prespecified grids for feature count, tree count, depth, leaf size, and `max_features`.
+
+The preregistered selection metric was mean outer-fold macro F1; balanced accuracy was a co-primary reported metric. A `0.01` macro-F1 tie threshold triggered a parsimony rule only if required. Evaluation also reports accuracy, per-class precision/recall/F1, one-vs-rest ROC-AUC, average precision (PR-AUC), confusion matrices, and case-level stratified bootstrap confidence intervals.
+
+The complete frozen design is in [the protocol](docs/protocol.md), [evaluation configuration](config/evaluation.json), and [final model lock](config/final_model_lock_v1.json).
+
+## Results
+
+### Development-only model comparison
+
+Values are the mean ± sample standard deviation across five outer folds. No locked-test results were used for model selection.
+
+| Model | Macro F1 | Balanced accuracy | Macro OvR ROC-AUC | Macro PR-AUC |
+|---|---:|---:|---:|---:|
+| Dummy prior | 0.173 ± 0.001 | 0.250 ± 0.000 | 0.500 | 0.250 |
+| Logistic regression, L2 | 0.866 ± 0.043 | 0.881 ± 0.042 | 0.981 | 0.944 |
+| Logistic regression, elastic-net | 0.890 ± 0.053 | 0.901 ± 0.050 | 0.985 | **0.955** |
+| LinearSVC | 0.872 ± 0.034 | 0.890 ± 0.042 | 0.977 | 0.934 |
+| **Random forest** | **0.905 ± 0.038** | **0.905 ± 0.041** | **0.986** | 0.954 |
+
+The random forest exceeded the elastic-net by `0.015` mean macro F1, so the tie rule was not invoked. All five outer folds selected 2,000 genes, 750 trees, depth 16, leaf size 1, and `max_features="sqrt"`.
+
+![Nested cross-validation model comparison](outputs/performance_report/figures/01_nested_cv_performance.png)
+
+### Locked-test performance
+
+After model and procedure freeze, the selected random forest was evaluated once on 189 held-out cases.
+
+| Metric | Estimate | 95% stratified-bootstrap CI |
+|---|---:|---:|
+| Balanced accuracy | **0.907** | 0.855–0.945 |
+| Macro F1 | **0.885** | 0.836–0.929 |
+| Accuracy | 0.884 | — |
+| Macro OvR ROC-AUC | 0.981 | — |
+| Macro average precision | 0.927 | — |
+
+| Subtype | n | Precision | Recall | F1 | OvR ROC-AUC | PR-AUC |
+|---|---:|---:|---:|---:|---:|---:|
+| Luminal A | 100 | 0.955 | 0.850 | 0.899 | 0.985 | 0.987 |
+| Luminal B | 39 | 0.694 | 0.872 | 0.773 | 0.949 | 0.840 |
+| Basal-like | 34 | 1.000 | 0.971 | 0.985 | 0.998 | 0.994 |
+| HER2-enriched | 16 | 0.833 | 0.938 | 0.882 | 0.990 | 0.887 |
+
+![Locked-test performance with confidence intervals](outputs/performance_report/figures/07_locked_test_performance.png)
+
+### Confusion matrices and discrimination curves
+
+The following development out-of-fold plots aggregate predictions from the outer validation folds. They are independent of inner-fold tuning and precede the one-time locked-test evaluation.
+
+![Aggregated out-of-fold confusion matrices](outputs/performance_report/figures/02_oof_confusion_included.png)
+
+![One-vs-rest ROC curves](outputs/performance_report/figures/03_oof_roc_included.png)
+
+![One-vs-rest precision-recall curves](outputs/performance_report/figures/04_oof_pr_included.png)
+
+The [unified performance report](outputs/performance_report/unified_performance_report.md) contains every per-class result, curve, confidence interval, and PAM50-included/excluded comparison.
+
+## Interpretation and biological validation
+
+Interpretation was separated into three levels:
+
+1. **Global:** cross-fold elastic-net coefficients and random-forest permutation importance calculated only on held-out outer folds.
+2. **Subtype-level:** top positive and negative elastic-net genes for each class, with top-20 frequency across outer folds as the stability measure.
+3. **Individual:** TreeSHAP for six prediction-defined locked-test cases using a background of 100 development-only cases.
+
+The locked stability rule identified 58 genes: 14 overlap the PAM50 signature, 34 are non-PAM50 genes with strong internal ER/PR/HER2 associations, and 10 remain model-associated candidates requiring external validation. Recovered signals included `ESR1`, `ERBB2`, `FOXA1`, `FOXC1`, `GRB7`, `KRT17`, `CENPF`, `MAPT`, and `XBP1`; expected markers were audited but never forced into the results.
+
+![Cross-fold top-20 feature stability](outputs/interpretability/figures/03_top20_cross_fold_stability.png)
+
+Using all expression-filtered protein-coding genes as the enrichment background, significant results included estrogen response, ERBB/EGFR signalling, gland development, growth regulation, and extracellular-matrix organization. These are association-level findings, not evidence of causality.
+
+![GO and Reactome enrichment](outputs/interpretability/figures/06_functional_enrichment.png)
+
+See the [interpretability and biological validation report](outputs/interpretability/interpretability_report.md) for class-specific genes, receptor associations, enrichment tables, and individual SHAP explanations.
+
+## Robustness checks
+
+All robustness analyses were development-only fixed-model experiments; none reopened the canonical locked test.
+
+| Scenario | Mean macro F1 | Difference from primary |
+|---|---:|---:|
+| Four-class primary, log2 TPM | 0.905 | reference |
+| Five-class, including Normal-like | 0.817 | −0.088 |
+| PAM50 genes excluded | 0.899 | −0.005 |
+| Alternative log2 CPM preprocessing | 0.911 | +0.007 |
+| Alternative low-expression rules | 0.906–0.909 | +0.001 to +0.004 |
+| No class weighting | 0.878 | −0.026 |
+| PAM50 genes only | 0.917 | +0.012 |
+| Three patient-grouped seeds | 0.905–0.907 | −0.000 to +0.002 |
+
+![Robustness analysis](outputs/robustness/figures/01_robustness_performance.png)
+
+Raw PanCancer Atlas labels, locked labels, matrix labels, and split labels were 100% concordant. An independent TCGA 2012 PAM50 freeze agreed on 398/447 overlapping cases (`89.0%`, Cohen's κ `0.838`), showing that label versions are highly—but not perfectly—stable. See the [robustness and limitations report](outputs/robustness/robustness_and_limitations_report.md).
+
+## PAM50 circularity and limitations
+
+- **Expression-derived target:** PAM50 labels are defined from expression patterns, so this project demonstrates reproducibility of an existing taxonomy rather than independent biological discovery.
+- **Residual proxy signal:** excluding the 50 signature genes removes direct inputs but not correlated pathways or co-expression proxies. The small performance change does not prove independence from PAM50 biology.
+- **Single retrospective cohort:** all training, evaluation, biological checks, and robustness analyses use TCGA-BRCA. External cohorts, platforms, and prospective settings remain untested.
+- **Batch structure:** RNA plate had the largest adjusted subtype association (`V=0.117`) and a batch-only CV balanced accuracy of `0.288` versus five-class chance level `0.20`. This indicates detectable but weak overlap, not proof that technical variation is absent.
+- **Class imbalance:** HER2-enriched is small and Normal-like contains only 36 cases; the five-class performance drop is therefore interpreted cautiously.
+- **Correlated features:** elastic-net coefficients, permutation importance, and SHAP divide credit among correlated genes. A top-ranked gene is neither a unique mechanism nor a causal claim.
+- **No clinical claim:** the endpoint is PAM50 label agreement, not diagnosis, prognosis, survival, drug response, or treatment selection.
+
+The next scientific step is external validation with the preprocessing, feature rules, parameters, and label mapping frozen in advance.
+
+## Reproduce or audit the project
+
+### Requirements
+
+- macOS or Linux with `bash`, GNU Make, Python 3.12, and network access for a fresh GDC download;
+- approximately 4.4 GiB for locked raw STAR Counts plus about 765 MiB for derived matrices;
+- substantially more runtime for the full nested-CV, SHAP, and 65-fit robustness replay than for integrity verification.
+
+Python dependencies are exactly pinned across the four `requirements-*.txt` files.
+
+### Canonical verification
+
+From a fresh clone:
+
+```bash
+git clone https://github.com/boyue-boboyue/precision-brca-transcriptomics.git
+cd precision-brca-transcriptomics
+make environment
+make test
+```
+
+`make test` follows the complete dependency chain. Missing Git-excluded arrays trigger download of the 1,111 files in the locked GDC manifest, MD5/size verification, matrix reconstruction, and SHA-256 comparison with the committed manifest. Existing canonical model, final-test, and interpretation artifacts are verified without reopening protected data-dependent decisions.
+
+The nine public entry points are:
 
 ```bash
 make environment
@@ -67,31 +208,19 @@ make explain
 make test
 ```
 
-The targets form one explicit chain:
-
 ```text
 environment → metadata → cohort → matrix → eda → train → evaluate → explain → test
 ```
 
-Calling a downstream target automatically runs its prerequisites, so a bare
-`make` or `make test` checks the complete delivery. `make matrix` verifies the
-three local arrays when present; in a fresh clone it downloads the 1,111 files
-in the locked GDC manifest, verifies MD5 and byte sizes, rebuilds the arrays,
-and requires their hashes to match the committed matrix manifest. Download
-parallelism can be changed, for example with `GDC_DOWNLOAD_WORKERS=4`.
-
-The final test and the six SHAP test cases are protected by one-time access
-records. For that reason `train`, `evaluate`, and `explain` verify the frozen
-canonical result chain without rerunning those irreversible steps. Tables and
-figures that do not reopen the locked test can be redrawn from frozen result
-tables with:
+Use `GDC_DOWNLOAD_WORKERS=4` to change download parallelism. Rebuild presentation figures and reports from frozen result tables with:
 
 ```bash
 make test REBUILD_REPORTS=1
 ```
 
-For a computational replay, switch the same nine targets into isolated
-reproduction mode and choose a new run directory:
+### Isolated computational replay
+
+To recompute the analysis without overwriting canonical locks or published artifacts:
 
 ```bash
 make test \
@@ -101,18 +230,51 @@ make test \
   FOREST_N_JOBS=4
 ```
 
-This rebuilds EDA, every nested-CV model, an independent final-model lock and
-test-access record, SHAP/biological interpretation, and all robustness
-analyses inside `REPRO_DIR`. It never overwrites the canonical lock files or
-published outputs. Completed stages are reverified when the same directory is
-resumed; a partial failed stage requires a new run directory. Preview the full
-command plan without creating a workspace using
-`make test REPRODUCTION=1 REPRO_DRY_RUN=1`. See
-[`docs/reproduction.md`](docs/reproduction.md) for the isolation contract,
-stage outputs, and audit records.
+The replay creates independent model/test/interpretability locks, access records, outputs, and an append-only audit trail inside `REPRO_DIR`. Completed stages can be resumed; partial stage outputs are never overwritten. Preview every command without writing a workspace:
 
-Model interpretation, internal biological validation, and the specified robustness analyses are complete. The next scientific priority is external-cohort validation with frozen preprocessing, genes, parameters, and label mapping. Any feature-count expansion beyond the preregistered 2,000-gene grid must remain a clearly labeled post-result development-only sensitivity analysis and cannot trigger another locked-test evaluation.
+```bash
+make test REPRODUCTION=1 REPRO_DRY_RUN=1
+```
 
-Network access is required only when the Git-omitted GDC STAR Counts must be
-downloaded. Metadata, PAM50 annotations, receptor sources, and enrichment raw
-responses are version-frozen and checksum-verified locally by default.
+The isolation guarantees and equivalence rules are documented in [reproduction mode](docs/reproduction.md).
+
+## Repository map and data availability
+
+```text
+config/                      Frozen evaluation and interpretation decisions
+data/manifests/              Locked GDC queries and 1,111-file download manifest
+data/metadata/               Case, sample, aliquot, and annotation metadata
+data/processed/labels/       Locked PanCancer Atlas PAM50 labels and signature
+data/processed/expression/   Versioned axes/manifests; large arrays are Git-ignored
+docs/                        Protocol, deviations, data scope, replay, and handoff
+scripts/                     Acquisition, processing, modelling, explanation, verification
+outputs/eda/                 Exploratory tables and figures
+outputs/modeling/            Nested-CV predictions, metrics, parameters, and manifests
+outputs/final_evaluation/    One-time locked-test results and bootstrap intervals
+outputs/performance_report/  Unified model comparison and evaluation report
+outputs/interpretability/    Global, subtype-level, individual, and biological explanations
+outputs/robustness/           Sensitivity analyses, label audit, and limitations
+tests/                       Split-integrity and reproduction-mode tests
+```
+
+Raw GDC STAR Counts, three derived expression arrays, virtual environments, logs, and local export bundles are intentionally excluded from Git history. The exact source inventory, hashes, and reconstruction policy are described in [data availability](docs/data_availability.md).
+
+## Key references
+
+- [NCI Genomic Data Commons: TCGA-BRCA](https://portal.gdc.cancer.gov/projects/TCGA-BRCA)
+- Parker JS et al. *Supervised risk predictor of breast cancer based on intrinsic subtypes.* JCO, 2009. [doi:10.1200/JCO.2008.18.1370](https://doi.org/10.1200/JCO.2008.18.1370)
+- Cancer Genome Atlas Network. *Comprehensive molecular portraits of human breast tumours.* Nature, 2012. [doi:10.1038/nature11412](https://doi.org/10.1038/nature11412)
+- Lundberg SM et al. *From local explanations to global understanding with explainable AI for trees.* Nature Machine Intelligence, 2020. [doi:10.1038/s42256-019-0138-9](https://doi.org/10.1038/s42256-019-0138-9)
+- Kolberg L et al. *g:Profiler—interoperable web service for functional enrichment analysis and gene identifier mapping.* NAR, 2023. [doi:10.1093/nar/gkad347](https://doi.org/10.1093/nar/gkad347)
+
+## Detailed reports
+
+- [Analysis protocol](docs/protocol.md)
+- [Exploratory analysis](outputs/eda/eda_report.md)
+- [Evaluation framework](outputs/evaluation/evaluation_framework_report.md)
+- [Unified performance report](outputs/performance_report/unified_performance_report.md)
+- [Interpretability and biological validation](outputs/interpretability/interpretability_report.md)
+- [Robustness and limitations](outputs/robustness/robustness_and_limitations_report.md)
+- [Data availability](docs/data_availability.md)
+- [Protocol deviations](docs/deviations.md)
+- [Reproduction mode](docs/reproduction.md)
